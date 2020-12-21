@@ -14,4 +14,5 @@ description: >-
 certifications_images:
   - image: /img/adult4.png
   - image: /img/package.png
+  - image: images/online_museum_icon.png
 ---
