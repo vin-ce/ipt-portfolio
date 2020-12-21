@@ -65,6 +65,7 @@ const Home = () => {
   return (
     <div>
       HOME PAGE
+      <Link to='/about'>About</Link>
     </div>
   )
 }

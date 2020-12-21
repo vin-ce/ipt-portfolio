@@ -26,18 +26,18 @@ collections:
     files:
       - label: "Front Page"
         name: "front_page"
-        file: "sections/front_page.json"
+        file: "sections/front_page.md"
         fields:
           - { label: "Value", name: "value", widget: "string" }
           - { label: "Heading", name: "heading", widget: "string" }
           - { label: "Body", name: "body", widget: "string" }
       - label: "About"
         name: "about"
-        file: "sections/about.json"
+        file: "sections/about.md"
         fields:
           - { label: "Description", name: "description", widget: "markdown" }
-          - label: "Certifications"
-            name: "certifications"
+          - label: "Certifications Images"
+            name: "certifications_images"
             widget: "list"
             fields:
               - { label: Image, name: image, widget: image }
