@@ -4,6 +4,7 @@ import Layout from "../components/Layout"
 // import remarkHTML from 'remark-html'
 import { toHTML } from "../utils/utils"
 import data from "../../content/sections/about.json"
+import classes from "../styles/about.module.styl"
 
 const About = props => {
 
@@ -17,7 +18,8 @@ const About = props => {
     images.push(
       <img
         key={ `image_${index}` }
-        src={ `./${imageUrl}` }
+        src={ imageUrl }
+        className={ classes.certificationImage }
       />
     )
   })

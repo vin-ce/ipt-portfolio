@@ -44,3 +44,8 @@ collections:
                 name: image
                 widget: image
           - { label: "Description", name: "description", widget: "markdown" }
+
+      - label: "Logo"
+        name: "logo"
+        file: "content/sections/logo.json"
+        widget: image
