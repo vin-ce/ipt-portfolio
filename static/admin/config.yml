@@ -43,5 +43,5 @@ collections:
             fields:
               - label: Image
                 name: image
-                default: "/content/sections"
+                media_folder: "images"
                 widget: image
