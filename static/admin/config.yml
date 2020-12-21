@@ -26,7 +26,7 @@ collections:
     files:
       - label: "Front Page"
         name: "front_page"
-        file: "content/sections/front_page.md"
+        file: "content/sections/front_page.json"
         fields:
           - { label: "Value", name: "value", widget: "string" }
           - { label: "Heading", name: "heading", widget: "string" }
@@ -34,9 +34,8 @@ collections:
 
       - label: "About"
         name: "about"
-        file: "content/sections/about.md"
+        file: "content/sections/about.json"
         fields:
-          - { label: "Description", name: "description", widget: "markdown" }
           - label: "Certifications Images"
             name: "certifications_images"
             widget: "list"
@@ -45,3 +44,4 @@ collections:
                 name: image
                 media_folder: "images"
                 widget: image
+          - { label: "Description", name: "description", widget: "markdown" }
