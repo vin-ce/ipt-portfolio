@@ -41,4 +41,7 @@ collections:
             name: "certifications_images"
             widget: "list"
             fields:
-              - { label: Image, name: image, widget: image }
+              - label: Image
+                name: image
+                default: "/content/sections"
+                widget: image

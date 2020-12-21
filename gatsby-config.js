@@ -1,4 +1,3 @@
-require("dotenv").config()
 
 module.exports = {
   plugins: [
@@ -7,6 +6,13 @@ module.exports = {
       options: {
         path: `${__dirname}/content/blog`,
         name: `blog`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/sections`,
+        name: `sections`,
       },
     },
     {
