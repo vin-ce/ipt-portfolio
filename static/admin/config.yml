@@ -31,7 +31,7 @@ collections:
           - { label: "Value", name: "value", widget: "string" }
           - { label: "Heading", name: "heading", widget: "string" }
           - { label: "Body", name: "body", widget: "string" }
-          - { label: "Test", name: "test", widget: "string" }
+
       - label: "About"
         name: "about"
         file: "sections/about.md"
