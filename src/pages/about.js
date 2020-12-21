@@ -1,30 +1,10 @@
 import React from "react"
 import Layout from "../components/Layout"
-import { useStaticQuery, graphql } from "gatsby"
-
+// import remark from "remark"
+// import remarkHTML from 'remark-html'
 
 const About = props => {
 
-  const data = useStaticQuery(graphql`
-    query {
-      allMarkdownRemark {
-        edges {
-          node {
-            html
-            frontmatter {
-              certifications_images {
-                image {
-                  absolutePath
-                  relativePath
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `
-  )
 
   console.log('DATA: ', data)
 
