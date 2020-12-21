@@ -35,6 +35,15 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-netlify-cms`,
-    `gatsby-plugin-stylus`
+    `gatsby-plugin-stylus`,
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `IBM Plex Sans`,
+          `400, 700` // you can also specify font weights and styles
+        ],
+      }
+    }
   ],
 }

@@ -42,6 +42,5 @@ collections:
             fields:
               - label: Image
                 name: image
-                media_folder: "images"
                 widget: image
           - { label: "Description", name: "description", widget: "markdown" }

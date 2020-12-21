@@ -1,0 +1,132 @@
+/* this sets REM to be based off of 10px */
+:root 
+  font-size 62.5%
+
+body 
+  margin 0
+  font-family 'IBM Plex Sans', sans-serif
+  font-size 2.1rem
+  line-height 1.5
+
+h1 
+  font-size 3.6rem
+  // allows h4 subhead to fit nicely
+  margin-bottom 0
+
+
+h2 
+  font-size 2.4rem
+  font-variant small-caps
+  border-bottom 1px solid rgba(0,0,0,0.5)
+  margin 6.4rem 0 0.4rem 0
+  // padding 6.4rem 0 0.4rem 0
+
+h3 
+  font-size 2.1rem
+  font-style italic
+  font-weight bold
+  margin 6.4rem 0 $margin-bottom 0
+
+
+h2 + h3 
+  margin-top 1.6rem
+
+
+// these are subheadings
+h4 
+  font-size 2.1rem
+  color $grey-400
+  font-weight 300
+  margin 0
+  margin-bottom 3.6rem
+
+
+
+a 
+  color $link-medium 
+  text-decoration none 
+
+a:visited 
+  color $link-light
+
+
+
+article
+  width $text-container-width
+
+blockquote 
+  margin-left 2.4rem
+  padding-left 2.4rem
+  border-left 1px solid black
+
+hr 
+  margin 6.4rem 0 
+  border 0
+  border-bottom 1px solid rgba(0,0,0,0.5)
+
+p 
+  margin 3.6rem 0 $margin-bottom 0
+
+// all p that are not perceeded by a p
+:not(p) + p
+  margin-top $margin-bottom
+
+// ---
+// lists
+// ---
+ul 
+  list-style-type '- '
+  padding 0
+  margin 0
+  margin-left 1.6rem
+    
+li 
+  padding 0
+  margin 1.6rem 0 1.6rem 0  
+
+// if p is in list
+li > p
+  margin 0
+
+// uls that are nested in lis
+li > ul
+  margin-left 3.6rem
+
+:not(ul) > li 
+  margin-top 0.8rem
+
+
+  
+@media(max-width 400px) 
+  
+  h1 
+    font-size 3.2rem
+
+  h2 
+    font-size 2.1rem
+    
+  h4 
+    margin-bottom 3.6rem
+
+  h2,
+  h3 
+    margin-top 3.6rem
+
+  body,
+  h3, 
+  h4 
+    font-size 1.8rem
+
+  article 
+    width 100%
+
+  blockquote 
+    margin-left 1.6rem
+    padding 0
+    border-left none
+
+  hr 
+    margin 3.6rem 0
+
+  li > ul
+    margin-left 0.8rem

@@ -10,6 +10,7 @@
   "dependencies": {
     "gatsby": "^2.26.1",
     "gatsby-image": "^2.5.0",
+    "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-netlify-cms": "^4.7.0",
     "gatsby-plugin-react-helmet": "^3.4.0",
     "gatsby-plugin-sharp": "^2.8.0",
