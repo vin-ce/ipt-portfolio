@@ -48,4 +48,7 @@ collections:
       - label: "Logo"
         name: "logo"
         file: "content/sections/logo.json"
-        widget: image
+        fields:
+          - label: "Logo Image"
+            name: "logo_image"
+            widget: image
