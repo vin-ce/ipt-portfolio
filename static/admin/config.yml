@@ -21,3 +21,23 @@ collections:
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
+  - name: "sections"
+    label: "Section"
+    files:
+      - label: "Front Page"
+        name: "front_page"
+        file: "sections/front_page.json"
+        fields:
+          - { label: "Value", name: "value", widget: "string" }
+          - { label: "Heading", name: "heading", widget: "string" }
+          - { label: "Body", name: "body", widget: "string" }
+      - label: "About"
+        name: "about"
+        file: "sections/about.json"
+        fields:
+          - { label: "Description", name: "description", widget: "markdown" }
+          - label: "Certifications"
+            name: "certifications"
+            widget: "list"
+            fields:
+              - { label: Image, name: image, widget: image }
