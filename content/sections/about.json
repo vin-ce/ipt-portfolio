@@ -3,6 +3,12 @@
   "certifications_images": [
     {
       "image": "/img/adult4.png"
+    },
+    {
+      "image": "/img/online_museum_icon.png"
+    },
+    {
+      "image": "/img/package.png"
     }
   ]
 }
