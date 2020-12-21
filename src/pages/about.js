@@ -6,7 +6,7 @@ import Layout from "../components/Layout"
 const About = props => {
 
 
-  console.log('DATA: ', data)
+  // console.log('DATA: ', data)
 
 
   return (
