@@ -1,5 +1,8 @@
 backend:
   name: git-gateway
+  # repo: https://github.com/vin-ce/ipt-portfolio
+  # base_url: https://api.netlify.com
+  # auth_endpoint: auth
   branch: main
 
 media_folder: static/img
@@ -21,6 +24,32 @@ collections:
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "projects"
+    label: "Projects"
+    folder: "content/projects"
+    create: true
+    slug: "index"
+    media_folder: ""
+    public_folder: ""
+    path: "{{title}}/index"
+    editor:
+      preview: false
+    fields:
+      - { label: "Project Name", name: "project_name", widget: "string" }
+      - { label: "Year Completed", name: "year_completed", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "string" }
+      # need to figure the below - how to organise?
+      - { label: "Building Categories", name: "body", widget: "markdown" }
+
+      - label: "Images"
+        name: "images"
+        widget: "list"
+        fields:
+          - label: Image
+            name: image
+            widget: image
+
   - name: "sections"
     label: "Section"
     files:
@@ -55,7 +84,7 @@ collections:
         fields:
           - label: "External Contact Methods"
             name: "external_contact_methods"
-            widge: "list"
+            widget: "list"
             fields:
               - label: Icon
                 name: icon
