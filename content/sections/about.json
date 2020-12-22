@@ -2,10 +2,20 @@
   "description": "We are a New Zealand company based in Christchurch. We are: \n\n**Building Designers** \\\nWe are qualified building designers with a wide range of project experiences across national. We embed BIM into our design process to enhance our performance on daily basis. \n\n**Technicians** \\\nWe are assisting the local design consulting firms and main contractors to deliver drawings to use at preconstruction and construction stage.",
   "certifications_images": [
     {
-      "image": "/img/online_museum_icon.png"
+      "url": "https://adnz.org.nz/profile/seanwang",
+      "image": "/img/adnz-logo-20161.jpg"
     },
     {
-      "image": "/img/package.png"
+      "image": "/img/nzgbc-logo.png",
+      "url": "https://www.nzgbc.org.nz/CompanyProfile?Action=View&CompanyProfile_id=5450"
+    },
+    {
+      "image": "/img/homestar.jpg",
+      "url": "https://www.nzgbc.org.nz/Person?Action=Profile&Person_id=24867"
+    },
+    {
+      "url": "https://lbp.ewr.govt.nz/PublicRegister/View.aspx?f=Xiao&search=1&p=1&lbpid=BP131092",
+      "image": "/img/lbp-logo.png"
     }
   ]
 }
