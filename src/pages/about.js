@@ -26,9 +26,9 @@ const About = props => {
 
   return (
     <Layout>
-      <div>About</div>
-      <div dangerouslySetInnerHTML={ { __html: toHTML(data.description) } }></div>
-      <div>{ images }</div>
+      <h1>About</h1>
+      <div dangerouslySetInnerHTML={ { __html: toHTML(data.description) } } />
+      <div className={ classes.certificationContainer }>{ images }</div>
     </Layout>
   )
 }

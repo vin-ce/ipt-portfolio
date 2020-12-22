@@ -30,7 +30,11 @@ collections:
         fields:
           - { label: "Value", name: "value", widget: "string" }
           - { label: "Heading", name: "heading", widget: "string" }
-          - { label: "Body", name: "body", widget: "string" }
+          - {
+              label: "Company Description",
+              name: "company_description",
+              widget: "string",
+            }
 
       - label: "About"
         name: "about"

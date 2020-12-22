@@ -1,8 +1,31 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import "../styles/styles.styl"
+import classes from "../styles/index.module.styl"
 
 import Layout from "../components/Layout"
+import homeData from "../../content/sections/front_page.json"
+
+
+const Home = () => {
+  console.log(homeData)
+
+  return (
+    <Layout>
+      <div className={ classes.frontPageContainer }>
+        <h1>
+          <span className={ classes.value }>{ homeData.value }</span>
+          <br />
+          { homeData.heading }
+        </h1>
+        {/* <p className={ classes.companyDescription }>{ homeData.company_description }</p> */ }
+        <p className={ classes.companyDescription }>{ homeData.body }</p>
+      </div>
+    </Layout>
+  )
+}
+
+export default Home
 
 // const Home = ({ data, location }) => {
 //   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -62,16 +85,6 @@ import Layout from "../components/Layout"
 //   )
 // }
 
-const Home = () => {
-  return (
-    <div>
-      HOME PAGE
-      <Link to='/about'>About</Link>
-    </div>
-  )
-}
-
-export default Home
 
 // export const pageQuery = graphql`
 //   query {
