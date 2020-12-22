@@ -7,6 +7,9 @@ const Contact = props => {
   return (
     <Layout>
       <h1>Contact</h1>
+      <p>Get in touch by emailing us at:{ ' ' }
+        <a className={ classes.email } href="mailto:sean.wang@iptcreative.co.nz">sean.wang@iptcreative.co.nz</a>.
+      </p>
     </Layout>
   )
 }

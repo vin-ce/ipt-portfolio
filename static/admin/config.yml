@@ -49,6 +49,21 @@ collections:
                 widget: image
           - { label: "Description", name: "description", widget: "markdown" }
 
+      - label: "Contact"
+        name: "contact"
+        file: "content/sections/contact.json"
+        fields:
+          - label: "External Contact Methods"
+            name: "external_contact_methods"
+            widge: "list"
+            fields:
+              - label: Icon
+                name: icon
+                widget: image
+              - label: URL
+                name: url
+                widget: string
+
       - label: "Logo"
         name: "logo"
         file: "content/sections/logo.json"

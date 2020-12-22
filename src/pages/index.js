@@ -18,8 +18,7 @@ const Home = () => {
           <br />
           { homeData.heading }
         </h1>
-        {/* <p className={ classes.companyDescription }>{ homeData.company_description }</p> */ }
-        <p className={ classes.companyDescription }>{ homeData.body }</p>
+        <p className={ classes.companyDescription }>{ homeData.company_description }</p>
       </div>
     </Layout>
   )
