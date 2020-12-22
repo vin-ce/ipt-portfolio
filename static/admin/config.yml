@@ -1,8 +1,5 @@
 backend:
   name: git-gateway
-  # repo: https://github.com/vin-ce/ipt-portfolio
-  # base_url: https://api.netlify.com
-  # auth_endpoint: auth
   branch: main
 
 media_folder: static/img
@@ -76,6 +73,9 @@ collections:
               - label: Image
                 name: image
                 widget: image
+              - label: URL
+                name: url
+                widget: string
           - { label: "Description", name: "description", widget: "markdown" }
 
       - label: "Contact"

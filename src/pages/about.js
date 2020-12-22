@@ -8,9 +8,6 @@ import classes from "../styles/about.module.styl"
 
 const About = props => {
 
-  console.log('DATA: ', data)
-  console.log('to html: ', toHTML(data.description))
-
   let images = []
   data.certifications_images.forEach((object, index) => {
     const imageUrl = object.image
@@ -19,7 +16,6 @@ const About = props => {
       <img
         key={ `image_${index}` }
         src={ imageUrl }
-        className={ classes.certificationImage }
       />
     )
   })
