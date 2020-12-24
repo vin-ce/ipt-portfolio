@@ -29,7 +29,8 @@
             }
           ]
         }
-      ]
+      ],
+      "name": "Capabilities"
     },
     {
       "category_name": "Building Types",
@@ -46,7 +47,8 @@
         {
           "section_name": "Residential"
         }
-      ]
+      ],
+      "name": "Building Types"
     }
   ],
   "categories_list": [
