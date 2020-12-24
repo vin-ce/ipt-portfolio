@@ -43,8 +43,8 @@ collections:
         name: "images"
         widget: "list"
         fields:
-          - label: Image
-            name: image
+          - label: "Image"
+            name: "image"
             widget: image
 
   - name: "sections"
@@ -70,11 +70,11 @@ collections:
             name: "certifications_images"
             widget: "list"
             fields:
-              - label: Image
-                name: image
+              - label: "Image"
+                name: "image"
                 widget: image
-              - label: URL
-                name: url
+              - label: "URL"
+                name: "url"
                 widget: string
           - { label: "Description", name: "description", widget: "markdown" }
 
@@ -86,11 +86,11 @@ collections:
             name: "external_contact_methods"
             widget: "list"
             fields:
-              - label: Icon
-                name: icon
+              - label: "Icon"
+                name: "icon"
                 widget: image
-              - label: URL
-                name: url
+              - label: "URL"
+                name: "url"
                 widget: string
 
       - label: "Logo"
@@ -103,16 +103,26 @@ collections:
 
       - label: "Categories"
         name: "categories"
-        file: "content/sections/categoires.json"
+        file: "content/sections/categories.json"
         fields:
-          - label: "Sections"
-            name: "sections"
+          - label: "Categories"
+            name: "categories"
             widget: list
             fields:
-              - label: Capabilities
-                name: capabilities
-                widget: string
-                allow_add: true
-              - label: Building Types
-                name: building_types
-                widget: string
+            - label: "Category Name"
+              name: "category_name"
+              widget: string
+              - label: "Category Items"
+                name: "category_items"
+                widget: list
+                fields:
+                  - label: "Section Name"
+                    name : "section_name"
+                    widget: string
+                  - label: "Section Items"
+                    name: "section_items"
+                    widget: list
+                    field:
+                      - label: "Section Item Name"
+                        name: "section_item_name"
+                        widget: string
