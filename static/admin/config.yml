@@ -38,7 +38,6 @@ collections:
       - { label: "Description", name: "description", widget: "string" }
       - label: "Categories List"
         name: "categories_list"
-        # collapsed: true
         widget: list
         fields:
           - label: "Category Name"
@@ -48,28 +47,49 @@ collections:
             file: "categories"
             value_field: "categories.*.category_name"
             search_fields: ["categories.*.category_name"]
-          - label: "Category Items"
-            name: "category_items"
-            widget: list
-            fields:
-              - label: "Section Name"
-                name: "section_name"
-                widget: relation
-                collection: "sections"
-                file: "categories"
-                value_field: "categories.*.*.section_name"
-                search_fields: ["categories.*.*.section_name"]
-              - label: "Section Items"
-                name: "section_items"
-                widget: list
-                fields:
-                  - label: "Section Item Name"
-                    name: "section_item_name"
-                    widget: relation
-                    collection: "sections"
-                    file: "categories"
-                    value_field: "categories.*.*.*.section_item_name"
-                    search_fields: ["categories.*.*.*.section_item_name"]
+          - label: "Category All Name"
+            name: "category_all_name"
+            widget: relation
+            collection: "sections"
+            file: "categories"
+            value_field: "categories.*.category_name"
+            search_fields: ["categories.*"]
+          - label: "Category List Name"
+            name: "category_list_name"
+            widget: relation
+            collection: "sections"
+            file: "categories"
+            value_field: "categories_list.*.category_name"
+            search_fields: ["categories_list.*.category_name"]
+          - label: "Category List Name 2"
+            name: "category_list_name_2"
+            widget: relation
+            collection: "sections"
+            file: "categories"
+            value_field: "categories.categories_list.category_name"
+            search_fields: ["categories.categories_list.category_name"]
+          # - label: "Category Items"
+          #   name: "category_items"
+          #   widget: list
+          #   fields:
+          #     - label: "Section Name"
+          #       name: "section_name"
+          #       widget: relation
+          #       collection: "sections"
+          #       file: "categories"
+          #       value_field: "categories.*.*.section_name"
+          #       search_fields: ["categories.*.*.section_name"]
+          #     - label: "Section Items"
+          #       name: "section_items"
+          #       widget: list
+          #       fields:
+          #         - label: "Section Item Name"
+          #           name: "section_item_name"
+          #           widget: relation
+          #           collection: "sections"
+          #           file: "categories"
+          #           value_field: "categories.*.*.*.section_item_name"
+          #           search_fields: ["categories.*.*.*.section_item_name"]
 
   - name: "sections"
     label: "Sections"
