@@ -1,0 +1,52 @@
+{
+  "categories": [
+    {
+      "category_name": "Capabilities",
+      "category_items": [
+        {
+          "section_name": "Architectural Design",
+          "section_items": [
+            {
+              "section_item_name": "Single Residential House"
+            },
+            {
+              "section_item_name": "Hill Residential House"
+            },
+            {
+              "section_item_name": "Eco Passive House"
+            },
+            {
+              "section_item_name": "Factory Design"
+            },
+            {
+              "section_item_name": "Retain Renovation"
+            },
+            {
+              "section_item_name": "Apartment"
+            },
+            {
+              "section_item_name": "Mixed Development Buildings"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_name": "Building Types",
+      "category_items": [
+        {
+          "section_name": "Retail"
+        },
+        {
+          "section_name": "Mixed Development"
+        },
+        {
+          "section_name": "Factory"
+        },
+        {
+          "section_name": "Residential"
+        }
+      ]
+    }
+  ]
+}
