@@ -100,3 +100,19 @@ collections:
           - label: "Logo Image"
             name: "logo_image"
             widget: image
+
+      - label: "Categories"
+        name: "categories"
+        file: "content/sections/categoires.json"
+        fields:
+          - label: "Sections"
+            name: "sections"
+            widget: list
+            fields:
+              - label: Capabilities
+                name: capabilities
+                widget: string
+                allow_add: true
+              - label: Building Types
+                name: building_types
+                widget: string

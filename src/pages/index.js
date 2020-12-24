@@ -6,7 +6,6 @@ import classes from "../styles/index.module.styl"
 import Layout from "../components/Layout"
 import homeData from "../../content/sections/front_page.json"
 
-
 const Home = () => {
   console.log(homeData)
 

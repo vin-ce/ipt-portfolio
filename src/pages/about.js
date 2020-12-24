@@ -9,14 +9,19 @@ import classes from "../styles/about.module.styl"
 const About = props => {
 
   let images = []
+  console.log(data)
   data.certifications_images.forEach((object, index) => {
-    const imageUrl = object.image
+    const imageSrc = object.image
+    const url = object.url
 
     images.push(
-      <img
+      <a
         key={ `image_${index}` }
-        src={ imageUrl }
-      />
+        href={ url }
+        target="_blank" rel="noreferrer noopener"
+      >
+        <img src={ imageSrc } />
+      </a>
     )
   })
 

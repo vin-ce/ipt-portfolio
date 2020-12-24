@@ -7,17 +7,16 @@ const Contact = props => {
 
   let icons = []
   data.external_contact_methods.forEach((object, index) => {
-    const icon = object.icon
+    const iconSrc = object.icon
     const url = object.url
 
     icons.push(
       <a
+        key={ `image_${index}` }
         href={ url }
-        target="_blank" rel="noreferrer noopener">
-        <img
-          key={ `image_${index}` }
-          src={ icon }
-        />
+        target="_blank" rel="noreferrer noopener"
+      >
+        <img src={ iconSrc } />
       </a>
     )
   })
