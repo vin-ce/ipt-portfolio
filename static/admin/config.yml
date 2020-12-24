@@ -36,29 +36,40 @@ collections:
       - { label: "Project Name", name: "project_name", widget: "string" }
       - { label: "Year Completed", name: "year_completed", widget: "datetime" }
       - { label: "Description", name: "description", widget: "string" }
-      # need to figure the below - how to organise?
-      - label: "Test Relations"
-        name: "test_relations"
-        widget: relation
-        collection: "sections"
-        file: "categories"
-        value_field: "categories.*.category_name"
-        search_fields: ["categories.*.category_name"]
-
-      - label: "Other Relations"
-        name: "other_relations"
-        widget: relation
-        collection: "blog"
-        value_field: "title"
-        search_fields: ["title"]
-
-      - label: "Images"
-        name: "images"
-        widget: "list"
+      - label: "Categories List"
+        name: "categories_list"
+        # collapsed: true
+        widget: list
         fields:
-          - label: "Image"
-            name: "image"
-            widget: image
+          - label: "Category Name"
+            name: "category_name"
+            widget: relation
+            collection: "sections"
+            file: "categories"
+            value_field: "categories.*.category_name"
+            search_fields: ["categories.*.category_name"]
+          - label: "Category Items"
+            name: "category_items"
+            widget: list
+            fields:
+              - label: "Section Name"
+                name: "section_name"
+                widget: relation
+                collection: "sections"
+                file: "categories"
+                value_field: "categories.*.*.section_name"
+                search_fields: ["categories.*.*.section_name"]
+              - label: "Section Items"
+                name: "section_items"
+                widget: list
+                fields:
+                  - label: "Section Item Name"
+                    name: "section_item_name"
+                    widget: relation
+                    collection: "sections"
+                    file: "categories"
+                    value_field: "categories.*.*.*.section_item_name"
+                    search_fields: ["categories.*.*.*.section_item_name"]
 
   - name: "sections"
     label: "Sections"
@@ -118,28 +129,25 @@ collections:
         name: "categories"
         file: "content/sections/categories.json"
         fields:
-          - label: "Categories"
-            name: "categories"
-            # collapsed: true
+          - label: "Categories List"
+            name: "categories_list"
+            collapsed: true
             widget: list
             fields:
-              - label: "Name"
-                name: "name"
+              - label: "Category Name"
+                name: "category_name"
                 widget: string
-              # - label: "Category Name"
-              #   name: "category_name"
-              #   widget: string
-              # - label: "Category Items"
-              #   name: "category_items"
-              #   widget: list
-              #   fields:
-              #     - label: "Section Name"
-              #       name: "section_name"
-              #       widget: string
-              #     - label: "Section Items"
-              #       name: "section_items"
-              #       widget: list
-              #       fields:
-              #         - label: "Section Item Name"
-              #           name: "section_item_name"
-              #           widget: string
+              - label: "Category Items"
+                name: "category_items"
+                widget: list
+                fields:
+                  - label: "Section Name"
+                    name: "section_name"
+                    widget: string
+                  - label: "Section Items"
+                    name: "section_items"
+                    widget: list
+                    fields:
+                      - label: "Section Item Name"
+                        name: "section_item_name"
+                        widget: string
