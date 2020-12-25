@@ -24,5 +24,5 @@ categories_list:
           - Architectural Design
         section_items:
           - section_item_name:
-              - Civil and Building Structural Modelling
+              - Single Residential House
 ---
