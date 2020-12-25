@@ -23,8 +23,8 @@ categories_list:
           - section_item_name:
               - Single Residential House
         section_name:
-          - Retail
           - Architectural Design
+          - Residential
     category_list_name:
       - Building Types
       - Capabilities
