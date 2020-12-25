@@ -11,6 +11,7 @@ const Nav = props => {
         <img className={ classes.logo } src={ data.logo_image } />
       </Link>
       <div className={ classes.pageLinks }>
+        <Link to="/projects">Projects</Link>
         <Link to="/about">About</Link>
         <Link to="/contact">Contact</Link>
       </div>

@@ -8,16 +8,7 @@
   - About
   - Contact
 
-- add a logo image thing
-
-- add social (linkedin etc) logos in contact us page
-
-IPT Creative Ltd
-*Innovation
-*Process
-\*Tenacity
-Filter
-Capabilities
+- for these section names, in CMS, should be select multiple or do the nested categories?
 
 1. Architectural Design
    • Single Residential House
@@ -55,16 +46,3 @@ Capabilities
 8. Mixed Development
 9. Factory
 10. Residential
-
-    Professional Hyperlink
-    • ADNZ Professional Membership
-    https://adnz.org.nz/profile/seanwang
-    • NZGBC Membership
-    https://www.nzgbc.org.nz/CompanyProfile?Action=View&CompanyProfile_id=5450
-    • Homestar Practitioner
-    https://www.nzgbc.org.nz/Person?Action=Profile&Person_id=24867
-    • Licensed Building Practitioners(LBP)
-    https://lbp.ewr.govt.nz/PublicRegister/View.aspx?f=Xiao&search=1&p=1&lbpid=BP131092
-
-• LinkedIn Profile
-https://www.linkedin.com/in/sean-wang01/
