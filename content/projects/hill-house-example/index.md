@@ -1,7 +1,7 @@
 ---
-project_name: Hill Example
-year_completed: 2020-12-25T21:45:24.100Z
-description: Hill housing.
+project_name: Hill House Example
+year_completed: 2020-06-25T23:17:42.645Z
+description: Hill house.
 images:
   - image: clifton-hill-house-1.jpg
 categories_list:
@@ -14,5 +14,5 @@ categories_list:
           - Architectural Design
         section_items:
           - section_item_name:
-              - Single Residential House
+              - Hill Residential House
 ---

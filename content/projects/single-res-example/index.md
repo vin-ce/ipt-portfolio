@@ -1,6 +1,6 @@
 ---
-project_name: Single Res Example (folder)
-year_completed: 2020-11-25T22:09:57.352Z
+project_name: Single Res Example
+year_completed: 2020-02-25T22:14:56.436Z
 description: >
   Organic growth due diligence. Out of the loop high touch client for let's not
   solutionize this right now parking lot it and productize. The horse is out of

@@ -1,6 +1,6 @@
 ---
-project_name: Retail Example (folder)
-year_completed: 2020-12-25T21:52:22.693Z
+project_name: Retail Example
+year_completed: 2020-12-25T22:13:38.921Z
 description: Big data. If you're not hurting you're not winning. Throughput due
   diligence blue sky. Pull in ten extra bodies to help roll the tortoise talk to
   the slides we've got to manage that low hanging fruit tbrand terrorists. Dog
@@ -18,9 +18,9 @@ categories_list:
       - Building Types
     category_items:
       - section_name:
-          - Architectural Design
           - Residential
+          - Architectural Design
         section_items:
           - section_item_name:
-              - Single Residential House
+              - Civil and Building Structural Modelling
 ---
