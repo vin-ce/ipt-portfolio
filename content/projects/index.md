@@ -10,9 +10,9 @@ categories_list:
       - Building Types
     category_items:
       - section_name:
-          - Architectural Design
           - Residential
+          - Architectural Design
         section_items:
           - section_item_name:
-              - Hill Residential House
+              - Single Residential House
 ---
