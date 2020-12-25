@@ -1,5 +1,5 @@
 ---
-project_name: Single Res Example (folder)
+project_name: Single Res Example
 year_completed: 2020-11-25T22:09:57.352Z
 description: >
   Organic growth due diligence. Out of the loop high touch client for let's not
@@ -20,8 +20,8 @@ categories_list:
       - Building Types
     category_items:
       - section_name:
-          - Residential
           - Architectural Design
+          - Residential
         section_items:
           - section_item_name:
               - Single Residential House
