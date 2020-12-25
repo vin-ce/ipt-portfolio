@@ -13,14 +13,14 @@ description: Big data. If you're not hurting you're not winning. Throughput due
 images:
   - image: retail.jpg
 categories_list:
-  - category_items:
-      - section_items:
-          - section_item_name:
-              - Civil and Building Structural Modelling
-        section_name:
-          - Building Information Modeling
-          - Retail
-    category_list_name:
+  - category_list_name:
       - Capabilities
       - Building Types
+    category_items:
+      - section_name:
+          - Residential
+          - Architectural Design
+        section_items:
+          - section_item_name:
+              - Civil and Building Structural Modelling
 ---
