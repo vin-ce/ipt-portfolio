@@ -1,0 +1,32 @@
+@import './variables.styl'
+
+.button
+  border 1px solid black 
+  border-radius 0.4rem
+  font-size 1.6rem
+  padding 0.2rem 0.4rem
+
+  display flex
+  align-items center
+
+  .name
+    user-select none
+
+  .icon
+    margin-right 0.6rem
+    display flex
+    svg
+      height 1.6rem
+      width 1.6rem
+
+  &:hover
+    border-color $ipt-orange
+    cursor pointer
+
+    .name
+      color $ipt-orange
+
+    .icon
+      svg
+        line
+          stroke $ipt-orange  

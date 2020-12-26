@@ -44,6 +44,14 @@ module.exports = {
           `400, 700` // you can also specify font weights and styles
         ],
       }
+    },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /assets/
+        }
+      }
     }
   ],
 }

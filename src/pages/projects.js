@@ -1,85 +1,67 @@
 import React, { useState } from "react"
+import { Link, graphql } from "gatsby"
 import Layout from "../components/Layout"
-import classes from "../styles/projects.module.styl"
-import data from "../../content/sections/categories.json"
+import Categories from "../components/Categories"
 
 const Contact = props => {
 
-  const [selectedCategories, setSelectedCategories] = useState([])
+  const [selectedCategoriesArr, setSelectedCategoriesArr] = useState([])
 
-  console.log('data', data.categories_list)
-  let categories = [];
 
-  data.categories_list.forEach((category, categoryIndex) => {
+  // if query string in url
 
-    let sections = [];
-    let sectionItems = [];
+  // display appropriate project
+  // ?project=project-name
 
-    // turn each name into id? eg:
-    // hill-residential-house
-    // probably not necessary - can directly match strings from categories -> project 'tags'
+  // pre-select appropriate categories
 
-    if (category.category_items) {
-      category.category_items.forEach((section, sectionIndex) => {
+  // maybe a slugify func on both front-page and projects page to match titles?
 
-        if (section.section_items) {
-          section.section_items.forEach((sectionItem, sectionItemIndex) => {
+  // if categories component on front page
+  // attach query onto link=to"/projects?category=architectural-design&section-name=single-residential-house"
 
-            const sectionItemEl = (
-              <div className={ classes.sectionItem } key={ `c-${categoryIndex}_s-${sectionIndex}_sI-${sectionItemIndex}` }>
-                <span>
-                  { sectionItem.section_item_name }
-                </span>
-              </div>
-            )
-
-            sectionItems.push(sectionItemEl)
-          })
-        }
-
-        const sectionClasses = [classes.section]
-        if (sectionItems.length === 0) sectionClasses.push(classes.noChildren)
-
-        const sectionEl = (
-          <div className={ sectionClasses.join(' ') } key={ `c-${categoryIndex}_s-${sectionIndex}` }>
-            <span>
-              { section.section_name }
-            </span>
-            { sectionItems }
-          </div>
-        )
-
-        sections.push(sectionEl)
-        // reset for each loop
-        sectionItems = [];
-
-      })
-    }
-
-    const categoryEl = (
-      <div className={ classes.category } key={ `c-${categoryIndex}` }>
-        <span>
-          { category.category_name }
-        </span>
-        <div className={ classes.sectionContainer }>
-          { sections }
-        </div>
-      </div>
-    )
-
-    categories.push(categoryEl)
-
-  })
 
   return (
     <Layout>
       <h1>Projects</h1>
-      <div className={ classes.categoriesContainer }>
-        { categories }
-      </div>
+      <Categories
+        context='projects'
+        selectedCategoriesArr={ selectedCategoriesArr }
+        setSelectedCategoriesArr={ setSelectedCategoriesArr }
+      />
     </Layout>
   )
 }
 
 export default Contact
 
+
+export const projectsQuery = graphql`
+  query {
+    allMarkdownRemark {
+      edges {
+        node {
+          frontmatter {
+            project_name
+            year_completed
+            description
+            images {
+              image {
+                relativePath
+              }
+            }
+            categories_list {
+              category_list_name
+              category_items {
+                section_name
+                section_items {
+                  section_item_name
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`

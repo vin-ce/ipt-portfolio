@@ -1,0 +1,44 @@
+@import './variables.styl'
+
+.categoriesContainer
+  // display flex
+  margin-top 3.6rem
+
+  div
+    // margin-left 3.6rem
+
+  .category
+    margin-top 3.6rem
+    &:first-of-type
+      margin-left 0
+
+    .sectionContainer
+      display flex
+      margin-top 1.8rem
+
+      color $grey-400
+      font-size 1.6rem
+
+      span
+        cursor pointer
+        user-select none
+
+      .section
+        &:not(:first-of-type)
+          margin-left 6.4rem
+
+        .sectionItem
+          margin-top 0.6rem
+          margin-left 3.6rem
+
+  .headingContainer
+    display flex
+    justify-content space-between
+
+  // active/ selected ordering matters
+  .active
+    color black
+
+  .selected 
+    color $ipt-orange
+    
