@@ -1,4 +1,6 @@
-import React, { useState } from "react"
+import React, { useEffect } from "react"
+import { navigate } from "gatsby"
+
 import classes from "../styles/categories.module.styl"
 import data from "../../content/sections/categories.json"
 
@@ -23,31 +25,38 @@ const Categories = props => {
       })
     })
 
-    // reset selectedCategoriesArr
-    props.setSelectedCategoriesArr([])
+    // reset selectedFiltersArr
+    props.setSelectedFiltersArr([])
   }
 
-  const sectionItemClickHandler = e => {
+  const selectSectionItem = (e, el) => {
+
+    // e.target from clicking
+    // el from props.location.state
+    let curEl;
+    if (e) curEl = e.target
+    if (el) curEl = el
+
     if (props.context === 'projects') {
 
       // if no selected class
-      // a1. add selected + active classes & to selectedCategoriesArr
-      // a2. select parent, set to just active class & remove parent from selectedCategoriesArr
+      // a1. add selected + active classes & to selectedFiltersArr
+      // a2. select parent, set to just active class & remove parent from selectedFiltersArr
       // a3. loop through siblings
       // a4. if not selected, remove active class on siblings
 
       // if selected already
-      // b1. remove selected + active & from selectedCategoriesArr
-      // b2. loop through arr of siblings against selectedCategoriesArr to see if any siblings are selected
+      // b1. remove selected + active & from selectedFiltersArr
+      // b2. loop through arr of siblings against selectedFiltersArr to see if any siblings are selected
       // b3. if there aren't any selected, remove classes from parent el, effectively resetting that section
 
       // each element holds name and index information
       // to allow for easy matching of the data object to the element
-      const sectionItemName = e.target.getAttribute('name')
+      const sectionItemName = curEl.getAttribute('name')
 
-      const categoryIndex = parseInt(e.target.getAttribute('data-category_index'))
-      const sectionIndex = parseInt(e.target.getAttribute('data-section_index'))
-      const sectionItemIndex = parseInt(e.target.getAttribute('data-section_item_index'))
+      const categoryIndex = parseInt(curEl.getAttribute('data-category_index'))
+      const sectionIndex = parseInt(curEl.getAttribute('data-section_index'))
+      const sectionItemIndex = parseInt(curEl.getAttribute('data-section_item_index'))
 
       const parentSectionName = data.categories_list[categoryIndex].category_items[sectionIndex].section_name
       const parentSectionEl = document.querySelector(`span[name="${parentSectionName}"]`)
@@ -55,20 +64,20 @@ const Categories = props => {
       // siblings of clicked section item
       const sectionItemsArr = data.categories_list[categoryIndex].category_items[sectionIndex].section_items
 
-      const sectionIsSelected = e.target.classList.contains(classes.selected)
-      const selectedCategoriesArrCopy = [...props.selectedCategoriesArr]
+      const sectionIsSelected = curEl.classList.contains(classes.selected)
+      const selectedFiltersArrCopy = [...props.selectedFiltersArr]
 
       // ------------------------------
 
       if (!sectionIsSelected) {
         // a1
-        e.target.className = [classes.selected, classes.active].join(' ')
-        selectedCategoriesArrCopy.push(sectionItemName)
+        curEl.className = [classes.selected, classes.active].join(' ')
+        selectedFiltersArrCopy.push(sectionItemName)
 
         // a2
         parentSectionEl.className = classes.active
-        let i = selectedCategoriesArrCopy.indexOf(parentSectionName)
-        if (i > -1) selectedCategoriesArrCopy.splice(i, 1)
+        let i = selectedFiltersArrCopy.indexOf(parentSectionName)
+        if (i > -1) selectedFiltersArrCopy.splice(i, 1)
 
         // a3
         sectionItemsArr.forEach((sectionItem, index) => {
@@ -85,13 +94,13 @@ const Categories = props => {
       } else {
 
         // b1
-        e.target.className = ""
-        selectedCategoriesArrCopy.splice(selectedCategoriesArrCopy.indexOf(sectionItemName), 1)
+        curEl.className = ""
+        selectedFiltersArrCopy.splice(selectedFiltersArrCopy.indexOf(sectionItemName), 1)
 
         // b2 - if there is a sibling that is selected
         let hasOtherSelected = false;
         for (let i = 0; i < sectionItemsArr.length; i++) {
-          if (selectedCategoriesArrCopy.indexOf(sectionItemsArr[i].section_item_name) > -1) {
+          if (selectedFiltersArrCopy.indexOf(sectionItemsArr[i].section_item_name) > -1) {
             hasOtherSelected = true;
             break;
           }
@@ -102,53 +111,61 @@ const Categories = props => {
 
       }
 
-      props.setSelectedCategoriesArr(selectedCategoriesArrCopy)
+      props.setSelectedFiltersArr(selectedFiltersArrCopy)
 
+    }
 
-
+    if (props.context === 'home') {
+      navigate('/projects/', {
+        state: { filter: { type: 'sectionItem', name: curEl.getAttribute("name") } }
+      })
     }
   }
 
-  const sectionClickHandler = e => {
+  const selectSection = (e, el) => {
+
+    let curEl;
+    if (e) curEl = e.target
+    if (el) curEl = el
 
     if (props.context === 'projects') {
-      const sectionName = e.target.getAttribute('name')
-
-      const categoryIndex = parseInt(e.target.getAttribute('data-category_index'))
-      const sectionIndex = parseInt(e.target.getAttribute('data-section_index'))
-
-      const sectionItemsArr = data.categories_list[categoryIndex].category_items[sectionIndex].section_items
-
-      const selectedCategoriesArrCopy = [...props.selectedCategoriesArr]
-
-      const categoryIsSelected = e.target.classList.contains(classes.selected)
-
       // if not yet selected:
       // a1. add selected + active classes
       // a2. loop through children section items
       // a3. turn all into active classes (removing any selected)
-      // a4. remove children section items from selectedCategoriesArr
+      // a4. remove children section items from selectedFiltersArr
 
       // if already selected:
       // b1. remove classes
-      // b2. remove from selectedCategoriesArr
+      // b2. remove from selectedFiltersArr
       // // a2.
       // b3. remove classes
       // // a4.
 
+      const sectionName = curEl.getAttribute('name')
+
+      const categoryIndex = parseInt(curEl.getAttribute('data-category_index'))
+      const sectionIndex = parseInt(curEl.getAttribute('data-section_index'))
+
+      const sectionItemsArr = data.categories_list[categoryIndex].category_items[sectionIndex].section_items
+
+      const selectedFiltersArrCopy = [...props.selectedFiltersArr]
+
+      const categoryIsSelected = curEl.classList.contains(classes.selected)
+
+      // ------------------------------
 
       if (!categoryIsSelected) {
         // a1
-        e.target.className = [classes.selected, classes.active].join(' ')
-        selectedCategoriesArrCopy.push(sectionName)
-
+        curEl.className = [classes.selected, classes.active].join(' ')
+        selectedFiltersArrCopy.push(sectionName)
 
       } else {
         // b1 - reset selected + active classes
-        e.target.className = ' '
+        curEl.className = ' '
 
         // b2 - remove from arr
-        selectedCategoriesArrCopy.splice(selectedCategoriesArrCopy.indexOf(sectionName), 1)
+        selectedFiltersArrCopy.splice(selectedFiltersArrCopy.indexOf(sectionName), 1)
       }
 
       // a2 - going through section items
@@ -161,29 +178,27 @@ const Categories = props => {
           if (!categoryIsSelected) sectionItemEl.className = classes.active
           else sectionItemEl.className = ''
 
-          // a4 - remove section item from selected categories array 
+          // a4 - remove section item from selectedFiltersArr 
           const sectionItemName = sectionItemEl.getAttribute('name')
-          const i = selectedCategoriesArrCopy.indexOf(sectionItemName)
-          if (i > -1) selectedCategoriesArrCopy.splice(i, 1)
+          const i = selectedFiltersArrCopy.indexOf(sectionItemName)
+          if (i > -1) selectedFiltersArrCopy.splice(i, 1)
         })
       }
 
+      props.setSelectedFiltersArr(selectedFiltersArrCopy)
 
-      props.setSelectedCategoriesArr(selectedCategoriesArrCopy)
+    }
 
-      // add active+selected
-      // if children
-
-      // if selected already
-      // remove active+selected
-      // if children
-      // remove active+selected
-
+    if (props.context === 'home') {
+      navigate('/projects/', {
+        state: { filter: { type: 'section', name: curEl.getAttribute("name") } }
+      })
     }
 
   }
 
 
+  // creating the categories, sections and section item elements
   data.categories_list.forEach((category, categoryIndex) => {
 
     let sections = [];
@@ -202,7 +217,7 @@ const Categories = props => {
                   data-category_index={ categoryIndex }
                   data-section_index={ sectionIndex }
                   data-section_item_index={ sectionItemIndex }
-                  onClick={ sectionItemClickHandler }
+                  onClick={ selectSectionItem }
                 >
                   { sectionItem.section_item_name }
                 </span>
@@ -222,7 +237,7 @@ const Categories = props => {
               name={ section.section_name }
               data-category_index={ categoryIndex }
               data-section_index={ sectionIndex }
-              onClick={ sectionClickHandler }
+              onClick={ selectSection }
             >
               { section.section_name }
             </span>
@@ -240,10 +255,9 @@ const Categories = props => {
     const categoryEl = (
       <div className={ classes.category } key={ `c-${categoryIndex}` }>
         <div className={ classes.headingContainer }>
-          {/* <span name={ category.category_name } onClick={ categoryClickHandler }> */ }
           <span name={ category.category_name } >{ category.category_name }</span>
-          {/* if categories have been selected and if is first category (so have only one button) */ }
-          { props.selectedCategoriesArr.length > 0 && categoryIndex === 0 ? <Button icon={ <CloseIcon /> } name='Clear Selection' onClick={ clearCategories } /> : null }
+          {/* if there are filters/ ategories selected and if is first category (so have only one button at the top) */ }
+          { props.selectedFiltersArr && props.selectedFiltersArr.length > 0 && categoryIndex === 0 ? <Button icon={ <CloseIcon /> } name='Clear Selection' onClick={ clearCategories } /> : null }
         </div>
         <div className={ classes.sectionContainer }>
           { sections }
@@ -255,6 +269,18 @@ const Categories = props => {
 
   })
 
+
+  // receives what was clicked in the filters on home page
+  // and selects that on the project page
+  useEffect(() => {
+    if (props.context === 'projects' && props.location && props.location.state.filter) {
+      const type = props.location.state.filter.type
+      const el = document.querySelector(`span[name="${props.location.state.filter.name}"]`)
+
+      if (type === 'section') selectSection(null, el)
+      if (type === 'sectionItem') selectSectionItem(null, el)
+    }
+  }, [])
 
   return (
     <div className={ classes.categoriesContainer }>

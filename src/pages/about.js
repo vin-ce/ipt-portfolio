@@ -9,7 +9,6 @@ import classes from "../styles/about.module.styl"
 const About = props => {
 
   let images = []
-  console.log(data)
   data.certifications_images.forEach((object, index) => {
     const imageSrc = object.image
     const url = object.url

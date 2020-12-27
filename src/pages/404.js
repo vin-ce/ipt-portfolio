@@ -1,27 +1,13 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
-
 import Layout from "../components/Layout"
 
-const NotFoundPage = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title
-
+const NotFoundPage = () => {
   return (
-    <Layout location={ location } title={ siteTitle }>
+    <Layout>
       <h1>404: Not Found</h1>
-      <p>The page you visited does not exist. Return home <Link to="/">here</Link></p>
+      <p>The page you visited does not exist.</p>
     </Layout>
   )
 }
 
 export default NotFoundPage
-
-export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`

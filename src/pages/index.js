@@ -1,23 +1,27 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
 import "../styles/styles.styl"
 import classes from "../styles/index.module.styl"
 
 import Layout from "../components/Layout"
-import homeData from "../../content/sections/front_page.json"
+import data from "../../content/sections/front_page.json"
+import Categories from '../components/Categories'
 
 const Home = () => {
-  console.log(homeData)
-
   return (
     <Layout>
-      <div className={ classes.frontPageContainer }>
-        <h1>
-          <span className={ classes.value }>{ homeData.value }</span>
-          <br />
-          { homeData.heading }
-        </h1>
-        <p className={ classes.companyDescription }>{ homeData.company_description }</p>
+      <div className={ classes.wrapper }>
+        <div className={ classes.frontPageContainer }>
+          <h1>
+            <span className={ classes.value }>{ data.value }</span>
+            <br />
+            { data.heading }
+          </h1>
+          <p className={ classes.companyDescription }>{ data.company_description }</p>
+        </div>
+
+      </div>
+      <div className={ classes.categoriesContainer }>
+        <Categories context="home" />
       </div>
     </Layout>
   )
