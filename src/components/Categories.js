@@ -273,13 +273,15 @@ const Categories = props => {
   // receives what was clicked in the filters on home page
   // and selects that on the project page
   useEffect(() => {
-    if (props.context === 'projects' && props.location && props.location.state.filter) {
-      const type = props.location.state.filter.type
-      const el = document.querySelector(`span[name="${props.location.state.filter.name}"]`)
+    if (props.context === 'projects')
+      if (props.location.state)
+        if (props.location.state.filter) {
+          const type = props.location.state.filter.type
+          const el = document.querySelector(`span[name="${props.location.state.filter.name}"]`)
 
-      if (type === 'section') selectSection(null, el)
-      if (type === 'sectionItem') selectSectionItem(null, el)
-    }
+          if (type === 'section') selectSection(null, el)
+          if (type === 'sectionItem') selectSectionItem(null, el)
+        }
   }, [])
 
   return (

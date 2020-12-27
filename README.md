@@ -1,14 +1,10 @@
-- Projects
-
-  - this requires a template
-
-- These can be sourced from .json files
-
-  - Landing page information
-  - About
-  - Contact
-
-- for these section names, in CMS, should be select multiple or do the nested categories?
+- mobile view
+- projects styling
+  - projects modal on click
+  - add filters icons of project
+- filters styling
+  - add filters icons
+  - add icons indicator (which ones are selected - is this needed?)
 
 1. Architectural Design
    • Single Residential House

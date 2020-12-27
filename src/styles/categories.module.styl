@@ -4,9 +4,6 @@
   // display flex
   margin-top 3.6rem
 
-  div
-    // margin-left 3.6rem
-
   .category
     margin-top 3.6rem
     &:first-of-type
@@ -14,6 +11,7 @@
 
     .sectionContainer
       display flex
+      flex-wrap wrap
       margin-top 1.8rem
 
       color $grey-400
@@ -22,10 +20,13 @@
       span
         cursor pointer
         user-select none
+        transition $transition
+        &:hover
+          color $ipt-orange
 
       .section
-        &:not(:first-of-type)
-          margin-left 6.4rem
+        margin-right 6.4rem
+        margin-bottom 3.6rem
 
         .sectionItem
           margin-top 0.6rem
@@ -42,3 +43,4 @@
   .selected 
     color $ipt-orange
     
+  

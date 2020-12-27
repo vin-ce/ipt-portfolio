@@ -1,8 +1,73 @@
-.projectsContainer
+.thumbnailsContainer
   display flex
   flex-wrap wrap
   font-size 1.6rem
 
-  .projectContainer
-    width 40vw
-    margin-right 2.4rem
+  .thumbnailContainer
+    width 20rem
+    height 20rem
+    margin-right 6.4rem
+    animation fadeIn 0.5s
+    cursor pointer
+
+    img
+      width 100%
+      height 100%
+      object-fit contain
+
+@keyframes fadeIn
+  from 
+    opacity 0
+  to 
+    opacity 1
+
+.modalContainer
+  position fixed
+  top 0
+  left 0
+  background-color rgba(255,255,255,0.9)
+  height 100vh
+  width 100%
+  cursor pointer
+
+
+.projectContainer
+
+  position fixed
+  top 0
+  right 0
+  // height - margin
+  height 100%
+  box-sizing border-box
+
+  width 60rem
+  border-left 2px solid black
+  background-color white
+  padding 2.4rem 3.6rem
+
+  // to get the stuff inside the container to fit in
+  // i.e to get the text be able to overflow
+  display flex
+  flex-direction column
+
+  .titleContainer
+    font-size 2.4rem
+    font-weight 700
+    display flex
+    justify-content space-between
+
+    .closeIcon
+      // flex fits height of span to svg
+      display flex
+      align-items center
+      cursor pointer
+
+      svg
+        width 3.6rem
+        height 3.6rem
+
+  p
+    width 100%
+    overflow-y scroll
+    margin 0
+

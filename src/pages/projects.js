@@ -1,8 +1,12 @@
 import React, { useState } from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import Categories from "../components/Categories"
+import Modal from "../components/Modal"
+
 import classes from "../styles/projects.module.styl"
+
+import CloseIcon from "../../content/assets/closeIcon.svg"
 
 const Projects = props => {
 
@@ -10,9 +14,9 @@ const Projects = props => {
 
   const [selectedFiltersArr, setSelectedFiltersArr] = useState([])
   const [selectedProjects, setSelectedProjects] = useState(data)
+  const [projectModal, setProjectModal] = useState(null)
 
   const setFilters = (arr) => {
-
     // filtered projects based on selected filters
     let filteredProjects = []
 
@@ -37,25 +41,58 @@ const Projects = props => {
     setSelectedFiltersArr(arr)
   }
 
+  const onThumbnailClick = projectData => {
+    console.log(projectData)
+
+    let date = new Date(projectData.year_completed)
+    date = `${date.getFullYear()}-${date.getMonth() + 1}`
+
+    let imagesArr = [];
+
+    projectData.images.forEach((data, index) => {
+      // data.image.publicURL
+      let imageEl = (
+        <img src={ data.image.publicURL } key={ `${projectData.project_name}-image_${index}` } />
+      )
+      imagesArr.push(imageEl)
+    })
+
+    let modal = (
+      <React.Fragment>
+        <div className={ classes.modalContainer } onClick={ () => setProjectModal(null) } />
+        <div className={ classes.projectContainer }>
+          <div className={ classes.titleContainer }>
+            { projectData.project_name }
+            <span className={ classes.closeIcon } onClick={ () => setProjectModal(null) }> <CloseIcon /> </span>
+          </div>
+          <Modal images={ imagesArr } />
+          <div>
+            { date }
+          </div>
+          <p>
+            { projectData.description }
+          </p>
+        </div>
+      </React.Fragment>
+    )
+
+    setProjectModal(modal)
+  }
+
   let projectsArr = [];
 
   selectedProjects.forEach((edge, index) => {
     const projectData = edge.node.frontmatter
-    let date = new Date(projectData.year_completed)
-    date = `${date.getFullYear()}-${date.getMonth() + 1}`
 
     const projectEl = (
-      <div key={ `project_${index}` } className={ classes.projectContainer }>
-        <h2>
-          { projectData.project_name }
-        </h2>
-        <div>
-          { date }
-        </div>
-        <div>
-          { projectData.description }
-        </div>
+      <div
+        key={ `${projectData.project_name}_${index}` }
+        className={ classes.thumbnailContainer }
+        onClick={ () => onThumbnailClick(projectData) }
+      >
+        <img src={ projectData.images[0].image.publicURL } className={ classes.thumbnail } />
       </div>
+
     )
 
     projectsArr.push(projectEl)
@@ -71,16 +108,16 @@ const Projects = props => {
         location={ props.location }
       />
 
-      <div className={ classes.projectsContainer }>
+      <div className={ classes.thumbnailsContainer }>
         { projectsArr }
       </div>
 
+      {projectModal ? projectModal : null }
     </Layout>
   )
 }
 
 export default Projects
-
 
 export const projectsQuery = graphql`
   query {
@@ -93,7 +130,7 @@ export const projectsQuery = graphql`
             description
             images {
               image {
-                relativePath
+                publicURL
               }
             }
             categories_list {
