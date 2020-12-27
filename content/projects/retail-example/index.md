@@ -14,14 +14,15 @@ description: A tentative event rundown is attached for your reference, including
   right now parking lot it.
 images:
   - image: retail.jpg
+  - image: bim-example.jpg
 categories_list:
   - category_items:
       - section_items:
           - section_item_name:
               - Civil and Building Structural Modelling
         section_name:
-          - Architectural Design
           - Retail
+          - Building Information Modeling
     category_list_name:
       - Building Types
       - Capabilities
