@@ -28,7 +28,7 @@
               "section_item_name": "Mixed Development Buildings"
             }
           ],
-          "section_icon": "/img/house-simple-light.png"
+          "section_icon": "/img/house-light.svg"
         },
         {
           "section_name": "Building Information Modeling",
@@ -61,11 +61,11 @@
               "section_item_name": "Hydraulic Services"
             }
           ],
-          "section_icon": "/img/cube-light.png"
+          "section_icon": "/img/cube-light.svg"
         },
         {
           "section_name": "Building Information Management",
-          "section_icon": "/img/database-light.png",
+          "section_icon": "/img/database-light.svg",
           "section_items": [
             {
               "section_item_name": "BIM Execution Technical Advisory"
@@ -83,11 +83,16 @@
         },
         {
           "section_name": "Structural Design",
-          "section_icon": "/img/arrows-in-line-horizontal-light.png"
+          "section_icon": "/img/arrows-in-line-horizontal-light.svg",
+          "section_items": [
+            {
+              "section_item_name": "(example) Support, Restraint and Loading Analysis"
+            }
+          ]
         },
         {
           "section_name": "Technician Drawings",
-          "section_icon": "/img/pencil-light.png",
+          "section_icon": "/img/pencil-light.svg",
           "section_items": [
             {
               "section_item_name": "Architectural Design Documentation"
@@ -102,7 +107,12 @@
         },
         {
           "section_name": "High Resolution Design Renders",
-          "section_icon": "/img/image-light.png"
+          "section_icon": "/img/image-light.svg",
+          "section_items": [
+            {
+              "section_item_name": "(example) Interior and Exterior Views"
+            }
+          ]
         }
       ]
     },
@@ -111,19 +121,19 @@
       "category_items": [
         {
           "section_name": "Retail",
-          "section_icon": "/img/shopping-cart-light.png"
+          "section_icon": "/img/shopping-cart-light.svg"
         },
         {
           "section_name": "Mixed Development",
-          "section_icon": "/img/buildings-light.png"
+          "section_icon": "/img/buildings-light.svg"
         },
         {
           "section_name": "Factory",
-          "section_icon": "/img/nut-light.png"
+          "section_icon": "/img/nut-light.svg"
         },
         {
           "section_name": "Residential",
-          "section_icon": "/img/bed-light.png"
+          "section_icon": "/img/bed-light.svg"
         }
       ]
     }
