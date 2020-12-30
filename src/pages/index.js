@@ -4,7 +4,7 @@ import classes from "../styles/index.module.styl"
 
 import Layout from "../components/Layout"
 import data from "../../content/sections/front_page.json"
-import Categories from '../components/Categories'
+import Filters from '../components/Filters'
 
 const Home = () => {
   return (
@@ -21,7 +21,7 @@ const Home = () => {
 
       </div>
       <div className={ classes.categoriesContainer }>
-        <Categories context="home" />
+        <Filters context="home" />
       </div>
     </Layout>
   )

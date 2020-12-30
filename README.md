@@ -1,10 +1,11 @@
 - mobile view
 - projects styling
-  - projects modal on click
   - add filters icons of project
 - filters styling
   - add filters icons
   - add icons indicator (which ones are selected - is this needed?)
+
+Capabilities
 
 1. Architectural Design
    • Single Residential House
@@ -36,7 +37,7 @@
    • Construction Shop Drawings
 6. High Resolution Design Renders
 
-   Building Types
+Building Types
 
 7. Retail
 8. Mixed Development

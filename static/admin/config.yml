@@ -135,6 +135,8 @@ collections:
       - label: "Categories"
         name: "categories"
         file: "content/sections/categories.json"
+        editor:
+          preview: false
         fields:
           - label: "Categories List"
             name: "categories_list"
@@ -151,6 +153,9 @@ collections:
                   - label: "Section Name"
                     name: "section_name"
                     widget: string
+                  - label: "Section Icon"
+                    name: "section_icon"
+                    widget: image
                   - label: "Section Items"
                     name: "section_items"
                     widget: list

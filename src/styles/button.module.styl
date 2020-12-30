@@ -13,13 +13,9 @@
     user-select none
 
   .icon
-    margin-right 0.6rem
-    display flex
-    svg
-      height 1.6rem
-      width 1.6rem
-      line
-        transition $transition
+    icon-wrapper()
+    height 1.6rem
+    width 1.6rem
 
   &:hover
     border-color $ipt-orange
@@ -29,9 +25,7 @@
       color $ipt-orange
 
     .icon
-      svg
-        line
-          stroke $ipt-orange  
+      filter $ipt-orange_filter
 
 .button
 .name

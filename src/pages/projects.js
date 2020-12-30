@@ -1,12 +1,14 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
+import SVG from "react-inlinesvg"
+
 import Layout from "../components/Layout"
-import Categories from "../components/Categories"
-import Modal from "../components/Modal"
+import Filters from "../components/Filters"
+import Carousel from "../components/Carousel"
+
+import filtersData from "../../content/sections/categories.json"
 
 import classes from "../styles/projects.module.styl"
-
-import CloseIcon from "../../content/assets/closeIcon.svg"
 
 const Projects = props => {
 
@@ -41,8 +43,11 @@ const Projects = props => {
     setSelectedFiltersArr(arr)
   }
 
+  // ============
+  // CREATE MODAL
+  // ============
+
   const onThumbnailClick = projectData => {
-    console.log(projectData)
 
     let date = new Date(projectData.year_completed)
     date = `${date.getFullYear()}-${date.getMonth() + 1}`
@@ -50,7 +55,6 @@ const Projects = props => {
     let imagesArr = [];
 
     projectData.images.forEach((data, index) => {
-      // data.image.publicURL
       let imageEl = (
         <img src={ data.image.publicURL } key={ `${projectData.project_name}-image_${index}` } />
       )
@@ -63,9 +67,9 @@ const Projects = props => {
         <div className={ classes.projectContainer }>
           <div className={ classes.titleContainer }>
             { projectData.project_name }
-            <span className={ classes.closeIcon } onClick={ () => setProjectModal(null) }> <CloseIcon /> </span>
+            <SVG src="/img/closeIcon.svg" onClick={ () => setProjectModal(null) } />
           </div>
-          <Modal images={ imagesArr } />
+          <Carousel images={ imagesArr } />
           <div>
             { date }
           </div>
@@ -79,18 +83,82 @@ const Projects = props => {
     setProjectModal(modal)
   }
 
+
+  // =================
+  // CREATE THUMBNAILS
+  // =================
+
   let projectsArr = [];
 
   selectedProjects.forEach((edge, index) => {
     const projectData = edge.node.frontmatter
 
+    // // IMAGE SOLUTION
+    // const projectEl = (
+    //   <div
+    //     key={ `${projectData.project_name}_${index}` }
+    //     className={ classes.thumbnailContainer }
+    //     onClick={ () => onThumbnailClick(projectData) }
+    //   >
+    //     <img src={ projectData.images[0].image.publicURL } className={ classes.thumbnail } />
+    //   </div>
+    // )
+
+    let iconsArr = []
+
+    // matches section names of the project with those in filtersData 
+    // which has corresponding icon srcs
+    projectData.categories_list[0].category_items[0].section_name.forEach(projectSectionName => {
+
+      for (let i = 0; i < filtersData.categories_list.length; i++) {
+        let found = false;
+
+        filtersData.categories_list[i].category_items.some((filtersSection, sectionIndex) => {
+          if (filtersSection.section_name === projectSectionName) {
+            found = true
+            iconsArr.push({ categoryIndex: i, sectionIndex, iconSrc: filtersSection.section_icon, sectionName: projectSectionName })
+            // return true breaks out of the some loops
+            return true
+          }
+        })
+
+        // if already found, no need to check remaining categories
+        if (found) break
+      }
+    })
+
+    // have categories in order
+    // if categories same, sort by section
+    iconsArr.sort((a, b) => {
+      let order = a.categoryIndex - b.categoryIndex
+      if (order === 0) order = a.sectionIndex
+      return order
+    })
+
+    let iconsEl = []
+    iconsArr.forEach((icon, index) => {
+      let curCategoryIndex = 0
+      if (icon.categoryIndex !== curCategoryIndex) iconsEl.push(<span key={ `divider_${index}` } className={ classes.divider }>|</span>)
+      // check if icon category is included in filters category
+
+      let iconClass = []
+      // if is in filtered arr
+      if (selectedFiltersArr.includes(icon.sectionName)) iconClass.push(classes.inFilter)
+
+      iconsEl.push(
+        <SVG key={ `project-icon_${index}` } className={ iconClass.join(" ") } src={ icon.iconSrc } />
+      )
+    })
+
+    // // TEXT SOLUTION
     const projectEl = (
       <div
         key={ `${projectData.project_name}_${index}` }
-        className={ classes.thumbnailContainer }
+        className={ classes.projectTextContainer }
         onClick={ () => onThumbnailClick(projectData) }
       >
-        <img src={ projectData.images[0].image.publicURL } className={ classes.thumbnail } />
+        <span className={ classes.projectText }>{ projectData.project_name }</span>
+        <span className={ classes.projectCategories }>{ iconsEl }</span>
       </div>
 
     )
@@ -101,17 +169,19 @@ const Projects = props => {
   return (
     <Layout>
       <h1>Projects</h1>
-      <Categories
+      <Filters
         context='projects'
         selectedFiltersArr={ selectedFiltersArr }
         setSelectedFiltersArr={ setFilters }
         location={ props.location }
       />
 
-      <div className={ classes.thumbnailsContainer }>
+      {/* <div className={ classes.thumbnailsContainer }>
+        { projectsArr }
+      </div> */}
+      <div className={ classes.projectTextsContainer }>
         { projectsArr }
       </div>
-
       {projectModal ? projectModal : null }
     </Layout>
   )
