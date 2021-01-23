@@ -1,0 +1,37 @@
+@import './variables.styl'
+
+.icon
+  transition $transition
+
+  svg
+    height 4.8rem
+    width 4.8rem
+    pointer-events none
+
+  position absolute
+  bottom $default-horizontal-margins
+  right $default-horizontal-margins
+
+  animation pulse 3s infinite alternate
+
+  &:hover
+    filter $ipt-orange_filter
+    cursor pointer
+    animation unset
+
+.icon.invisible
+  animation fade-out 0.5s forwards
+  pointer-events none
+
+
+@keyframes pulse
+  from 
+    opacity 1
+  to 
+    opacity 0.25
+
+@keyframes fade-out
+  from 
+    opacity 1
+  to 
+    opacity 0

@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
 import SVG from "react-inlinesvg"
+import ScrollDown from "../components/ScrollDown"
 
 import Layout from "../components/Layout"
 import Filters from "../components/Filters"
@@ -21,6 +22,9 @@ const Projects = props => {
   const setFilters = (arr) => {
     // filtered projects based on selected filters
     let filteredProjects = []
+
+    setSelectedFiltersArr(arr) // TEMPORARY
+    return // TEMPORARY
 
     data.forEach(edge => {
       const projectData = edge.node.frontmatter
@@ -93,17 +97,6 @@ const Projects = props => {
   selectedProjects.forEach((edge, index) => {
     const projectData = edge.node.frontmatter
 
-    // // IMAGE SOLUTION
-    // const projectEl = (
-    //   <div
-    //     key={ `${projectData.project_name}_${index}` }
-    //     className={ classes.thumbnailContainer }
-    //     onClick={ () => onThumbnailClick(projectData) }
-    //   >
-    //     <img src={ projectData.images[0].image.publicURL } className={ classes.thumbnail } />
-    //   </div>
-    // )
-
     let iconsArr = []
 
     // matches section names of the project with those in filtersData 
@@ -150,21 +143,32 @@ const Projects = props => {
       )
     })
 
-    // // TEXT SOLUTION
+    // // IMAGE SOLUTION
     const projectEl = (
       <div
         key={ `${projectData.project_name}_${index}` }
-        className={ classes.projectTextContainer }
+        className={ classes.thumbnailContainer }
         onClick={ () => onThumbnailClick(projectData) }
       >
-        <span className={ classes.projectText }>{ projectData.project_name }</span>
-        <span className={ classes.projectCategories }>{ iconsEl }</span>
+        <img src={ projectData.images[0].image.publicURL } className={ classes.thumbnail } />
       </div>
-
     )
+
+    // // TEXT SOLUTION
+    // const projectEl = (
+    //   <div
+    //     key={ `${projectData.project_name}_${index}` }
+    //     className={ classes.projectTextContainer }
+    //     onClick={ () => onThumbnailClick(projectData) }
+    //   >
+    //     <span className={ classes.projectText }>{ projectData.project_name }</span>
+    //     <span className={ classes.projectCategories }>{ iconsEl }</span>
+    //   </div>
+    // )
 
     projectsArr.push(projectEl)
   })
+
 
   return (
     <Layout>
@@ -176,12 +180,14 @@ const Projects = props => {
         location={ props.location }
       />
 
-      {/* <div className={ classes.thumbnailsContainer }>
-        { projectsArr }
-      </div> */}
-      <div className={ classes.projectTextsContainer }>
+      <ScrollDown scrollToId='projects' />
+
+      <div id="projects" className={ classes.thumbnailsContainer }>
         { projectsArr }
       </div>
+      {/* <div id="projects" className={ classes.projectTextsContainer }>
+        { projectsArr }
+      </div> */}
       {projectModal ? projectModal : null }
     </Layout>
   )

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import SVG from "react-inlinesvg"
 import { navigate } from "gatsby"
 
@@ -9,7 +9,6 @@ import Button from "./Button"
 
 const Filters = props => {
 
-
   let filtersElArr = [];
 
   // ================
@@ -19,7 +18,6 @@ const Filters = props => {
   const clearCategories = () => {
     // clear all classes
     data.categories_list.forEach(categories => {
-      document.querySelector(`span[name="${categories.category_name}"]`).classList.remove(classes.active, classes.selected)
 
       categories.category_items.forEach(section => {
         document.querySelector(`span[name="${section.section_name}"]`).classList.remove(classes.active, classes.selected)
@@ -210,8 +208,16 @@ const Filters = props => {
 
     if (props.context === 'home') {
       navigate('/projects/', {
-        state: { filter: { type: 'section', name: curEl.getAttribute("name") } }
+        state: {
+          filter: {
+            type: 'section',
+            categoryName: data.categories_list[curEl.getAttribute('data-category_index')].category_name,
+
+            name: curEl.getAttribute("name")
+          }
+        }
       })
+
     }
 
   }
@@ -219,6 +225,17 @@ const Filters = props => {
   // ===============
   // CREATE ELEMENTS
   // ===============
+
+  const toggleCategoryVisibility = (e, el) => {
+
+    let categoryEl;
+    if (e) categoryEl = e.target.parentNode.parentNode.parentNode
+    else categoryEl = el
+
+    if (categoryEl.classList.contains(classes.hidden)) categoryEl.classList.remove(classes.hidden)
+    else categoryEl.classList.add(classes.hidden)
+
+  }
 
   // creating the categories, sections and section item elements
   data.categories_list.forEach((category, categoryIndex) => {
@@ -278,10 +295,26 @@ const Filters = props => {
       })
     }
 
+    // sections by default are hidden
+
+    const categoryClasses = [classes.category]
+    if (props.context === 'projects') categoryClasses.push(classes.hidden)
+
     const categoryEl = (
-      <div className={ classes.category } key={ `c-${categoryIndex}` }>
+      <div name={ category.category_name } className={ categoryClasses.join(' ') } key={ `c-${categoryIndex}` }>
         <div className={ classes.headingContainer }>
-          <span name={ category.category_name } >{ category.category_name }</span>
+          <span className={ classes.categoryNameContainer } >
+            { category.category_name }
+
+            { props.context === 'projects' ?
+              <Button
+                className={ classes.toggleVisibilityButton }
+                iconSrc="/img/eye-light.svg"
+                name={ 'Toggle Visibility' }
+                onClick={ toggleCategoryVisibility }
+
+              /> : null }
+          </span>
           {/* if there are filters/ ategories selected and if is first category (so have only one button at the top) */ }
           { props.selectedFiltersArr && props.selectedFiltersArr.length > 0 && categoryIndex === 0 ?
             <Button
@@ -308,15 +341,28 @@ const Filters = props => {
       if (props.location.state)
         if (props.location.state.filter) {
           const type = props.location.state.filter.type
-          const el = document.querySelector(`span[name="${props.location.state.filter.name}"]`)
+          const selectedEl = document.querySelector(`span[name="${props.location.state.filter.name}"]`)
 
-          if (type === 'section') selectSection(null, el)
-          if (type === 'sectionItem') selectSectionItem(null, el)
+          if (type === 'section') selectSection(null, selectedEl)
+          if (type === 'sectionItem') selectSectionItem(null, selectedEl)
+
+          const categoryEl = document.querySelector(`div[name="${props.location.state.filter.categoryName}"]`)
+          toggleCategoryVisibility(null, categoryEl)
+
+        } else {
+          // if directly onto projects page
+          const categoryEls = document.querySelectorAll(`.${classes.category}`)
+          categoryEls.forEach(categoryEl => {
+            toggleCategoryVisibility(null, categoryEl)
+          })
         }
   }, [])
 
+  const filtersClasses = [classes.filtersContainer]
+  if (props.context === 'home') filtersClasses.push(classes.home)
+
   return (
-    <div className={ classes.filtersContainer }>
+    <div className={ filtersClasses.join(' ') }>
       { filtersElArr }
     </div>
   )
