@@ -6,27 +6,55 @@ import ScrollDown from "../components/ScrollDown"
 import Layout from "../components/Layout"
 import Filters from "../components/Filters"
 import Carousel from "../components/Carousel"
+import Button from "../components/Button"
 
 import filtersData from "../../content/sections/categories.json"
 
 import classes from "../styles/projects.module.styl"
+import filtersClasses from "../styles/filters.module.styl"
 
 const Projects = props => {
 
-  const data = props.data.allMarkdownRemark.edges
 
+  // clicking building type filter in individual projects page will clear selectedFiltersArr and push in the individual filter. 
+  // this filter will then show up in Filters.js
+
+  // =========
+  // VARIABLES
+  // =========
+
+  const projectsData = props.data.allMarkdownRemark.edges
+
+  // setSelectedFiltersArr is only called in 'setFiltersArr'
+  // when trying to set filters, only use setFiltersArr
   const [selectedFiltersArr, setSelectedFiltersArr] = useState([])
-  const [selectedProjects, setSelectedProjects] = useState(data)
+  const [selectedProjects, setSelectedProjects] = useState(projectsData)
   const [projectModal, setProjectModal] = useState(null)
 
-  const setFilters = (arr) => {
+
+  // HARDCODE
+  let buildingTypesSectionNamesArr = [];
+  filtersData.categories_list.forEach(category => {
+    if (category.category_name === 'Building Types') {
+      category.category_items.forEach(section => {
+        buildingTypesSectionNamesArr.push(section.section_name)
+      })
+    }
+  })
+
+
+
+  // =========
+  // FUNCTIONS
+  // =========
+
+  // sets filters arr + sets which projects are shown based on selected filters
+  // this is the function that's passed to Filters.js, not setSelectedFiltersArr
+  const setFiltersArr = (arr) => {
     // filtered projects based on selected filters
     let filteredProjects = []
 
-    setSelectedFiltersArr(arr) // TEMPORARY
-    return // TEMPORARY
-
-    data.forEach(edge => {
+    projectsData.forEach(edge => {
       const projectData = edge.node.frontmatter
 
       for (let i = 0; i < arr.length; i++) {
@@ -40,12 +68,43 @@ const Projects = props => {
       }
 
       // if no filters, all projects are shown
-      if (arr.length === 0) setSelectedProjects(data)
+      if (arr.length === 0) setSelectedProjects(projectsData)
       else setSelectedProjects(filteredProjects)
     })
 
+    console.log('SELECTED:', arr)
+
     setSelectedFiltersArr(arr)
   }
+
+
+  const clearCategories = () => {
+    filtersData.categories_list.forEach(category => {
+
+      // HARDCODE
+      // skips filters in Building Types category
+      if (category.category_name === 'Building Types') return
+
+      category.category_items.forEach(section => {
+        // remove classes from sections
+        document.querySelector(`span[name="${section.section_name}"]`).classList.remove(filtersClasses.active, filtersClasses.selected)
+
+        // remove classes from section items
+        if (section.section_items) section.section_items.forEach(sectionItems => {
+          document.querySelector(`span[name="${sectionItems.section_item_name}"]`).classList.remove(filtersClasses.active, filtersClasses.selected)
+        })
+      })
+    })
+
+    // building types element does not add itself if 
+    // its filters are not in the selectedFiltersArr
+    // so no need to clear styles for it
+
+    setFiltersArr([])
+
+  }
+
+
 
   // ============
   // CREATE MODAL
@@ -65,6 +124,30 @@ const Projects = props => {
       imagesArr.push(imageEl)
     })
 
+    // filters projects sections to the ones that are the Building Types sections
+    let buildingTypesArr = [];
+
+    // drills down to list of section names
+    projectData.categories_list[0].category_items[0].section_name.forEach(sectionName => {
+      // checks if section name is part of building types
+      if (buildingTypesSectionNamesArr.includes(sectionName)) {
+        buildingTypesArr.push(
+          <span
+            key={ `buildingType-${sectionName}` }
+            className={ classes.buildingTypeSection }
+            onClick={ () => {
+              clearCategories([])
+              setFiltersArr([sectionName])
+              setProjectModal(null)
+            } }
+          >
+            { sectionName }
+          </span>
+        )
+      }
+
+    })
+
     let modal = (
       <React.Fragment>
         <div className={ classes.modalContainer } onClick={ () => setProjectModal(null) } />
@@ -73,10 +156,14 @@ const Projects = props => {
             { projectData.project_name }
             <SVG src="/img/closeIcon.svg" onClick={ () => setProjectModal(null) } />
           </div>
-          <Carousel images={ imagesArr } />
-          <div>
-            { date }
+          {/* HARDCODE */ }
+          <div className={ classes.buildingTypesContainer }>
+            Building Type { buildingTypesArr }
           </div>
+          <Carousel images={ imagesArr } />
+          {/* <div>
+            { date }
+          </div> */}
           <p>
             { projectData.description }
           </p>
@@ -136,7 +223,7 @@ const Projects = props => {
 
       let iconClass = []
       // if is in filtered arr
-      if (selectedFiltersArr.includes(icon.sectionName)) iconClass.push(classes.inFilter)
+      // if (selectedFiltersArr.includes(icon.sectionName)) iconClass.push(classes.inFilter)
 
       iconsEl.push(
         <SVG key={ `project-icon_${index}` } className={ iconClass.join(" ") } src={ icon.iconSrc } />
@@ -144,50 +231,63 @@ const Projects = props => {
     })
 
     // // IMAGE SOLUTION
-    const projectEl = (
-      <div
-        key={ `${projectData.project_name}_${index}` }
-        className={ classes.thumbnailContainer }
-        onClick={ () => onThumbnailClick(projectData) }
-      >
-        <img src={ projectData.images[0].image.publicURL } className={ classes.thumbnail } />
-      </div>
-    )
-
-    // // TEXT SOLUTION
     // const projectEl = (
     //   <div
     //     key={ `${projectData.project_name}_${index}` }
-    //     className={ classes.projectTextContainer }
+    //     className={ classes.thumbnailContainer }
     //     onClick={ () => onThumbnailClick(projectData) }
     //   >
-    //     <span className={ classes.projectText }>{ projectData.project_name }</span>
-    //     <span className={ classes.projectCategories }>{ iconsEl }</span>
+    //     <img src={ projectData.images[0].image.publicURL } className={ classes.thumbnail } />
     //   </div>
     // )
+
+    // TEXT SOLUTION
+    const projectEl = (
+      <div
+        key={ `${projectData.project_name}_${index}` }
+        className={ classes.projectTextContainer }
+        onClick={ () => onThumbnailClick(projectData) }
+      >
+        <span className={ classes.projectText }>{ projectData.project_name }</span>
+        <span className={ classes.projectCategories }>{ iconsEl }</span>
+      </div>
+    )
 
     projectsArr.push(projectEl)
   })
 
-
   return (
     <Layout>
-      <h1>Projects</h1>
+      <div className={ classes.headingContainer }>
+        <h1>Projects</h1>
+        {/* if there are filters/ categories selected */ }
+        {
+          selectedFiltersArr && selectedFiltersArr.length > 0 ?
+            <Button
+              iconSrc="/img/closeIcon.svg"
+              name='Clear Selection'
+              onClick={ () => clearCategories([]) }
+            /> : null
+        }
+      </div>
+
       <Filters
         context='projects'
         selectedFiltersArr={ selectedFiltersArr }
-        setSelectedFiltersArr={ setFilters }
+        setSelectedFiltersArr={ setFiltersArr }
+        clearCategories={ clearCategories }
         location={ props.location }
       />
 
       <ScrollDown scrollToId='projects' />
 
-      <div id="projects" className={ classes.thumbnailsContainer }>
-        { projectsArr }
-      </div>
-      {/* <div id="projects" className={ classes.projectTextsContainer }>
+      {/* <div id="projects" className={ classes.thumbnailsContainer }>
         { projectsArr }
       </div> */}
+      <div id="projects" className={ classes.projectTextsContainer }>
+        { projectsArr }
+      </div>
+
       {projectModal ? projectModal : null }
     </Layout>
   )

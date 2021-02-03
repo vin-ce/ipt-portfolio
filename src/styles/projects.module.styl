@@ -1,5 +1,13 @@
 @import './variables.styl'
 
+.headingContainer
+  display flex
+  justify-content space-between
+  align-items baseline
+  h1 
+    width unset
+
+
 .thumbnailsContainer
   display flex
   flex-wrap wrap
@@ -28,6 +36,9 @@
 
     .projectText
       margin-right 1.8rem
+      transition $transition
+      &:hover
+        color $ipt-orange
 
     .projectCategories
       display flex
@@ -97,10 +108,27 @@
       width 3.6rem
       height 3.6rem
 
+  .buildingTypesContainer
+    display flex
+    font-style italic
+    color $grey-400
+
+    .buildingTypeSection
+      font-style normal
+      color black
+      cursor pointer
+      transition $transition
+      margin-left 1.8rem
+
+      &:hover
+        color $ipt-orange
+
+
   p
     width 100%
     overflow-y auto
     margin 0
+    margin-top 1.8rem
 
 
 .icon

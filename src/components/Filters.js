@@ -1,36 +1,18 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useRef } from "react"
 import SVG from "react-inlinesvg"
 import { navigate } from "gatsby"
 
 import classes from "../styles/filters.module.styl"
 import data from "../../content/sections/categories.json"
 
-import Button from "./Button"
-
 const Filters = props => {
 
-  let filtersElArr = [];
+  // =================
+  // SELECTING FILTERS
+  // =================
 
-  // ================
-  // CLEAR CATEGORIES
-  // ================
-
-  const clearCategories = () => {
-    // clear all classes
-    data.categories_list.forEach(categories => {
-
-      categories.category_items.forEach(section => {
-        document.querySelector(`span[name="${section.section_name}"]`).classList.remove(classes.active, classes.selected)
-
-        if (section.section_items) section.section_items.forEach(sectionItems => {
-          document.querySelector(`span[name="${sectionItems.section_item_name}"]`).classList.remove(classes.active, classes.selected)
-        })
-      })
-    })
-
-    // reset selectedFiltersArr
-    props.setSelectedFiltersArr([])
-  }
+  // const [filtersElArr, setFiltersElArr] = useState([])
+  let filtersElArr = []
 
   const selectSectionItem = (e, el) => {
 
@@ -43,13 +25,13 @@ const Filters = props => {
     if (props.context === 'projects') {
 
       // if no selected class
-      // a1. add selected + active classes & to selectedFiltersArr
+      // a1. add selected + active classes to section item
       // a2. select parent, set to just active class & remove parent from selectedFiltersArr
       // a3. loop through siblings
       // a4. if not selected, remove active class on siblings
 
       // if selected already
-      // b1. remove selected + active & from selectedFiltersArr
+      // b1. remove items that are selected + active from selectedFiltersArr
       // b2. loop through arr of siblings against selectedFiltersArr to see if any siblings are selected
       // b3. if there aren't any selected, remove classes from parent el, effectively resetting that section
 
@@ -70,6 +52,8 @@ const Filters = props => {
       const sectionIsSelected = curEl.classList.contains(classes.selected)
       const selectedFiltersArrCopy = [...props.selectedFiltersArr]
 
+      console.log("IN FUNC", selectedFiltersArrCopy)
+
       // ------------------------------
 
       if (!sectionIsSelected) {
@@ -81,8 +65,8 @@ const Filters = props => {
         parentSectionEl.classList.remove(classes.selected)
         parentSectionEl.classList.add(classes.active)
         let i = selectedFiltersArrCopy.indexOf(parentSectionName)
-        // if (i > -1) selectedFiltersArrCopy.splice(i, 1)
-        if (i === -1) selectedFiltersArrCopy.push(parentSectionName)
+        if (i > -1) selectedFiltersArrCopy.splice(i, 1)
+        // if (i === -1) selectedFiltersArrCopy.push(parentSectionName)
 
         // a3
         sectionItemsArr.forEach((sectionItem, index) => {
@@ -114,11 +98,12 @@ const Filters = props => {
 
         // b3
         if (!hasOtherSelected) {
-          selectedFiltersArrCopy.splice(selectedFiltersArrCopy.indexOf(parentSectionName), 1)
           parentSectionEl.classList.remove(classes.selected, classes.active)
+          // selectedFiltersArrCopy.splice(selectedFiltersArrCopy.indexOf(parentSectionName), 1) // this is assuming that the parent element is in the filtersArr with the children elements
         }
 
       }
+
 
       props.setSelectedFiltersArr(selectedFiltersArrCopy)
 
@@ -131,9 +116,9 @@ const Filters = props => {
     }
   }
 
-  // ==============
+  // --------------
   // SELECT SECTION
-  // ==============
+  // --------------
 
   const selectSection = (e, el) => {
 
@@ -143,7 +128,7 @@ const Filters = props => {
 
     if (props.context === 'projects') {
       // if not yet selected:
-      // a1. add selected + active classes - check if section already in selectedFiltersArr (from previously selecting sectionItems), if no, add
+      // a1. add selected + active classes - check if section already in selectedFiltersArr (from previously selecting sectionItems), if no, add to arr
       // a2. loop through children section items
       // a3. turn all into active classes (removing any selected)
       // a4. remove children section items from selectedFiltersArr
@@ -226,22 +211,19 @@ const Filters = props => {
   // CREATE ELEMENTS
   // ===============
 
-  const toggleCategoryVisibility = (e, el) => {
-
-    let categoryEl;
-    if (e) categoryEl = e.target.parentNode.parentNode.parentNode
-    else categoryEl = el
-
-    if (categoryEl.classList.contains(classes.hidden)) categoryEl.classList.remove(classes.hidden)
-    else categoryEl.classList.add(classes.hidden)
-
-  }
+  // useEffect(() => {
 
   // creating the categories, sections and section item elements
   data.categories_list.forEach((category, categoryIndex) => {
 
     let sections = [];
     let sectionItems = [];
+
+
+    // HARDCODE
+    // hide Building Types filter
+    if (category.category_name === 'Building Types') return
+    console.log("CREATE", props.selectedFiltersArr)
 
     if (category.category_items) {
       category.category_items.forEach((section, sectionIndex) => {
@@ -267,6 +249,7 @@ const Filters = props => {
           })
         }
 
+        // pretty much obsolete as no building types filter
         const sectionClasses = [classes.section]
         if (sectionItems.length === 0) sectionClasses.push(classes.noChildren)
 
@@ -295,33 +278,13 @@ const Filters = props => {
       })
     }
 
-    // sections by default are hidden
-
-    const categoryClasses = [classes.category]
-    if (props.context === 'projects') categoryClasses.push(classes.hidden)
-
     const categoryEl = (
-      <div name={ category.category_name } className={ categoryClasses.join(' ') } key={ `c-${categoryIndex}` }>
+      <div name={ category.category_name } className={ classes.category } key={ `c-${categoryIndex}` }>
         <div className={ classes.headingContainer }>
           <span className={ classes.categoryNameContainer } >
             { category.category_name }
-
-            { props.context === 'projects' ?
-              <Button
-                className={ classes.toggleVisibilityButton }
-                iconSrc="/img/eye-light.svg"
-                name={ 'Toggle Visibility' }
-                onClick={ toggleCategoryVisibility }
-
-              /> : null }
           </span>
-          {/* if there are filters/ ategories selected and if is first category (so have only one button at the top) */ }
-          { props.selectedFiltersArr && props.selectedFiltersArr.length > 0 && categoryIndex === 0 ?
-            <Button
-              iconSrc="/img/closeIcon.svg"
-              name='Clear Selection'
-              onClick={ clearCategories }
-            /> : null }
+
         </div>
         <div className={ classes.sectionContainer }>
           { sections }
@@ -329,9 +292,80 @@ const Filters = props => {
       </div>
     )
 
+    // setFiltersElArr([categoryEl])
     filtersElArr.push(categoryEl)
-
   })
+
+
+
+  // }, [props.selectedFiltersArr])
+
+
+
+  // ---------------------
+  // CREATE BUILDING TYPES
+  // ---------------------
+  // HARDCODE
+
+  // if filters arr includes a building types 
+  if (props.context === 'projects') {
+
+    let buildingTypesData = { full: null, names: [] };
+    data.categories_list.forEach(category => {
+      if (category.category_name === 'Building Types') {
+        // entire data with name & icon
+        buildingTypesData.full = category.category_items
+        // just names
+        category.category_items.forEach(section => buildingTypesData.names.push(section.section_name))
+      }
+    })
+
+    // if filter is of building type category
+    const hasBuildingTypesFilter = buildingTypesData.names.some(name => props.selectedFiltersArr.includes(name))
+
+    if (hasBuildingTypesFilter) {
+      const selectedFilterName = props.selectedFiltersArr[0]
+      let selectedFilterIcon;
+
+      buildingTypesData.full.forEach(section => {
+        if (section.section_name === selectedFilterName) selectedFilterIcon = section.section_icon
+      })
+
+      const removeBuildingTypesEl = (name) => {
+        const selectedFiltersArrCopy = props.selectedFiltersArr
+        const i = selectedFiltersArrCopy.indexOf(name)
+        if (i > -1) selectedFiltersArrCopy.splice(i, 1)
+        props.setSelectedFiltersArr(selectedFiltersArrCopy)
+      }
+
+      filtersElArr.push(
+        <div className={ classes.category } key={ `category_building-type` }>
+          <div className={ classes.headingContainer }>
+            <span className={ classes.categoryNameContainer } >
+              Building Type
+                </span>
+
+          </div>
+          <div className={ classes.sectionContainer }>
+            <div className={ [classes.section, classes.noChildren].join(' ') }>
+              <span
+                onClick={ () => removeBuildingTypesEl(selectedFilterName) }
+                className={ [classes.sectionName, classes.active, classes.selected].join(" ") }
+              >
+                <SVG src={ selectedFilterIcon } className={ classes.sectionIcon } />
+                { selectedFilterName }
+              </span>
+            </div >
+          </div>
+        </div>
+
+      )
+
+    }
+
+  }
+
+
 
 
   // receives what was clicked in the filters on home page
@@ -346,17 +380,12 @@ const Filters = props => {
           if (type === 'section') selectSection(null, selectedEl)
           if (type === 'sectionItem') selectSectionItem(null, selectedEl)
 
-          const categoryEl = document.querySelector(`div[name="${props.location.state.filter.categoryName}"]`)
-          toggleCategoryVisibility(null, categoryEl)
-
-        } else {
-          // if directly onto projects page
-          const categoryEls = document.querySelectorAll(`.${classes.category}`)
-          categoryEls.forEach(categoryEl => {
-            toggleCategoryVisibility(null, categoryEl)
-          })
         }
   }, [])
+
+
+
+
 
   const filtersClasses = [classes.filtersContainer]
   if (props.context === 'home') filtersClasses.push(classes.home)
