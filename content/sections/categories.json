@@ -49,16 +49,7 @@
               "section_item_name": "Pool Water Services"
             },
             {
-              "section_item_name": "Mechanical Services"
-            },
-            {
-              "section_item_name": "Electrical Services"
-            },
-            {
-              "section_item_name": "Fire Services"
-            },
-            {
-              "section_item_name": "Hydraulic Services"
+              "section_item_name": "Building Services"
             }
           ],
           "section_icon": "/img/cube-light.svg"
@@ -82,15 +73,6 @@
           ]
         },
         {
-          "section_name": "Structural Design",
-          "section_icon": "/img/arrows-in-line-horizontal-light.svg",
-          "section_items": [
-            {
-              "section_item_name": "(example) Support, Restraint and Loading Analysis"
-            }
-          ]
-        },
-        {
           "section_name": "Technician Drawings",
           "section_icon": "/img/pencil-light.svg",
           "section_items": [
@@ -110,7 +92,10 @@
           "section_icon": "/img/image-light.svg",
           "section_items": [
             {
-              "section_item_name": "(example) Interior and Exterior Views"
+              "section_item_name": "Commercial"
+            },
+            {
+              "section_item_name": "Residential"
             }
           ]
         }
