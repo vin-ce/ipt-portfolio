@@ -100,27 +100,6 @@
           ]
         }
       ]
-    },
-    {
-      "category_name": "Building Category",
-      "category_items": [
-        {
-          "section_name": "Retail",
-          "section_icon": "/img/shopping-cart-light.svg"
-        },
-        {
-          "section_name": "Mixed Development",
-          "section_icon": "/img/buildings-light.svg"
-        },
-        {
-          "section_name": "Factory",
-          "section_icon": "/img/nut-light.svg"
-        },
-        {
-          "section_name": "Residential",
-          "section_icon": "/img/bed-light.svg"
-        }
-      ]
     }
   ]
 }
