@@ -11,6 +11,8 @@ import ScrollDown from "../components/ScrollDown"
 
 const Home = () => {
 
+  console.log(data)
+
   return (
     <Layout>
       <div className={ classes.wrapper }>
@@ -23,6 +25,8 @@ const Home = () => {
           </h1>
           <p className={ classes.companyDescription }>{ data.company_description }</p>
         </div>
+
+        <img src={ data.image } alt={ 'front page building' } className={ classes.frontImage } />
 
         <ScrollDown scrollToId='categories' />
 

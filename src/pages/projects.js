@@ -27,9 +27,9 @@ const Projects = props => {
 
   // setSelectedFiltersArr is only called in 'setFiltersArr'
   // when trying to set filters, only use setFiltersArr
-  const [selectedFiltersArr, setSelectedFiltersArr] = useState([])
-  const [selectedProjects, setSelectedProjects] = useState(projectsData)
-  const [projectModal, setProjectModal] = useState(null)
+  const [ selectedFiltersArr, setSelectedFiltersArr ] = useState([])
+  const [ selectedProjects, setSelectedProjects ] = useState(projectsData)
+  const [ projectModal, setProjectModal ] = useState(null)
 
 
   // HARDCODE
@@ -61,7 +61,7 @@ const Projects = props => {
         // nested "" is critical so as to not match both residential and residential housing - they are two different filters.
         // if selected filter matches a category the project has, break 
         // so that it only adds the project once.
-        if (JSON.stringify(projectData.categories_list).includes(`"${arr[i]}"`)) {
+        if (JSON.stringify(projectData.categories_list).includes(`"${arr[ i ]}"`)) {
           filteredProjects.push(edge)
           break
         }
@@ -71,8 +71,6 @@ const Projects = props => {
       if (arr.length === 0) setSelectedProjects(projectsData)
       else setSelectedProjects(filteredProjects)
     })
-
-    console.log('SELECTED:', arr)
 
     setSelectedFiltersArr(arr)
   }
@@ -128,7 +126,7 @@ const Projects = props => {
     let buildingTypesArr = [];
 
     // drills down to list of section names
-    projectData.categories_list[0].category_items[0].section_name.forEach(sectionName => {
+    projectData.categories_list[ 0 ].category_items[ 0 ].section_name.forEach(sectionName => {
       // checks if section name is part of building types
       if (buildingTypesSectionNamesArr.includes(sectionName)) {
         buildingTypesArr.push(
@@ -137,7 +135,7 @@ const Projects = props => {
             className={ classes.buildingTypeSection }
             onClick={ () => {
               clearCategories([])
-              setFiltersArr([sectionName])
+              setFiltersArr([ sectionName ])
               setProjectModal(null)
             } }
           >
@@ -188,12 +186,12 @@ const Projects = props => {
 
     // matches section names of the project with those in filtersData 
     // which has corresponding icon srcs
-    projectData.categories_list[0].category_items[0].section_name.forEach(projectSectionName => {
+    projectData.categories_list[ 0 ].category_items[ 0 ].section_name.forEach(projectSectionName => {
 
       for (let i = 0; i < filtersData.categories_list.length; i++) {
         let found = false;
 
-        filtersData.categories_list[i].category_items.some((filtersSection, sectionIndex) => {
+        filtersData.categories_list[ i ].category_items.some((filtersSection, sectionIndex) => {
           if (filtersSection.section_name === projectSectionName) {
             found = true
             iconsArr.push({ categoryIndex: i, sectionIndex, iconSrc: filtersSection.section_icon, sectionName: projectSectionName })
@@ -231,27 +229,27 @@ const Projects = props => {
     })
 
     // // IMAGE SOLUTION
-    // const projectEl = (
-    //   <div
-    //     key={ `${projectData.project_name}_${index}` }
-    //     className={ classes.thumbnailContainer }
-    //     onClick={ () => onThumbnailClick(projectData) }
-    //   >
-    //     <img src={ projectData.images[0].image.publicURL } className={ classes.thumbnail } />
-    //   </div>
-    // )
-
-    // TEXT SOLUTION
     const projectEl = (
       <div
         key={ `${projectData.project_name}_${index}` }
-        className={ classes.projectTextContainer }
+        className={ classes.thumbnailContainer }
         onClick={ () => onThumbnailClick(projectData) }
       >
-        <span className={ classes.projectText }>{ projectData.project_name }</span>
-        <span className={ classes.projectCategories }>{ iconsEl }</span>
+        <img src={ projectData.images[ 0 ].image.publicURL } className={ classes.thumbnail } />
       </div>
     )
+
+    // TEXT SOLUTION
+    // const projectEl = (
+    //   <div
+    //     key={ `${projectData.project_name}_${index}` }
+    //     className={ classes.projectTextContainer }
+    //     onClick={ () => onThumbnailClick(projectData) }
+    //   >
+    //     <span className={ classes.projectText }>{ projectData.project_name }</span>
+    //     <span className={ classes.projectCategories }>{ iconsEl }</span>
+    //   </div>
+    // )
 
     projectsArr.push(projectEl)
   })
@@ -281,12 +279,12 @@ const Projects = props => {
 
       <ScrollDown scrollToId='projects' />
 
-      {/* <div id="projects" className={ classes.thumbnailsContainer }>
-        { projectsArr }
-      </div> */}
-      <div id="projects" className={ classes.projectTextsContainer }>
+      <div id="projects" className={ classes.thumbnailsContainer }>
         { projectsArr }
       </div>
+      {/* <div id="projects" className={ classes.projectTextsContainer }>
+        { projectsArr }
+      </div> */}
 
       {projectModal ? projectModal : null }
     </Layout>

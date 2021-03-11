@@ -52,8 +52,6 @@ const Filters = props => {
       const sectionIsSelected = curEl.classList.contains(classes.selected)
       const selectedFiltersArrCopy = [...props.selectedFiltersArr]
 
-      console.log("IN FUNC", selectedFiltersArrCopy)
-
       // ------------------------------
 
       if (!sectionIsSelected) {
@@ -223,7 +221,6 @@ const Filters = props => {
     // HARDCODE
     // hide Building Types filter
     if (category.category_name === 'Building Types') return
-    console.log("CREATE", props.selectedFiltersArr)
 
     if (category.category_items) {
       category.category_items.forEach((section, sectionIndex) => {

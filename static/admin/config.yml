@@ -92,6 +92,7 @@ collections:
               name: "company_description",
               widget: "string",
             }
+          - { label: "Image", name: "image", widget: "image" }
 
       - label: "About"
         name: "about"

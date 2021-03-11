@@ -1,7 +1,5 @@
 import React from "react"
 import Layout from "../components/Layout"
-// import remark from "remark"
-// import remarkHTML from 'remark-html'
 import { toHTML } from "../utils/utils"
 import data from "../../content/sections/about.json"
 import classes from "../styles/about.module.styl"

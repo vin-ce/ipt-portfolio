@@ -9,17 +9,17 @@ const ScrollDown = props => {
   const onScrollArrowClick = (e) => {
     console.log(props.scrollToId)
     scrollTo(`#${props.scrollToId}`)
-    e.target.classList.add(classes.invisible)
+    // e.target.classList.add(classes.invisible)
   }
 
   const hideScrollArrow = () => {
-    if (document.querySelector(`.${classes.icon}`).classList.contains(classes.invisible)) window.removeEventListener('scroll', hideScrollArrow)
-    else document.querySelector(`.${classes.icon}`).classList.add(classes.invisible)
+    // if (document.querySelector(`.${classes.icon}`).classList.contains(classes.invisible)) window.removeEventListener('scroll', hideScrollArrow)
+    // else document.querySelector(`.${classes.icon}`).classList.add(classes.invisible)
 
   }
 
   // on scroll hide scroll arrow
-  window.addEventListener('scroll', hideScrollArrow)
+  // window.addEventListener('scroll', hideScrollArrow)
 
   return (
     <span className={ classes.icon } onClick={ onScrollArrowClick }>

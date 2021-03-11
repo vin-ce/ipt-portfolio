@@ -6,8 +6,10 @@ $fromBottom = 3.6rem
   height 90vh
 
   .frontPageContainer
+    z-index 2
     position absolute
     bottom $fromBottom
+    background rgba(255,255,255,0.75)
 
     h1 
       font-weight 400
@@ -18,3 +20,10 @@ $fromBottom = 3.6rem
 
     .companyDescription
       margin-top 4.8rem
+
+  .frontImage
+    z-index 1
+    position absolute 
+    right $default-horizontal-margins
+    width $text-container-width
+    
