@@ -42,7 +42,7 @@ const SmoothScroll = ({ children }) => {
     data.previous += (data.current - data.previous) * data.ease;
     data.rounded = Math.round(data.previous * 100) / 100;
 
-    scrollingContainerRef.current.style.transform = `translateY(-${data.previous}px)`;
+    scrollingContainerRef.current.style.transform = `translateY(-${data.rounded}px)`;
 
     // Recursive call
     requestAnimationFrame(() => smoothScrollingHandler());
