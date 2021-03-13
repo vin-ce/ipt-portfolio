@@ -51,7 +51,8 @@ const Filters = props => {
         if (sectionItems.length === 0) sectionClasses.push(classes.noChildren)
 
 
-        const sectionDomEl = document.getElementById(`c-${categoryIndex}_s-${sectionIndex}`)
+        let sectionDomEl;
+        if (hasElements) sectionDomEl = document.getElementById(`c-${categoryIndex}_s-${sectionIndex}`)
         let sectionHeight = 0;
 
         if (sectionDomEl) sectionHeight = sectionDomEl.offsetHeight
