@@ -7,12 +7,26 @@
 
 body 
   margin 0
-  font-family 'Avenir', sans-serif
-  font-size 2.1rem
+  // font-family 'EB Garamond'
+  font-family 'Cormorant Garamond'
+  font-size $font-size_default
   line-height 1.5
+  background-color $black
+  color $white
+
+  h1
+  p
+  span
+  em
+  a
+  div
+    &::selection
+      color $ipt-orange
+
   
 h1 
-  font-size 3.6rem
+  font-size $font-size_large
+  font-weight 300
   // allows h4 subhead to fit nicely
   margin-bottom 0
   width $text-container-width
@@ -24,9 +38,8 @@ a
 a:visited 
   color $link-light
 
-
 p 
-  margin 3.6rem 0 $margin-bottom 0
+  margin 2.4rem 0 $margin-bottom 0
   width $text-container-width
 
 // all p that are not perceeded by a p

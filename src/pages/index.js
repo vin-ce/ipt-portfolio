@@ -1,40 +1,89 @@
 import React from "react"
 import "../styles/styles.styl"
 import classes from "../styles/index.module.styl"
+import { toHTML } from "../utils/utils"
 
 import Layout from "../components/Layout"
-import data from "../../content/sections/front_page.json"
-import Filters from '../components/Filters'
-import ScrollDown from "../components/ScrollDown"
+import front_page_data from "../../content/sections/front_page.json"
+import about_data from "../../content/sections/about.json"
 
+
+import Filters from '../components/Filters'
+import ScrollDown from "../_old/ScrollDown"
+
+import { Controller, Scene } from 'react-scrollmagic';
 
 
 const Home = () => {
 
-  console.log(data)
+  const frontPageTriggerElStyles = {
+    position: 'absolute',
+    top: '5vh'
+  }
+
 
   return (
     <Layout>
+
       <div className={ classes.wrapper }>
 
-        <div className={ classes.frontPageContainer }>
-          <h1>
-            <span className={ classes.value }>{ data.value }</span>
-            <br />
-            { data.heading }
-          </h1>
-          <p className={ classes.companyDescription }>{ data.company_description }</p>
+        <div id="frontPageTriggerEl" style={ frontPageTriggerElStyles } />
+
+        <Controller>
+          <Scene
+            classToggle={ classes.mute }
+            triggerHook="onLeave"
+            triggerElement="#frontPageTriggerEl"
+          >
+            <div className={ classes.frontPageContainer }>
+              <h1>
+                <span className={ classes.value }>{ front_page_data.value }</span>
+                <br />
+                <span className={ classes.heading }>
+                  { front_page_data.heading }
+                </span>
+              </h1>
+            </div>
+          </Scene>
+        </Controller>
+
+        <div className={ classes.contentContainer }>
+
+          <Controller>
+            <Scene
+              classToggle={ classes.mute }
+              triggerHook="onLeave"
+              triggerElement="#frontPageTriggerEl"
+            >
+              <p className={ classes.companyDescription }>{ front_page_data.company_description }
+              </p>
+            </Scene>
+          </Controller>
+
+          <div className={ classes.content }>
+
+            <Controller>
+              <Scene
+                classToggle={ classes.mute }
+                // triggerHook="onLeave"
+                triggerElement="#aboutTriggerEl"
+              >
+                <div className={ classes.about } dangerouslySetInnerHTML={ { __html: toHTML(about_data.description) } } />
+              </Scene>
+            </Controller>
+
+            <div id="aboutTriggerEl" />
+
+            <Filters />
+          </div>
+
+
         </div>
 
-        <img src={ data.image } alt={ 'front page building' } className={ classes.frontImage } />
 
-        <ScrollDown scrollToId='categories' />
 
       </div>
-      <div id="categories" className={ classes.categoriesContainer }>
-        <Filters context="home" />
-      </div>
-    </Layout>
+    </Layout >
   )
 }
 

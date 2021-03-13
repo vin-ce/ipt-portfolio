@@ -1,29 +1,50 @@
 @import './variables.styl'
-$fromBottom = 3.6rem
 
-.wrapper 
-  width 100%
-  height 90vh
+.wrapper
+  margin-left 24rem
 
-  .frontPageContainer
-    z-index 2
-    position absolute
-    bottom $fromBottom
-    background rgba(255,255,255,0.75)
+.frontPageContainer
+  z-index 2
 
-    h1 
-      font-weight 400
+  .value
+    font-style italic
 
-    .value
-      color $ipt-orange
-      font-weight 700
+  .heading 
+    font-size $font-size_default
 
-    .companyDescription
-      margin-top 4.8rem
 
-  .frontImage
-    z-index 1
-    position absolute 
-    right $default-horizontal-margins
-    width $text-container-width
-    
+.contentContainer 
+  display flex
+
+  // .companyDescription
+  //   margin-top 3.6rem
+
+  .about
+    color $grey-600
+    em 
+      color $white
+
+  .content
+    margin-left 8rem
+
+
+.frontImage
+  z-index 1
+  position absolute 
+  right $default-horizontal-margins
+  width $text-container-width
+
+
+.frontPageContainer
+.companyDescription
+p
+em
+  transition $transition
+
+.mute
+  color $grey-800
+
+  p
+  em
+    color $grey-800 !important
+

@@ -1,21 +1,50 @@
 import React from "react"
-import { Link } from "gatsby"
 import classes from "../styles/nav.module.styl"
-import data from "../../content/sections/logo.json"
+import logo_data from "../../content/sections/logo.json"
+import { Controller, Scene } from 'react-scrollmagic';
+import SVG from "react-inlinesvg"
 
 // add sth to do with Helmet here
 const Nav = props => {
+
+  const scrollToTop = () => {
+    window.scroll({ top: 0, left: 0, behavior: 'smooth' })
+  }
+
+  const triggerElStyles = {
+    position: 'absolute',
+    top: '5vh'
+  }
+
   return (
-    <nav className={ classes.container }>
-      <Link to="/">
-        <img className={ classes.logo } src={ data.logo_image } />
-      </Link>
-      <div className={ classes.pageLinks }>
-        <Link to="/projects">Projects</Link>
-        <Link to="/about">About</Link>
-        <Link to="/contact">Contact</Link>
-      </div>
-    </nav>
+    <>
+      <div id='triggerEl' style={ triggerElStyles } />
+      <Controller>
+        <Scene
+          classToggle={ classes.mute }
+          triggerHook="onLeave"
+          triggerElement="#triggerEl"
+        >
+          <nav className={ classes.container }>
+            <span onClick={ scrollToTop }>
+              <SVG className={ classes.logo } src={ logo_data.logo_image } />
+            </span>
+
+            <div className={ classes.contact }
+            >
+
+              <span className={ classes.inTouch }>Get in touch</span> by emailing us at:
+              <br />
+              <a className={ classes.email } href="mailto:sean.wang@iptcreative.co.nz">sean.wang@iptcreative.co.nz</a>.
+
+            </div>
+
+
+
+          </nav>
+        </Scene>
+      </Controller>
+    </>
   )
 }
 

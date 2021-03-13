@@ -1,7 +1,7 @@
 @import './variables.styl'
 
 .container 
-  position absolute
+  position fixed
   top 0
   left 0
 
@@ -12,18 +12,42 @@
   display flex
   justify-content space-between
 
-  background-color white
+  pointer-events none
 
-
+.logo
+.contact
+.inTouch
+  pointer-events all
+  transition $transition
+  
 .logo 
-  max-height 4.8rem
+  height 4.8rem
+  cursor pointer
+  user-select none
+  filter $white_filter
 
-.pageLinks
+.contact
+  color $grey-600
+
+  .inTouch
+    color $white
+  
   a
     transition $transition
-
-    &:not(:first-of-type)
-      margin-left 3.6rem
-
     &:hover
-      color $ipt-orange
+      transition $transition-hover
+      color $white
+
+
+.mute
+  .logo
+    filter $grey-800_filter
+    
+    &:hover
+      transition $transition-hover
+      filter $white_filter
+
+  .contact
+  .inTouch
+  a
+    color $grey-800
