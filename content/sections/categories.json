@@ -7,55 +7,19 @@
           "section_name": "Architectural Design",
           "section_items": [
             {
-              "section_item_name": "Single Residential House"
+              "section_item_name": "Residential House Design"
             },
             {
-              "section_item_name": "Hill Residential House"
+              "section_item_name": "House Renovation"
             },
             {
-              "section_item_name": "Eco Passive House"
-            },
-            {
-              "section_item_name": "Factory Design"
-            },
-            {
-              "section_item_name": "Retain Renovation"
-            },
-            {
-              "section_item_name": "Apartment"
-            },
-            {
-              "section_item_name": "Mixed Development Buildings"
+              "section_item_name": "Shop / Factory Retrofit"
             }
           ],
           "section_icon": "/img/house-light.svg"
         },
         {
-          "section_name": "Building Information Modeling",
-          "section_items": [
-            {
-              "section_item_name": "Architectural Façade"
-            },
-            {
-              "section_item_name": "Civil and Building Structural Modelling"
-            },
-            {
-              "section_item_name": "Earthwork Cut and Fill Simulation Exercise"
-            },
-            {
-              "section_item_name": "Point Cloud Revit Modelling"
-            },
-            {
-              "section_item_name": "Pool Water Services"
-            },
-            {
-              "section_item_name": "Building Services"
-            }
-          ],
-          "section_icon": "/img/cube-light.svg"
-        },
-        {
-          "section_name": "Building Information Management",
+          "section_name": "BIM Documentation and Management",
           "section_icon": "/img/database-light.svg",
           "section_items": [
             {
@@ -69,33 +33,6 @@
             },
             {
               "section_item_name": "BIM Model Auditing"
-            }
-          ]
-        },
-        {
-          "section_name": "Technician Drawings",
-          "section_icon": "/img/pencil-light.svg",
-          "section_items": [
-            {
-              "section_item_name": "Architectural Design Documentation"
-            },
-            {
-              "section_item_name": "Structural Design Documentation"
-            },
-            {
-              "section_item_name": "Construction Shop Drawings"
-            }
-          ]
-        },
-        {
-          "section_name": "High Resolution Design Renders",
-          "section_icon": "/img/image-light.svg",
-          "section_items": [
-            {
-              "section_item_name": "Commercial"
-            },
-            {
-              "section_item_name": "Residential"
             }
           ]
         }
