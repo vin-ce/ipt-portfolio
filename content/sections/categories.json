@@ -4,6 +4,15 @@
       "category_name": "Capabilities",
       "category_items": [
         {
+          "section_name": "Predesign",
+          "section_items": [
+            {
+              "section_item_name": "Site Analysis and Feasibility Study"
+            }
+          ],
+          "section_icon": "/img/magnifying-glass-light.svg"
+        },
+        {
           "section_name": "Architectural Design",
           "section_items": [
             {
@@ -35,15 +44,6 @@
               "section_item_name": "BIM Model Auditing"
             }
           ]
-        },
-        {
-          "section_name": "Predesign",
-          "section_items": [
-            {
-              "section_item_name": "Site Analysis and Feasibility Study"
-            }
-          ],
-          "section_icon": "/img/magnifying-glass-light.svg"
         }
       ]
     }
