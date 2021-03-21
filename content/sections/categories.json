@@ -35,6 +35,15 @@
               "section_item_name": "BIM Model Auditing"
             }
           ]
+        },
+        {
+          "section_name": "Predesign",
+          "section_items": [
+            {
+              "section_item_name": "Site Analysis and Feasibility Study"
+            }
+          ],
+          "section_icon": "/img/magnifying-glass-light.svg"
         }
       ]
     }
