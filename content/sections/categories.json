@@ -7,7 +7,9 @@
           "section_name": "Predesign",
           "section_items": [
             {
-              "section_item_name": "Site Analysis and Feasibility Study"
+              "section_item_name": "Site Analysis and Feasibility Study",
+              "section_item_image": "/img/front-page-example-image.jpg",
+              "section_item_description": "Some description about feasibility study"
             }
           ],
           "section_icon": "/img/magnifying-glass-light.svg"
