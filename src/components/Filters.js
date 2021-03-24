@@ -1,12 +1,14 @@
-import React, { useRef, useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
+import SVG from "react-inlinesvg"
 
 import classes from "../styles/filters.module.styl"
 import data from "../../content/sections/categories.json"
 
 import { Controller, Scene } from 'react-scrollmagic';
 
+import SectionDescription from "./SectionDescription"
 
-const Filters = props => {
+const Filters = ({ createModal }) => {
 
   // forces a refresh that updates the duration in the section elements
   const [ hasElements, setHasElements ] = useState(false)
@@ -20,12 +22,13 @@ const Filters = props => {
 
   let filtersElArr = [];
 
+
+
+
   // creating the categories, sections and section item elements
   data.categories_list.forEach((category, categoryIndex) => {
 
     let sections = [];
-    // let sectionItems = [];
-
 
     if (category.category_items) {
       category.category_items.forEach((section, sectionIndex) => {
@@ -37,7 +40,9 @@ const Filters = props => {
           section.section_items.forEach((sectionItem, sectionItemIndex) => {
 
             const sectionItemEl = (
-              <span className={ classes.sectionItem } key={ `c-${categoryIndex}_s-${sectionIndex}_sI-${sectionItemIndex}` }>
+              <span className={ classes.sectionItem } key={ `c-${categoryIndex}_s-${sectionIndex}_sI-${sectionItemIndex}` }
+                onClick={ () => createModal(<SectionDescription data={ sectionItem } closeModal={ () => createModal(null) } />) }
+              >
                 { sectionItem.section_item_name }
               </span>
             )
@@ -57,21 +62,51 @@ const Filters = props => {
 
         if (sectionDomEl) sectionHeight = sectionDomEl.offsetHeight
 
-        const sectionEl = (
-          <Scene
-            key={ `c-${categoryIndex}_s-${sectionIndex}` }
-            classToggle={ classes.highlight }
-            duration={ sectionHeight }
-          >
-            <div id={ `c-${categoryIndex}_s-${sectionIndex}` } className={ sectionClasses.join(' ') }>
-              <span className={ classes.sectionName } >
+        let sectionEl;
 
-                { section.section_name }
-              </span>
-              { sectionItems }
-            </div >
-          </Scene>
-        )
+        if (sectionIndex === 0) {
+          sectionEl = (
+            <Scene
+              key={ `c-${categoryIndex}_s-${sectionIndex}` }
+              classToggle={ classes.removeHighlight }
+              triggerHook="onLeave"
+              triggerElement="#sectionTriggerEl"
+            >
+              <div id={ `c-${categoryIndex}_s-${sectionIndex}` } className={ [ classes.section, classes.highlight ].join(' ') }>
+                <span className={ classes.sectionName } >
+                  <SVG src={ section.section_icon } className={ classes.sectionIcon } />
+
+                  { section.section_name }
+                </span>
+                { sectionItems }
+              </div >
+            </Scene>
+          )
+          sections.push(
+            <div id="sectionTriggerEl" className={ classes.sectionTriggerEl } key={ 'sectionTriggerEl' } />
+          )
+
+
+        } else {
+          sectionEl = (
+            <Scene
+              key={ `c-${categoryIndex}_s-${sectionIndex}` }
+              classToggle={ classes.highlight }
+              duration={ sectionHeight }
+            >
+              <div id={ `c-${categoryIndex}_s-${sectionIndex}` } className={ sectionClasses.join(' ') }>
+                <span className={ classes.sectionName } >
+                  <SVG src={ section.section_icon } className={ classes.sectionIcon } />
+
+                  { section.section_name }
+                </span>
+                { sectionItems }
+              </div >
+            </Scene>
+          )
+
+        }
+
 
         sections.push(sectionEl)
         // reset for each loop

@@ -1,10 +1,51 @@
-.certificationContainer
-  margin-top 6.4rem
+@import './variables.styl'
+
+.container
+  width 30vw
+  // margin 4.8rem
+  margin 3vw
+
+.contact
+  // margin-top 6.4rem
+  margin-top 4vw
+
+  color $grey-400
+
+  .inTouch
+  .email
+    color $white
+
+  .email
+    &:hover
+      transition $transition-hover
+      color $ipt-orange
+
+.iconsContainer
+  // margin-top 3.6rem
+  // margin-top 2.25vw
+  margin-top 1vw
   
   img
-    max-height 5rem
-    
+    // max-height 5rem
+    max-height 3.1vw
+
+    transition $transition
+    opacity 0
+
+  .fadeIn
+    opacity 1
+
   a 
     &:not(:first-of-type)
-      margin-left 1rem
+      // margin-left 1rem
+      margin-left 0.62vw
       
+  .icon
+    // height 5rem
+    height 3.1vw
+    width initial
+    filter $white_filter
+
+    &:hover
+      transition $transition-hover
+      filter $ipt-orange_filter

@@ -1,89 +1,104 @@
-import React from "react"
+import React, { useState } from "react"
 import "../styles/styles.styl"
 import classes from "../styles/index.module.styl"
 import { toHTML } from "../utils/utils"
 
 import Layout from "../components/Layout"
-import front_page_data from "../../content/sections/front_page.json"
-import about_data from "../../content/sections/about.json"
-
-
 import Filters from '../components/Filters'
-import ScrollDown from "../_old/ScrollDown"
+import Nav from "../components/Nav"
+
+import frontPageData from "../../content/sections/front_page.json"
+import categoriesData from "../../content/sections/categories.json"
+
+
 
 import { Controller, Scene } from 'react-scrollmagic';
 
 
 const Home = () => {
 
-  const frontPageTriggerElStyles = {
-    position: 'absolute',
-    top: '5vh'
+  const [ modal, setModal ] = useState(null)
+
+  const createModal = (modalEl) => {
+
+    if (modalEl) {
+      setModal(modalEl)
+      const bodyEl = document.querySelector('body')
+      // cancels the scroll
+      bodyEl.style.overflow = "hidden"
+    }
+    else {
+      setModal(null)
+      document.querySelector('body').style.overflow = "auto"
+    }
   }
 
-
   return (
-    <Layout>
+    <>
+      <Layout>
 
-      <div className={ classes.wrapper }>
+        <div className={ classes.wrapper }>
 
-        <div id="frontPageTriggerEl" style={ frontPageTriggerElStyles } />
-
-        <Controller>
-          <Scene
-            classToggle={ classes.mute }
-            triggerHook="onLeave"
-            triggerElement="#frontPageTriggerEl"
-          >
-            <div className={ classes.frontPageContainer }>
-              <h1>
-                <span className={ classes.value }>{ front_page_data.value }</span>
-                <br />
-                <span className={ classes.heading }>
-                  { front_page_data.heading }
-                </span>
-              </h1>
-            </div>
-          </Scene>
-        </Controller>
-
-        <div className={ classes.contentContainer }>
+          <div id="triggerEl" className={ classes.triggerEl } />
 
           <Controller>
             <Scene
               classToggle={ classes.mute }
               triggerHook="onLeave"
-              triggerElement="#frontPageTriggerEl"
+              triggerElement="#triggerEl"
             >
-              <p className={ classes.companyDescription }>{ front_page_data.company_description }
-              </p>
+              <div className={ classes.frontPageContainer }>
+                <h1>
+                  <span className={ classes.value }>{ frontPageData.value }</span>
+                  <br />
+                  <span className={ classes.heading }>
+                    { frontPageData.heading }
+                  </span>
+                </h1>
+              </div>
             </Scene>
           </Controller>
 
-          <div className={ classes.content }>
+          <div className={ classes.contentContainer }>
 
             <Controller>
               <Scene
                 classToggle={ classes.mute }
-                // triggerHook="onLeave"
-                triggerElement="#aboutTriggerEl"
+                triggerHook="onLeave"
+                triggerElement="#triggerEl"
               >
-                <div className={ classes.about } dangerouslySetInnerHTML={ { __html: toHTML(about_data.description) } } />
+                <p className={ classes.companyDescription }>{ frontPageData.company_description }
+                </p>
               </Scene>
             </Controller>
 
-            <div id="aboutTriggerEl" />
+            <div className={ classes.content }>
 
-            <Filters />
+              <Controller>
+                <Scene
+                  classToggle={ classes.mute }
+                  triggerHook="onLeave"
+                  triggerElement="#triggerEl"
+                // indicators={ true }
+                >
+                  <div className={ classes.about } dangerouslySetInnerHTML={ { __html: toHTML(categoriesData.categories_overview_description) } } />
+                </Scene>
+              </Controller>
+
+              <Filters createModal={ createModal } />
+            </div>
+
+
           </div>
+
 
 
         </div>
 
-
-
-      </div>
-    </Layout >
+      </Layout >
+      { modal }
+      <Nav createModal={ createModal } />
+    </>
   )
 }
 

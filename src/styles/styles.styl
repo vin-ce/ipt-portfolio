@@ -7,8 +7,8 @@
 
 body 
   margin 0
-  // font-family 'EB Garamond'
-  font-family 'Cormorant Garamond'
+  font-family 'Avenir'
+  // font-family 'Cormorant Garamond'
   font-size $font-size_default
   line-height 1.5
   background-color $black
@@ -26,7 +26,8 @@ body
   
 h1 
   font-size $font-size_large
-  font-weight 300
+  // font-weight 300
+  font-weight 400
   // allows h4 subhead to fit nicely
   margin-bottom 0
   width $text-container-width
@@ -39,17 +40,18 @@ a:visited
   color $link-light
 
 p 
-  margin 2.4rem 0 $margin-bottom 0
+  // margin 2.4rem 0 $margin-bottom 0
+  margin 1.5vw 0 $margin-bottom 0
   width $text-container-width
 
 // all p that are not perceeded by a p
 :not(p) + p
   margin-top $margin-bottom
 
-@media(max-width 400px) 
+// @media(max-width 400px) 
   
-  h1 
-    font-size 3.2rem
+//   h1 
+//     font-size 3.2rem
 
-  body,
-    font-size 1.8rem
+//   body,
+//     font-size 1.8rem

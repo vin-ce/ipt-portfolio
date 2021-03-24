@@ -139,6 +139,10 @@ collections:
         editor:
           preview: false
         fields:
+          - label: "Categories Overview Description"
+            name: "categories_overview_description"
+            widget: text
+            
           - label: "Categories List"
             name: "categories_list"
             collapsed: true
@@ -164,3 +168,13 @@ collections:
                       - label: "Section Item Name"
                         name: "section_item_name"
                         widget: string
+                      - label: "Section Item Image"
+                        name: "section_item_image"
+                        widget: image
+                        required: false
+                      - label: "Section Item Description"
+                        name: "section_item_description"
+                        widget: text
+                        required: false
+
+

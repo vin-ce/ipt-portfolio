@@ -13,7 +13,7 @@ const Layout = props => {
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap" rel="stylesheet" />
       </Helmet>
-      <Nav />
+      {/* <Nav /> */ }
       <SmoothScroll>
         <div className={ classes.container }>
           { props.children }

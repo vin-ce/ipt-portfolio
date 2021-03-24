@@ -1,7 +1,8 @@
 @import './variables.styl'
 
 .filtersContainer
-  margin-top 8rem
+  // margin-top 8rem
+  margin-top 5vw
   margin-bottom 50vh
 
   // .category
@@ -17,7 +18,9 @@
   //       pointer-events none
 
   .sectionContainer
-    margin-top 1.8rem
+    // margin-top 1.6rem
+    margin-top 1.05vw
+
     // display flex
     // flex-wrap wrap
 
@@ -33,9 +36,16 @@
       //   color $ipt-orange
 
     .section
-      margin-right 2.4rem
-      margin-bottom 3.6rem
-      width 36rem
+      // margin-right 2.4rem
+      margin-right 1.5vw
+      // margin-bottom 3.6rem
+      margin-bottom 2.25vw
+      // width 36rem
+      width 22.5vw
+
+      // for section-item list
+      display flex
+      flex-direction column
 
       .sectionName
         font-size $font-size_large
@@ -44,32 +54,49 @@
         color $grey-600
 
         display block
-        margin-bottom 0.6rem
-        // display flex
-        // align-items center
-        // width max-content
+        // margin-bottom 0.6rem
+        margin-bottom 0.38vw
+
+        // if have icon
+        display flex
+        align-items center
+        width max-content
 
         // &:hover 
         //   .sectionIcon
         //     filter $ipt-orange_filter
 
-        // .sectionIcon
-        //   icon-wrapper()
-        //   height 1.6rem
-        //   width 1.6rem
-        //   filter $grey-400_filter
+        .sectionIcon
+          icon-wrapper()
+          height $font-size_large
+          width $font-size_large
+          filter $grey-600_filter
 
           // so onClick selected proper span with info
           // pointer-events none
 
       .sectionItem
-        display block
+        // display block
         color $grey-800
-        // margin-left 2.4rem
+        // margin-left $font-size_large + 0.6rem // 0.6rem is margin on icon
+        // margin-left 3.6rem // 0.6rem is margin on icon
+        margin-left 2.25vw // 0.6rem is margin on icon
+        
         // margin-top 0.6rem
+        cursor pointer
+
+        // so each item does not take full length
+        width max-content
+
+        &:hover
+          color $ipt-orange !important
 
     .section.noChildren
       width unset
+
+.sectionTriggerEl
+  position absolute
+  top 5vh
 
 .sectionName
 .sectionItem
@@ -79,3 +106,16 @@
   .sectionName
   .sectionItem
     color $white !important
+  
+  .sectionIcon
+    filter $white_filter !important
+
+// applied to first section
+.removeHighlight
+  .sectionName
+    color $grey-600 !important
+  .sectionItem
+    color $grey-800 !important
+
+  .sectionIcon
+    filter $grey-600_filter !important

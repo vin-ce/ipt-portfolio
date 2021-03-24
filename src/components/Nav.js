@@ -4,6 +4,8 @@ import logo_data from "../../content/sections/logo.json"
 import { Controller, Scene } from 'react-scrollmagic';
 import SVG from "react-inlinesvg"
 
+import About from "./About"
+
 // add sth to do with Helmet here
 const Nav = props => {
 
@@ -30,16 +32,16 @@ const Nav = props => {
               <SVG className={ classes.logo } src={ logo_data.logo_image } />
             </span>
 
-            <div className={ classes.contact }
+            <div
+              className={ classes.about }
+              onClick={ () => props.createModal(<About closeModal={ () => props.createModal(null) } />) }
             >
-
-              <span className={ classes.inTouch }>Get in touch</span> by emailing us at:
+              About
+              {/* <span className={ classes.inTouch }>Get in touch</span> by emailing us at:
               <br />
-              <a className={ classes.email } href="mailto:sean.wang@iptcreative.co.nz">sean.wang@iptcreative.co.nz</a>.
+              <a className={ classes.email } href="mailto:sean.wang@iptcreative.co.nz">sean.wang@iptcreative.co.nz</a>. */}
 
             </div>
-
-
 
           </nav>
         </Scene>
