@@ -1,6 +1,7 @@
 import React from "react"
 import classes from "../styles/sectionDescription.module.styl"
 import Modal from "./Modal"
+import { toHTML } from "../utils/utils"
 
 const SectionDescription = (props) => {
 
@@ -13,7 +14,7 @@ const SectionDescription = (props) => {
       <div className={ classes.container }>
         <img onLoad={ fadeIn } src={ props.data.section_item_image } />
         <h1>{ props.data.section_item_name }</h1>
-        <p>{ props.data.section_item_description }</p>
+        <p dangerouslySetInnerHTML={ { __html: toHTML(props.data.section_item_description) } }> </p>
       </div>
     </Modal>
   )

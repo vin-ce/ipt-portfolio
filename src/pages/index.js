@@ -46,6 +46,7 @@ const Home = () => {
               classToggle={ classes.mute }
               triggerHook="onLeave"
               triggerElement="#triggerEl"
+            // indicators={ true }
             >
               <div className={ classes.frontPageContainer }>
                 <h1>
@@ -58,8 +59,8 @@ const Home = () => {
               </div>
             </Scene>
           </Controller>
-
           <div className={ classes.contentContainer }>
+
 
             <Controller>
               <Scene
@@ -71,10 +72,9 @@ const Home = () => {
                 </p>
               </Scene>
             </Controller>
-
             <div className={ classes.content }>
 
-              <Controller>
+              {/* <Controller>
                 <Scene
                   classToggle={ classes.mute }
                   triggerHook="onLeave"
@@ -83,7 +83,7 @@ const Home = () => {
                 >
                   <div className={ classes.about } dangerouslySetInnerHTML={ { __html: toHTML(categoriesData.categories_overview_description) } } />
                 </Scene>
-              </Controller>
+              </Controller> */}
 
               <Filters createModal={ createModal } />
             </div>

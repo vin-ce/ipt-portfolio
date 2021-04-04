@@ -90,7 +90,7 @@ collections:
           - {
               label: "Company Description",
               name: "company_description",
-              widget: "string",
+              widget: "text",
             }
           - { label: "Image", name: "image", widget: "image" }
 
@@ -174,7 +174,8 @@ collections:
                         required: false
                       - label: "Section Item Description"
                         name: "section_item_description"
-                        widget: text
+                        widget: markdown
+                        buttons: [bold, italic, numbered-list, bulleted-list]
                         required: false
 
 

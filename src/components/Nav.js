@@ -20,12 +20,12 @@ const Nav = props => {
 
   return (
     <>
-      <div id='triggerEl' style={ triggerElStyles } />
+      <div id='navTriggerEl' style={ triggerElStyles } />
       <Controller>
         <Scene
           classToggle={ classes.mute }
           triggerHook="onLeave"
-          triggerElement="#triggerEl"
+          triggerElement="#navTriggerEl"
         >
           <nav className={ classes.container }>
             <span onClick={ scrollToTop }>
