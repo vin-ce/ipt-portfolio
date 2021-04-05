@@ -46,6 +46,8 @@ const About = props => {
     )
   })
 
+  console.log('ABOUT', aboutData.description)
+
   return (
     <Modal closeModal={ props.closeModal }>
       <div className={ classes.container }>

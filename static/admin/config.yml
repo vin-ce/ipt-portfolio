@@ -139,43 +139,43 @@ collections:
         editor:
           preview: false
         fields:
-          - label: "Categories Overview Description"
-            name: "categories_overview_description"
-            widget: text
+          # - label: "Categories Overview Description"
+          #   name: "categories_overview_description"
+          #   widget: text
             
-          - label: "Categories List"
-            name: "categories_list"
-            collapsed: true
+          # - label: "Categories List"
+          #   name: "categories_list"
+          #   collapsed: true
+          #   widget: list
+          #   fields:
+          # - label: "Category Name"
+          #   name: "category_name"
+          #   widget: string
+          - label: "Category Items"
+            name: "category_items"
             widget: list
             fields:
-              - label: "Category Name"
-                name: "category_name"
+              - label: "Section Name"
+                name: "section_name"
                 widget: string
-              - label: "Category Items"
-                name: "category_items"
-                widget: list
-                fields:
-                  - label: "Section Name"
-                    name: "section_name"
-                    widget: string
-                  - label: "Section Icon"
-                    name: "section_icon"
-                    widget: image
-                  - label: "Section Items"
-                    name: "section_items"
-                    widget: list
-                    fields:
-                      - label: "Section Item Name"
-                        name: "section_item_name"
-                        widget: string
-                      - label: "Section Item Image"
-                        name: "section_item_image"
-                        widget: image
-                        required: false
-                      - label: "Section Item Description"
-                        name: "section_item_description"
-                        widget: markdown
-                        buttons: [bold, italic, numbered-list, bulleted-list]
-                        required: false
+              - label: "Section Icon"
+                name: "section_icon"
+                widget: image
+              - label: "Section Image"
+                name: "section_image"
+                widget: image
+                required: false
+              - label: "Section Description"
+                name: "section_description"
+                widget: markdown
+                buttons: [bold, italic, numbered-list, bulleted-list]
+                required: false
+                  # - label: "Section Items"
+                  #   name: "section_items"
+                    # widget: list
+                    # fields:
+                    #   - label: "Section Item Name"
+                    #     name: "section_item_name"
+                    #     widget: string
 
 

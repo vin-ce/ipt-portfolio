@@ -43,14 +43,14 @@ const Filters = props => {
       const sectionIndex = parseInt(curEl.getAttribute('data-section_index'))
       const sectionItemIndex = parseInt(curEl.getAttribute('data-section_item_index'))
 
-      const parentSectionName = data.categories_list[categoryIndex].category_items[sectionIndex].section_name
+      const parentSectionName = data.categories_list[ categoryIndex ].category_items[ sectionIndex ].section_name
       const parentSectionEl = document.querySelector(`span[name="${parentSectionName}"]`)
 
       // siblings of clicked section item
-      const sectionItemsArr = data.categories_list[categoryIndex].category_items[sectionIndex].section_items
+      const sectionItemsArr = data.categories_list[ categoryIndex ].category_items[ sectionIndex ].section_items
 
       const sectionIsSelected = curEl.classList.contains(classes.selected)
-      const selectedFiltersArrCopy = [...props.selectedFiltersArr]
+      const selectedFiltersArrCopy = [ ...props.selectedFiltersArr ]
 
       // ------------------------------
 
@@ -88,7 +88,7 @@ const Filters = props => {
         // b2 - if there is a sibling that is selected
         let hasOtherSelected = false;
         for (let i = 0; i < sectionItemsArr.length; i++) {
-          if (selectedFiltersArrCopy.indexOf(sectionItemsArr[i].section_item_name) > -1) {
+          if (selectedFiltersArrCopy.indexOf(sectionItemsArr[ i ].section_item_name) > -1) {
             hasOtherSelected = true;
             break;
           }
@@ -143,9 +143,9 @@ const Filters = props => {
       const categoryIndex = parseInt(curEl.getAttribute('data-category_index'))
       const sectionIndex = parseInt(curEl.getAttribute('data-section_index'))
 
-      const sectionItemsArr = data.categories_list[categoryIndex].category_items[sectionIndex].section_items
+      const sectionItemsArr = data.categories_list[ categoryIndex ].category_items[ sectionIndex ].section_items
 
-      const selectedFiltersArrCopy = [...props.selectedFiltersArr]
+      const selectedFiltersArrCopy = [ ...props.selectedFiltersArr ]
 
       const categoryIsSelected = curEl.classList.contains(classes.selected)
 
@@ -194,7 +194,7 @@ const Filters = props => {
         state: {
           filter: {
             type: 'section',
-            categoryName: data.categories_list[curEl.getAttribute('data-category_index')].category_name,
+            categoryName: data.categories_list[ curEl.getAttribute('data-category_index') ].category_name,
 
             name: curEl.getAttribute("name")
           }
@@ -247,7 +247,7 @@ const Filters = props => {
         }
 
         // pretty much obsolete as no building types filter
-        const sectionClasses = [classes.section]
+        const sectionClasses = [ classes.section ]
         if (sectionItems.length === 0) sectionClasses.push(classes.noChildren)
 
         const sectionEl = (
@@ -321,7 +321,7 @@ const Filters = props => {
     const hasBuildingTypesFilter = buildingTypesData.names.some(name => props.selectedFiltersArr.includes(name))
 
     if (hasBuildingTypesFilter) {
-      const selectedFilterName = props.selectedFiltersArr[0]
+      const selectedFilterName = props.selectedFiltersArr[ 0 ]
       let selectedFilterIcon;
 
       buildingTypesData.full.forEach(section => {
@@ -344,10 +344,10 @@ const Filters = props => {
 
           </div>
           <div className={ classes.sectionContainer }>
-            <div className={ [classes.section, classes.noChildren].join(' ') }>
+            <div className={ [ classes.section, classes.noChildren ].join(' ') }>
               <span
                 onClick={ () => removeBuildingTypesEl(selectedFilterName) }
-                className={ [classes.sectionName, classes.active, classes.selected].join(" ") }
+                className={ [ classes.sectionName, classes.active, classes.selected ].join(" ") }
               >
                 <SVG src={ selectedFilterIcon } className={ classes.sectionIcon } />
                 { selectedFilterName }
@@ -384,7 +384,7 @@ const Filters = props => {
 
 
 
-  const filtersClasses = [classes.filtersContainer]
+  const filtersClasses = [ classes.filtersContainer ]
   if (props.context === 'home') filtersClasses.push(classes.home)
 
   return (

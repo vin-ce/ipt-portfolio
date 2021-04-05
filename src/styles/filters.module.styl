@@ -65,9 +65,12 @@
         align-items center
         width max-content
 
-        // &:hover 
-        //   .sectionIcon
-        //     filter $ipt-orange_filter
+        cursor pointer
+
+        &:hover 
+          color $ipt-orange
+          .sectionIcon
+            filter $ipt-orange_filter
 
         .sectionIcon
           icon-wrapper()
@@ -105,20 +108,27 @@
 .sectionItem
   transition $transition
 
+
+
 .highlight
   .sectionName
   .sectionItem
-    color $white !important
+    color $white 
   
   .sectionIcon
-    filter $white_filter !important
+    filter $white_filter 
 
 // applied to first section
 .removeHighlight
   .sectionName
-    color $grey-600 !important
+    color $grey-600 
   .sectionItem
-    color $grey-800 !important
+    color $grey-800 
 
   .sectionIcon
-    filter $grey-600_filter !important
+    filter $grey-600_filter 
+
+    &:hover 
+      color $ipt-orange 
+      .sectionIcon
+        filter $ipt-orange_filter 

@@ -9,12 +9,13 @@ const SectionDescription = (props) => {
   const fadeIn = (e) => {
     e.target.classList.add(classes.fadeIn)
   }
+
   return (
     <Modal closeModal={ props.closeModal }>
       <div className={ classes.container }>
-        <img onLoad={ fadeIn } src={ props.data.section_item_image } />
-        <h1>{ props.data.section_item_name }</h1>
-        <p dangerouslySetInnerHTML={ { __html: toHTML(props.data.section_item_description) } }> </p>
+        <img onLoad={ fadeIn } src={ props.data.section_image } />
+        <h1>{ props.data.section_name }</h1>
+        <p dangerouslySetInnerHTML={ { __html: toHTML(props.data.section_description) } } />
       </div>
     </Modal>
   )
