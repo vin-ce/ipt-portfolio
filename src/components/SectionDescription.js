@@ -15,7 +15,7 @@ const SectionDescription = (props) => {
       <div className={ classes.container }>
         <img onLoad={ fadeIn } src={ props.data.section_image } />
         <h1>{ props.data.section_name }</h1>
-        <p dangerouslySetInnerHTML={ { __html: toHTML(props.data.section_description) } } />
+        <div className={ classes.descriptionContainer } dangerouslySetInnerHTML={ { __html: toHTML(props.data.section_description) } } />
       </div>
     </Modal>
   )

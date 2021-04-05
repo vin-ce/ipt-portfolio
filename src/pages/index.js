@@ -20,6 +20,7 @@ const Home = () => {
   const [ modal, setModal ] = useState(null)
 
   const createModal = (modalEl) => {
+    console.log("MODAL")
 
     if (modalEl) {
       setModal(modalEl)

@@ -59,6 +59,7 @@ const Filters = ({ createModal }) => {
     let sectionDomEl;
     if (hasElements) sectionDomEl = document.getElementById(`s-${sectionIndex}`)
     let sectionHeight = 0;
+    console.log(sectionDomEl)
 
     if (sectionDomEl) sectionHeight = sectionDomEl.offsetHeight
 
@@ -77,10 +78,9 @@ const Filters = ({ createModal }) => {
               onClick={ () => createModal(<SectionDescription data={ section } closeModal={ () => createModal(null) } />) }
             >
               <SVG src={ section.section_icon } className={ classes.sectionIcon } />
-
               { section.section_name }
             </span>
-            { sectionItems }
+            {/* { sectionItems } */ }
           </div >
         </Scene>
       )
@@ -95,9 +95,12 @@ const Filters = ({ createModal }) => {
           key={ `s-${sectionIndex}` }
           classToggle={ classes.highlight }
           duration={ sectionHeight }
+        // indicators={ true }
         >
           <div id={ `s-${sectionIndex}` } className={ sectionClasses.join(' ') }>
-            <span className={ classes.sectionName } >
+            <span className={ classes.sectionName }
+              onClick={ () => createModal(<SectionDescription data={ section } closeModal={ () => createModal(null) } />) }
+            >
               <SVG src={ section.section_icon } className={ classes.sectionIcon } />
 
               { section.section_name }
