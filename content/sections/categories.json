@@ -26,7 +26,7 @@
     {
       "section_name": "Construction",
       "section_icon": "/img/nut-light.svg",
-      "section_description": "IPT develops digital construction models to help constructors to solve critical on-site issues to minimise on site risk. IPT service covers site and services pipework set out, 3D shop drawings, and post-construction as-built model delivery.\n\nImplementation:\n\n* Construction Drawings \n\n  1. 3D Façade Model for coordination only\n  2. Services Shop Drawings\n  3. Passive Fire Qualification Study \n* Steel and Aluminium Shop Drawing Geometry and Consistency Review\n* Model Content Review and Clash Detection\n* As-built model"
+      "section_description": "IPT develops digital construction models to help constructors to solve critical on-site issues to minimise on site risk. IPT service covers site and services pipework set out, 3D shop drawings, and post-construction as-built model delivery.\n\nImplementation:\n\n* Construction Drawings \n\n  1. 3D Façade Model \\\n     for coordination only\n  2. Services Shop Drawings\n  3. Passive Fire Qualification Study \n* Steel and Aluminium Shop Drawing Geometry and Consistency Review\n* Model Content Review and Clash Detection\n* As-built model"
     }
   ],
   "category_name": "Categories"
