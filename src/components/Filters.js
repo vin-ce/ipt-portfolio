@@ -53,64 +53,32 @@ const Filters = ({ createModal }) => {
 
     // pretty much obsolete as no building types filter
     const sectionClasses = [ classes.section ]
-    if (sectionItems.length === 0) sectionClasses.push(classes.noChildren)
+    // if (sectionItems.length === 0) sectionClasses.push(classes.noChildren)
 
 
-    let sectionDomEl;
-    if (hasElements) sectionDomEl = document.getElementById(`s-${sectionIndex}`)
-    let sectionHeight = 0;
-    console.log(sectionDomEl)
+    // let sectionDomEl;
+    // if (hasElements) sectionDomEl = document.getElementById(`s-${sectionIndex}`)
+    // let sectionHeight = 0;
+    // console.log(sectionDomEl)
 
-    if (sectionDomEl) sectionHeight = sectionDomEl.offsetHeight
+    // if (sectionDomEl) sectionHeight = sectionDomEl.offsetHeight
 
     let sectionEl;
 
-    if (sectionIndex === 0) {
-      sectionEl = (
-        <Scene
-          key={ `s-${sectionIndex}` }
-          classToggle={ classes.removeHighlight }
-          triggerHook="onLeave"
-          triggerElement="#sectionTriggerEl"
+    sectionEl = (
+
+      <div id={ `s-${sectionIndex}` } className={ sectionClasses.join(' ') }>
+        <span className={ classes.sectionName }
+          onClick={ () => createModal(<SectionDescription data={ section } closeModal={ () => createModal(null) } />) }
         >
-          <div id={ `s-${sectionIndex}` } className={ [ classes.section, classes.highlight ].join(' ') }>
-            <span className={ classes.sectionName }
-              onClick={ () => createModal(<SectionDescription data={ section } closeModal={ () => createModal(null) } />) }
-            >
-              <SVG src={ section.section_icon } className={ classes.sectionIcon } />
-              { section.section_name }
-            </span>
-            {/* { sectionItems } */ }
-          </div >
-        </Scene>
-      )
-      sections.push(
-        <div id="sectionTriggerEl" className={ classes.sectionTriggerEl } key={ 'sectionTriggerEl' } />
-      )
+          {/* <SVG src={ section.section_icon } className={ classes.sectionIcon } /> */ }
 
+          { section.section_name }
+        </span>
+        { sectionItems }
+      </div >
+    )
 
-    } else {
-      sectionEl = (
-        <Scene
-          key={ `s-${sectionIndex}` }
-          classToggle={ classes.highlight }
-          duration={ sectionHeight }
-        // indicators={ true }
-        >
-          <div id={ `s-${sectionIndex}` } className={ sectionClasses.join(' ') }>
-            <span className={ classes.sectionName }
-              onClick={ () => createModal(<SectionDescription data={ section } closeModal={ () => createModal(null) } />) }
-            >
-              <SVG src={ section.section_icon } className={ classes.sectionIcon } />
-
-              { section.section_name }
-            </span>
-            { sectionItems }
-          </div >
-        </Scene>
-      )
-
-    }
 
 
     sections.push(sectionEl)
@@ -130,9 +98,7 @@ const Filters = ({ createModal }) => {
     //   </div>
     // <div className={ classes.sectionContainer } key={ `c-${categoryIndex}` }>
     <div className={ classes.sectionContainer } >
-      <Controller >
-        { sections }
-      </Controller>
+      { sections }
     </div >
     // </div>
   )

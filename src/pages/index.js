@@ -40,56 +40,27 @@ const Home = () => {
 
         <div className={ classes.wrapper }>
 
-          <div id="triggerEl" className={ classes.triggerEl } />
+          {/* <div id="triggerEl" className={ classes.triggerEl } /> */ }
 
-          <Controller>
-            <Scene
-              classToggle={ classes.mute }
-              triggerHook="onLeave"
-              triggerElement="#triggerEl"
-            // indicators={ true }
-            >
-              <div className={ classes.frontPageContainer }>
-                <h1>
-                  <span className={ classes.value }>{ frontPageData.value }</span>
-                  <br />
-                  <span className={ classes.heading }>
-                    { frontPageData.heading }
-                  </span>
-                </h1>
-              </div>
-            </Scene>
-          </Controller>
+
+
           <div className={ classes.contentContainer }>
+            <Filters createModal={ createModal } />
+            {/* <div className={ classes.content }> */ }
+            {/* </div> */ }
 
+          </div>
 
-            <Controller>
-              <Scene
-                classToggle={ classes.mute }
-                triggerHook="onLeave"
-                triggerElement="#triggerEl"
-              >
-                <p className={ classes.companyDescription }>{ frontPageData.company_description }
-                </p>
-              </Scene>
-            </Controller>
-            <div className={ classes.content }>
+          <div className={ classes.frontPageContainer }>
+            <h1>
+              <span className={ classes.value }>{ frontPageData.value }</span>
+              <br />
+              <div className={ classes.heading }>
+                { frontPageData.heading }
+              </div>
+            </h1>
 
-              {/* <Controller>
-                <Scene
-                  classToggle={ classes.mute }
-                  triggerHook="onLeave"
-                  triggerElement="#triggerEl"
-                // indicators={ true }
-                >
-                  <div className={ classes.about } dangerouslySetInnerHTML={ { __html: toHTML(categoriesData.categories_overview_description) } } />
-                </Scene>
-              </Controller> */}
-
-              <Filters createModal={ createModal } />
-            </div>
-
-
+            <p className={ classes.companyDescription }>{ frontPageData.company_description } </p>
           </div>
 
 

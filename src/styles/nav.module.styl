@@ -17,6 +17,12 @@
 
   z-index 50
 
+.logoGroup
+  display flex
+
+  .heading
+    margin-left $default-horizontal-margins
+
 .logo
 .about
 // .inTouch
@@ -26,13 +32,13 @@
 .logo 
   // height 4.8rem
   height 3vw
-  cursor pointer
+  // cursor pointer
   user-select none
   filter $white_filter
 
 .about
-  // color $grey-600
-  color $white
+  color $grey-600
+  // color $white
   cursor pointer
 
   &:hover
@@ -46,18 +52,18 @@
   //   transition $transition
 
 
-.mute
-  .logo
-    filter $grey-800_filter
+// .mute
+//   .logo
+//     filter $grey-800_filter
     
-    &:hover
-      transition $transition-hover
-      filter $white_filter
+//     &:hover
+//       transition $transition-hover
+//       filter $white_filter
 
-  .about
-    &:hover
-      transition $transition-hover
-      color $ipt-orange
+//   .about
+//     &:hover
+//       transition $transition-hover
+//       color $ipt-orange
   // .contact
   // .inTouch
   // a

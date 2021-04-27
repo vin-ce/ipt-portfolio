@@ -1,36 +1,55 @@
 @import './variables.styl'
 
 .container
-  width 30vw
+  
+  // width 30vw
   // margin 4.8rem
-  margin 3vw
+  margin $default-horizontal-margins 
+  margin-top $margin-top-nav
+  margin-left $text-container-width
 
   // this fits the stuff inside the container to its height
   display flex
-  flex-direction column
+  // flex-direction column
 
-  img
-    transition $transition
-    opacity 0
+  .textContainer
+    width $text-container-width
+    margin-right $default-horizontal-margins
+
+    p 
+      &:first-of-type
+        margin-top 0
+
 
 
   h1 
-    margin 0.75vw
+    margin 0
+    position absolute
+    font-style italic
 
-  .descriptionContainer
-    margin 0 0.75vw
-    padding-right 0.75vw
-    overflow-y auto
+    span 
+      position relative
+      top -3vw //2x 1.5
+    // margin 0.75vw
+
+  // .descriptionContainer
+  //   margin 0 0.75vw
+    // padding-right 0.75vw
+    // overflow-y auto
+
+  // img
+  // h1
+  // p
 
   .fadeIn
     opacity 1
 
-  img
-  h1
-  p
-    width 100%
-
   img 
     // height 30vw
+    transition $transition
+    opacity 0
+    width $text-container-width
     height 22.5vw
     object-fit cover
+
+  

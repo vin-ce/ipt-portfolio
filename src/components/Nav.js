@@ -3,6 +3,7 @@ import classes from "../styles/nav.module.styl"
 import logo_data from "../../content/sections/logo.json"
 import { Controller, Scene } from 'react-scrollmagic';
 import SVG from "react-inlinesvg"
+import frontPageData from "../../content/sections/front_page.json"
 
 import About from "./About"
 
@@ -19,34 +20,36 @@ const Nav = props => {
   }
 
   return (
-    <>
-      <div id='navTriggerEl' style={ triggerElStyles } />
-      <Controller>
-        <Scene
-          classToggle={ classes.mute }
-          triggerHook="onLeave"
-          triggerElement="#navTriggerEl"
-        >
-          <nav className={ classes.container }>
-            <span onClick={ scrollToTop }>
-              <SVG className={ classes.logo } src={ logo_data.logo_image } />
-            </span>
+    // <>
+    //   <div id='navTriggerEl' style={ triggerElStyles } />
+    //   <Controller>
+    //     <Scene
+    //       classToggle={ classes.mute }
+    //       triggerHook="onLeave"
+    //       triggerElement="#navTriggerEl"
+    //     >
+    <nav className={ classes.container }>
+      {/* <span onClick={ scrollToTop }> */ }
+      {/* </span> */ }
 
-            <div
-              className={ classes.about }
-              onClick={ () => props.createModal(<About closeModal={ () => props.createModal(null) } />) }
-            >
-              About
-              {/* <span className={ classes.inTouch }>Get in touch</span> by emailing us at:
-              <br />
-              <a className={ classes.email } href="mailto:sean.wang@iptcreative.co.nz">sean.wang@iptcreative.co.nz</a>. */}
+      <span className={ classes.logoGroup }>
+        <SVG className={ classes.logo } src={ logo_data.logo_image } />
+        {/* <div className={ classes.heading }>
+          { frontPageData.heading }
+        </div> */}
+      </span>
 
-            </div>
+      <div
+        className={ classes.about }
+        onClick={ () => props.createModal(<About closeModal={ () => props.createModal(null) } />) }
+      >
+        About
+      </div>
 
-          </nav>
-        </Scene>
-      </Controller>
-    </>
+    </nav>
+    //   </Scene>
+    //   </Controller>
+    // </> 
   )
 }
 

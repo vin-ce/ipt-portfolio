@@ -51,8 +51,8 @@ const About = props => {
   return (
     <Modal closeModal={ props.closeModal }>
       <div className={ classes.container }>
-        <h1>About</h1>
-        <div dangerouslySetInnerHTML={ { __html: toHTML(aboutData.description) } } />
+        <h1><span>About</span></h1>
+        <div className={ classes.description } dangerouslySetInnerHTML={ { __html: toHTML(aboutData.description) } } />
         {/* <div className={ classes.aboutDescription }>
         </div> */}
         <div className={ classes.iconsContainer }>{ images }</div>

@@ -1,7 +1,13 @@
 @import './variables.styl'
 
 .wrapper
-  margin-left 15vw
+  // margin-left 15vw
+
+  margin-top $margin-top-nav 
+
+  display flex
+  justify-content space-between
+  
 
   .triggerEl
     position absolute
@@ -10,14 +16,20 @@
 .frontPageContainer
   z-index 2
 
+  h1 
+    margin-top 0
+
   .value
     font-style italic
 
   .heading 
     font-size $font-size_default
+    margin 2.25vw 0
 
-
-
+.companyDescription
+  color $grey-600
+  &:hover
+    color $white
 
 .contentContainer 
   display flex
@@ -29,16 +41,16 @@
     // color $white
 
 
-  .content
-    // margin-left 8rem
-    margin-left 5vw
+  // .content
+  //   // margin-left 8rem
+  //   margin-left 5vw
 
 
-.frontImage
-  z-index 1
-  position absolute 
-  right $default-horizontal-margins
-  width $text-container-width
+// .frontImage
+//   z-index 1
+//   position absolute 
+//   right $default-horizontal-margins
+//   width $text-container-width
 
 
 .frontPageContainer
@@ -47,10 +59,10 @@ p
 em
   transition $transition
 
-.mute
-  color $grey-800
+// .mute
+//   color $grey-800
 
-  p
-  em
-    color $grey-800 !important
+//   p
+//   em
+//     color $grey-800 !important
 
