@@ -20,20 +20,13 @@ const Nav = props => {
   }
 
   return (
-    // <>
-    //   <div id='navTriggerEl' style={ triggerElStyles } />
-    //   <Controller>
-    //     <Scene
-    //       classToggle={ classes.mute }
-    //       triggerHook="onLeave"
-    //       triggerElement="#navTriggerEl"
-    //     >
+
     <nav className={ classes.container }>
       {/* <span onClick={ scrollToTop }> */ }
       {/* </span> */ }
 
       <span className={ classes.logoGroup }>
-        <SVG className={ classes.logo } src={ logo_data.logo_image } />
+        {/* <SVG className={ classes.logo } src={ logo_data.logo_image } /> */}
         {/* <div className={ classes.heading }>
           { frontPageData.heading }
         </div> */}
@@ -41,15 +34,13 @@ const Nav = props => {
 
       <div
         className={ classes.about }
-        onClick={ () => props.createModal(<About closeModal={ () => props.createModal(null) } />) }
+        // onClick={ () => props.createModal(<About closeModal={ () => props.createModal(null) } />) }
       >
         About
       </div>
 
     </nav>
-    //   </Scene>
-    //   </Controller>
-    // </> 
+
   )
 }
 

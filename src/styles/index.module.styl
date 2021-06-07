@@ -5,80 +5,105 @@
 
   margin-top $margin-top-nav 
 
-  display flex
+  // display flex
   justify-content space-between
   
 
   // .triggerEl
   // position absolute
   // top 5vh
+  
+  .frontPageContainer
 
+    z-index 2
+    // margin-right 3vw
 
-  .imageAndFilterWrapper
+    // h1 
+    //   margin-top 0
+
+    font-size $font-size_large
+
+    .value
+      // font-style italic
+      display flex
+      font-weight 700
+      .orange
+        color $ipt-orange
+      
+      .logo 
+        pointer-events all
+        transition $transition
+        // height 4.8rem
+        height 3vw
+        margin-right 0.75vw
+        // cursor pointer
+        user-select none
+        filter $grey-600_filter
+    
+        &:hover
+          transition $transition-hover
+          filter $white_filter
+
+    .heading 
+      // margin 2.25vw 0
+      // font-style italic
+      font-weight 200
+
+  .contentContainer
     display flex
+    margin-top 1.05vw
+    justify-content space-between
 
-  .fadeIn
-    opacity 1
+    .descriptionContainer
+      display flex
 
-  img 
+      .companyDescription
+        color $grey-600
+        margin-top 0
+        height min-content
+
+        &:hover
+          color $white
+
+      p 
+        &:first-of-type
+          margin-top 0
+
+      ul
+        p
+          width 100%
+          
+
+  .frontPageContainer
+  .companyDescription
+  p
+  em
     transition $transition
-    opacity 0
-    width 33.75vw
-    height 22.5vw
-    object-fit cover
-    margin-right 3vw
 
+  // .mute
+  //   color $grey-800
 
-.frontPageContainer
-  z-index 2
-  // margin-right 3vw
+  //   p
+  //   em
+  //     color $grey-800 !important
 
-  h1 
-    margin-top 0
-
-  .value
-    font-style italic
-
-  .heading 
-    font-size $font-size_default
-    margin 2.25vw 0
-
-.companyDescription
-  color $grey-600
-  &:hover
-    color $white
-
-.contentContainer 
-  display flex
-
-  // .companyDescription
-  //   margin-top 3.6rem
-
-  // .about
-    // color $white
-
-
-  // .content
-  //   // margin-left 8rem
-  //   margin-left 5vw
-
-
-// .frontImage
-//   z-index 1
-//   position absolute 
-//   right $default-horizontal-margins
-//   width $text-container-width
-
-
-.frontPageContainer
-.companyDescription
-p
-em
+.page
+  opacity 0
   transition $transition
 
-// .mute
-//   color $grey-800
+.fadeIn
+  opacity 1
 
-//   p
-//   em
-//     color $grey-800 !important
+
+
+img 
+  transition $transition
+  // opacity 0
+  // width 33.75vw
+  // height 22.5vw
+  // width 45vw
+  width 30vw
+  height 30vw
+  object-fit cover
+  margin-left 3vw
+  margin-right 3vw

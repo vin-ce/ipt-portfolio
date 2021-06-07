@@ -1,102 +1,65 @@
 @import './variables.styl'
 
 .filtersContainer
+  display flex
+  flex-direction column
+  justify-content space-between
 
-  .sectionContainer
-    // margin-top 1.6rem
-    // margin-top 1.05vw
-    // margin-top 1.5vw
-    // margin-top 15vw
+  span
+    // user-select none
+    // cursor pointer
+    // transition $transition
 
-    // display flex
-    // flex-wrap wrap
+    // &:hover
+    //   color $ipt-orange
 
-    // color $grey-400
-    // font-size 1.6rem
+  .section
+    // margin-right 3vw
 
-    span
-      // user-select none
-      // cursor pointer
-      // transition $transition
+    .sectionName
+      font-size $font-size_medium
+      // font-style italic
+      font-weight 200
+      
+      // color $grey-600
+      color $white
 
-      // &:hover
-      //   color $ipt-orange
+      display block
+      // margin-bottom 0.6rem
+      margin-bottom 0.38vw
 
-    .section
-      // margin-right 2.4rem
-      margin-right 1.5vw
-      // margin-bottom 3.6rem
-      // margin-bottom 2.25vw
-      // padding-bottom 3vw
-      // width 36rem
-      width $text-container-width
-
-      // for section-item list
+      // if have icon
       display flex
-      flex-direction column
+      align-items center
+      width max-content
 
-      .sectionName
-        // font-size $font-size_large
-        font-style italic
-        
-        // color $grey-600
-        color $white
+      cursor pointer
 
-        display block
-        // margin-bottom 0.6rem
-        margin-bottom 0.38vw
-
-        // if have icon
-        display flex
-        align-items center
-        width max-content
-
-        cursor pointer
-
-        &:hover 
-          color $ipt-orange
-          .sectionIcon
-            filter $ipt-orange_filter
-
+      &:hover 
+        color $ipt-orange
         .sectionIcon
-          icon-wrapper()
-          height $font-size_default
-          width $font-size_default
-          // height $font-size_large
-          // width $font-size_large
-          filter $grey-600_filter
+          filter $ipt-orange_filter
 
-          // so onClick selected proper span with info
-          // pointer-events none
+      .sectionIcon
+        icon-wrapper()
+        height $font-size_medium
+        width $font-size_medium
+        filter $grey-600_filter
 
-      // .sectionItem
-      //   // display block
-      //   color $grey-800
-      //   // margin-left $font-size_large + 0.6rem // 0.6rem is margin on icon
-      //   // margin-left 3.6rem // 0.6rem is margin on icon
-      //   margin-left 2.25vw // 0.6rem is margin on icon
-        
-      //   // margin-top 0.6rem
-      //   cursor pointer
-
-      //   // so each item does not take full length
-      //   width max-content
-
-      //   &:hover
-      //     color $ipt-orange !important
-
-    .section.noChildren
-      width unset
-
-.sectionTriggerEl
-  position absolute
-  top 5vh
 
 .sectionName
 .sectionItem
+.home
   transition $transition
 
+.home
+  font-size $font-size_medium
+  align-self flex-end
+  color $grey-600
+  cursor pointer
 
+  &:hover
+    color $ipt-orange
 
 // .highlight
 //   .sectionName
