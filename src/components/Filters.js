@@ -67,7 +67,7 @@ const Filters = ({ createModal }) => {
 
     sectionEl = (
 
-      <div id={ `s-${sectionIndex}` } className={ sectionClasses.join(' ') }>
+      <div id={ `s-${sectionIndex}` } key={ `s-${sectionIndex}` } className={ sectionClasses.join(' ') }>
         <span className={ classes.sectionName }
           onClick={ () => createModal(<SectionDescription data={ section } closeModal={ () => createModal(null) } />) }
         >

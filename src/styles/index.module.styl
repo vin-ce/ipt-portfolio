@@ -9,12 +9,29 @@
   justify-content space-between
   
 
-  .triggerEl
-    position absolute
-    top 5vh
+  // .triggerEl
+  // position absolute
+  // top 5vh
+
+
+  .imageAndFilterWrapper
+    display flex
+
+  .fadeIn
+    opacity 1
+
+  img 
+    transition $transition
+    opacity 0
+    width 33.75vw
+    height 22.5vw
+    object-fit cover
+    margin-right 3vw
+
 
 .frontPageContainer
   z-index 2
+  margin-right 3vw
 
   h1 
     margin-top 0
@@ -65,4 +82,3 @@ em
 //   p
 //   em
 //     color $grey-800 !important
-

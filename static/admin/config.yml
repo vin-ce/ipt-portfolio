@@ -83,6 +83,8 @@ collections:
     files:
       - label: "Front Page"
         name: "front_page"
+        editor:
+          preview: false
         file: "content/sections/front_page.json"
         fields:
           - { label: "Value", name: "value", widget: "string" }

@@ -34,6 +34,10 @@ const Home = () => {
     }
   }
 
+  const fadeIn = (e) => {
+    e.target.classList.add(classes.fadeIn)
+  }
+
   return (
     <>
       <Layout>
@@ -42,15 +46,17 @@ const Home = () => {
 
           {/* <div id="triggerEl" className={ classes.triggerEl } /> */ }
 
+          <span className={classes.imageAndFilterWrapper}> 
+            <img onLoad={ fadeIn } src={ frontPageData.image } />
 
+            <div className={ classes.contentContainer }>
+              <Filters createModal={ createModal } />
+              {/* <div className={ classes.content }> */ }
+              {/* </div> */ }
 
-          <div className={ classes.contentContainer }>
-            <Filters createModal={ createModal } />
-            {/* <div className={ classes.content }> */ }
-            {/* </div> */ }
-
-          </div>
-
+            </div>
+          </span>
+          
           <div className={ classes.frontPageContainer }>
             <h1>
               <span className={ classes.value }>{ frontPageData.value }</span>
@@ -62,7 +68,6 @@ const Home = () => {
 
             <p className={ classes.companyDescription }>{ frontPageData.company_description } </p>
           </div>
-
 
 
         </div>
