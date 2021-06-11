@@ -127,6 +127,7 @@ const Home = () => {
   }
 
   function fadePageIn () {
+    console.log("PAGE FADE IN")
     document.querySelector(`.${classes.page}`).classList.add(classes.fadeIn)
     // document.querySelector(`.${classes.descriptionContainer}`).classList.add(classes.fadeIn)
   }
