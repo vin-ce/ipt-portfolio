@@ -132,6 +132,11 @@ const Home = () => {
     // document.querySelector(`.${classes.descriptionContainer}`).classList.add(classes.fadeIn)
   }
 
+  function fadePageInTest () {
+    console.log("PAGE FADE IN from test")
+    document.querySelector(`.${classes.page}`).classList.add(classes.fadeIn)
+  }
+
   function fadeDescriptionIn () {
     document.querySelector(`.${classes.descriptionContainer}`).classList.remove(classes.fadeOut)
     document.querySelector(`.${classes.descriptionContainer}`).classList.add(classes.fadeIn)
@@ -155,7 +160,7 @@ const Home = () => {
           <div className={ classes.frontPageContainer }>
             <span className={ classes.value }>
               <SVG className={ classes.logo } src={ logo_data.logo_image } />
-              <span className={ classes.orange }>I</span>nnovaction.&nbsp;
+              <span className={ classes.orange }>I</span>nnovation.&nbsp;
               <span className={ classes.orange }>P</span>rocess.&nbsp;
               <span className={ classes.orange }>T</span>enacity.&nbsp;
             </span>
@@ -165,6 +170,7 @@ const Home = () => {
 
           </div>
 
+          <img key="image" className={ classes.descriptionImage } onLoad={ fadePageInTest } src={ frontPageData.image } />
 
           <div className={ classes.contentContainer }>
             <div className={ [ classes.descriptionContainer, classes.fadeIn ].join(' ') } >
