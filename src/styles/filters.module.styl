@@ -4,6 +4,7 @@
   display flex
   flex-direction column
   justify-content space-between
+  height 30vw
 
   span
     // user-select none
@@ -16,50 +17,80 @@
   .section
     // margin-right 3vw
 
-    .sectionName
-      font-size $font-size_medium
-      // font-style italic
-      font-weight 200
-      
-      // color $grey-600
-      color $white
+    // .sectionName
+    font-size $font-size_medium
+    // font-style italic
+    font-weight 200
+    
+    // color $grey-600
+    color $white
 
-      display block
-      // margin-bottom 0.6rem
-      margin-bottom 0.38vw
+    display block
+    // margin-bottom 0.6rem
+    margin-bottom 0.38vw
 
-      // if have icon
-      display flex
-      align-items center
-      width max-content
+    // if have icon
+    display flex
+    align-items center
+    width max-content
 
-      cursor pointer
+    cursor pointer
 
-      &:hover 
-        color $ipt-orange
-        .sectionIcon
-          filter $ipt-orange_filter
-
+    &:hover 
+      color $ipt-orange
       .sectionIcon
-        icon-wrapper()
-        height $font-size_medium
-        width $font-size_medium
+        filter $ipt-orange_filter
+
+    .sectionIcon
+      icon-wrapper()
+      height $font-size_medium
+      width $font-size_medium
+      filter $grey-600_filter
+      // filter $white_filter
+
+  
+  .home
+    opacity 0
+    font-size $font-size_medium
+    align-self flex-end
+    // color $grey-600
+    cursor pointer
+
+    &:hover
+      color $ipt-orange
+
+.filtersContainer.inDescription
+  .section
+    color $grey-800
+
+    &:hover 
+      color $ipt-orange
+      .sectionIcon
+        filter $ipt-orange_filter
+
+    .sectionIcon
+      filter $grey-800_filter
+
+  .active
+    color $white
+    cursor default
+    pointer-events none
+
+    &:hover 
+      color $white
+      .sectionIcon
         filter $grey-600_filter
 
+    .sectionIcon
+      filter $grey-600_filter
 
-.sectionName
-.sectionItem
+  .home 
+    opacity 1
+
+.section
 .home
   transition $transition
 
-.home
-  font-size $font-size_medium
-  align-self flex-end
-  color $grey-600
-  cursor pointer
-
-  &:hover
-    color $ipt-orange
 
 // .highlight
 //   .sectionName

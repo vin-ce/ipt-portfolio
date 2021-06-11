@@ -10,6 +10,11 @@ import SectionDescription from "./SectionDescription"
 
 const Filters = (props) => {
 
+  // ref must be passed in full to mutate
+  if (!props.activeClassRef.current) {
+    props.activeClassRef.current = classes.active
+    props.inDescriptionClassRef.current = classes.inDescription
+  }
 
   let sections = [];
 
@@ -19,15 +24,15 @@ const Filters = (props) => {
 
     sectionEl = (
 
-      <span id={ `s-${sectionIndex}` } key={ `s-${sectionIndex}` } name={section.section_name} className={ classes.section }>
-        <span className={ classes.sectionName }
-          // onClick={ () => createModal(<SectionDescription data={ section } closeModal={ () => createModal(null) } />) }
-          onClick={ () => props.switchInfo(section) }
-        >
-          <SVG src={ section.section_icon } className={ classes.sectionIcon } />
-
-          { section.section_name }
-        </span>
+      <span
+        id={ `s-${sectionIndex}` }
+        key={ `s-${sectionIndex}` }
+        name={ section.section_name }
+        className={ classes.section }
+        onClick={ () => props.switchInfo(section) }
+      >
+        <SVG src={ section.section_icon } className={ classes.sectionIcon } />
+        { section.section_name }
       </span >
     )
 
@@ -37,12 +42,20 @@ const Filters = (props) => {
   })
 
   return (
-    <div className={ classes.filtersContainer }>
+    <div className={ classes.filtersContainer } name="filters-container">
       <span>
         { sections }
       </span>
-      {/* only show up when not home */}
-      <span className={classes.home} name='home'>Home</span>
+      {/* only show up when not home */ }
+      <span
+        className={ classes.home }
+        name='home'
+        onClick={ () => props.switchInfo({
+          section_name: 'Home'
+        }) }
+      >
+        Home
+        </span>
     </div>
   )
 }

@@ -17,26 +17,10 @@
 
   z-index 50
 
-.logoGroup
-  display flex
 
-  .heading
-    margin-left $default-horizontal-margins
-
-.logo
 .about
-// .inTouch
   pointer-events all
   transition $transition
-  
-.logo 
-  // height 4.8rem
-  height 3vw
-  // cursor pointer
-  user-select none
-  filter $white_filter
-
-.about
   color $grey-600
   // color $white
   cursor pointer
@@ -46,6 +30,14 @@
   &:hover
     transition $transition-hover
     color $ipt-orange
+
+
+.active
+  .about
+    color $white
+    cursor default
+    pointer-events none
+
 
   // .inTouch
   //   color $white

@@ -14,7 +14,6 @@
   // top 5vh
   
   .frontPageContainer
-
     z-index 2
     // margin-right 3vw
 
@@ -32,7 +31,7 @@
       
       .logo 
         pointer-events all
-        transition $transition
+        // transition $transition
         // height 4.8rem
         height 3vw
         margin-right 0.75vw
@@ -40,9 +39,9 @@
         user-select none
         filter $grey-600_filter
     
-        &:hover
-          transition $transition-hover
-          filter $white_filter
+        // &:hover
+        //   transition $transition-hover
+        //   filter $white_filter
 
     .heading 
       // margin 2.25vw 0
@@ -55,6 +54,8 @@
     justify-content space-between
 
     .descriptionContainer
+      opacity 0
+      // transition $transition
       display flex
 
       .companyDescription
@@ -72,13 +73,14 @@
       ul
         p
           width 100%
-          
 
-  .frontPageContainer
-  .companyDescription
-  p
-  em
-    transition $transition
+    .descriptionContainer.fadeIn
+      opacity 1          
+    
+    .descriptionContainer.fadeOut
+      opacity 0          
+      transition 200ms
+
 
   // .mute
   //   color $grey-800
@@ -89,7 +91,6 @@
 
 .page
   opacity 0
-  transition $transition
 
 .fadeIn
   opacity 1
@@ -97,7 +98,6 @@
 
 
 img 
-  transition $transition
   // opacity 0
   // width 33.75vw
   // height 22.5vw
@@ -107,3 +107,13 @@ img
   object-fit cover
   margin-left 3vw
   margin-right 3vw
+
+
+
+.frontPageContainer
+.companyDescription
+.page
+.descriptionContainer
+.logo
+img
+  transition $transition
