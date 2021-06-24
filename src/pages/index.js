@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react"
+import React, { useState, useRef, useEffect } from "react"
 import "../styles/styles.styl"
 import classes from "../styles/index.module.styl"
 import { toHTML } from "../utils/utils"
@@ -132,11 +132,6 @@ const Home = () => {
     // document.querySelector(`.${classes.descriptionContainer}`).classList.add(classes.fadeIn)
   }
 
-  function fadePageInTest () {
-    console.log("PAGE FADE IN from test")
-    document.querySelector(`.${classes.page}`).classList.add(classes.fadeIn)
-  }
-
   function fadeDescriptionIn () {
     document.querySelector(`.${classes.descriptionContainer}`).classList.remove(classes.fadeOut)
     document.querySelector(`.${classes.descriptionContainer}`).classList.add(classes.fadeIn)
@@ -146,6 +141,10 @@ const Home = () => {
     document.querySelector(`.${classes.descriptionContainer}`).classList.remove(classes.fadeIn)
     document.querySelector(`.${classes.descriptionContainer}`).classList.add(classes.fadeOut)
   }
+
+  useEffect(() => {
+    fadePageIn()
+  }, [])
 
   // e.target.classList.add(classes.fadeIn)
 
@@ -170,7 +169,7 @@ const Home = () => {
 
           </div>
 
-          <img key="image" className={ classes.descriptionImage } onLoad={ fadePageInTest } src={ frontPageData.image } />
+          {/* <img key="image" className={ classes.descriptionImage } onLoad={ fadePageInTest } src={ frontPageData.image } /> */ }
 
           <div className={ classes.contentContainer }>
             <div className={ [ classes.descriptionContainer, classes.fadeIn ].join(' ') } >
