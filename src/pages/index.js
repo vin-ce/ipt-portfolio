@@ -166,11 +166,11 @@ const Home = () => {
     document.querySelector(`.${classes.descriptionContainer}`).classList.add(classes.fadeOut)
   }
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     fadePageIn()
-  //   }, 1000)
-  // }, [])
+  useEffect(() => {
+    setTimeout(() => {
+      fadePageIn()
+    }, 1000)
+  }, [])
 
   // e.target.classList.add(classes.fadeIn)
 
