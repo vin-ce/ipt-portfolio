@@ -34,10 +34,12 @@
         // transition $transition
         // height 4.8rem
         height 3vw
-        margin-right 0.75vw
+        margin-right 1.05vw
         // cursor pointer
         user-select none
-        filter $grey-600_filter
+        width unset
+        // filter $grey-600_filter
+        // filter $white_filter
     
         // &:hover
         //   transition $transition-hover
@@ -47,6 +49,12 @@
       // margin 2.25vw 0
       // font-style italic
       font-weight 200
+
+    .value
+    .heading
+      transition $transition
+      span
+        transition $transition
 
   .contentContainer
     display flex
@@ -66,6 +74,14 @@
         &:hover
           color $white
 
+      .descriptionImageContainer
+        margin-left 3vw
+        margin-right 3vw
+
+        .location
+          text-align right  
+          color $grey-600
+
       p 
         &:first-of-type
           margin-top 0
@@ -81,6 +97,8 @@
       opacity 0          
       transition 200ms
 
+    .location
+      text-align right
 
   // .mute
   //   color $grey-800
@@ -96,6 +114,14 @@
   opacity 1
 
 
+.tagline
+  color $white
+
+.mute
+  color $grey-800 
+  span
+    color $grey-800 !important
+
 
 img 
   // opacity 0
@@ -105,8 +131,6 @@ img
   // width 30vw
   height 30vw
   object-fit cover
-  margin-left 3vw
-  margin-right 3vw
 
 
 

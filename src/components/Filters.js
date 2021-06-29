@@ -54,8 +54,8 @@ const Filters = (props) => {
           section_name: 'Home'
         }) }
       >
-        Home
-        </span>
+        Reset
+      </span>
     </div>
   )
 }

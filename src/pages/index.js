@@ -18,7 +18,10 @@ const Home = () => {
   const [ info, setInfo ] = useState((
     [
       <p key="description" className={ classes.companyDescription }>{ frontPageData.company_description } </p>,
-      <img key="image" className={ classes.descriptionImage } onLoad={ fadePageIn } src={ frontPageData.image } />
+      <div key="image" className={ classes.descriptionImageContainer }>
+        <img className={ classes.descriptionImage } onLoad={ fadePageIn } src={ frontPageData.image } />
+        <div className={ classes.location }>Based in Christchurch, New Zealand</div>
+      </div>
     ]
   ))
 
@@ -74,7 +77,10 @@ const Home = () => {
 
           [
             <p key="description" className={ classes.description } dangerouslySetInnerHTML={ { __html: toHTML(data.section_description) } } />,
-            <img key="image" className={ classes.descriptionImage } onLoad={ fadeDescriptionIn } src={ data.section_image } />
+            <div key="image" className={ classes.descriptionImageContainer }>
+              <img className={ classes.descriptionImage } onLoad={ fadeDescriptionIn } src={ data.section_image } />
+              {/* <div className={ classes.location }>Based in Christchurch, New Zealand</div> */ }
+            </div>
           ]
 
         )
@@ -95,7 +101,10 @@ const Home = () => {
         setInfo(
           [
             <p key="description" className={ classes.companyDescription }>{ frontPageData.company_description } </p>,
-            <img key="image" className={ classes.descriptionImage } onLoad={ fadeDescriptionIn } src={ frontPageData.image } />
+            <div key="image" className={ classes.descriptionImageContainer }>
+              <img className={ classes.descriptionImage } onLoad={ fadeDescriptionIn } src={ frontPageData.image } />
+              <div className={ classes.location }>Based in Christchurch, New Zealand</div>
+            </div>
           ]
         )
       }, FADE_OUT_TIME)
@@ -123,6 +132,21 @@ const Home = () => {
         navAboutEl.classList = ' ' // remove el
     }
 
+    if (data.section_name !== 'Home') {
+      // 
+      let taglineEl = document.querySelector(`.${classes.tagline}`)
+      if (!taglineEl.classList.contains(classes.mute)) {
+        taglineEl.classList.add(classes.mute)
+        document.querySelector(`.${classes.heading}`).classList.add(classes.mute)
+      }
+
+    } else {
+      let taglineEl = document.querySelector(`.${classes.tagline}`)
+      if (taglineEl.classList.contains(classes.mute)) {
+        taglineEl.classList.remove(classes.mute)
+        document.querySelector(`.${classes.heading}`).classList.remove(classes.mute)
+      }
+    }
 
   }
 
@@ -142,9 +166,11 @@ const Home = () => {
     document.querySelector(`.${classes.descriptionContainer}`).classList.add(classes.fadeOut)
   }
 
-  useEffect(() => {
-    fadePageIn()
-  }, [])
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     fadePageIn()
+  //   }, 1000)
+  // }, [])
 
   // e.target.classList.add(classes.fadeIn)
 
@@ -159,9 +185,11 @@ const Home = () => {
           <div className={ classes.frontPageContainer }>
             <span className={ classes.value }>
               <SVG className={ classes.logo } src={ logo_data.logo_image } />
-              <span className={ classes.orange }>I</span>nnovation.&nbsp;
-              <span className={ classes.orange }>P</span>rocess.&nbsp;
-              <span className={ classes.orange }>T</span>enacity.&nbsp;
+              <span className={ classes.tagline }>
+                <span className={ classes.orange }>I</span>nnovation.&nbsp;
+                <span className={ classes.orange }>P</span>rocess.&nbsp;
+                <span className={ classes.orange }>T</span>enacity.&nbsp;
+              </span>
             </span>
             <div className={ classes.heading }>
               { frontPageData.heading }
