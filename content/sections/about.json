@@ -13,5 +13,23 @@
       "url": "https://lbp.ewr.govt.nz/PublicRegister/View.aspx?f=Xiao&search=1&p=1&lbpid=BP131092",
       "image": "/img/lbp-logo.png"
     }
+  ],
+  "office_image": "/img/office.jpg",
+  "certifications": [
+    {
+      "organisation": ">Architectural Designers New Zealand",
+      "qualification": "Professional Member",
+      "url": "https://adnz.org.nz/profile/seanwang"
+    },
+    {
+      "url": "https://www.nzgbc.org.nz/Person?Action=Profile&Person_id=24867",
+      "organisation": "NZGBC",
+      "qualification": "Homestar Practitioner"
+    },
+    {
+      "url": "https://lbp.ewr.govt.nz/PublicRegister/View.aspx?f=Xiao&search=1&p=1&lbpid=BP131092",
+      "organisation": "Licensed Building Practitioners",
+      "qualification": "Design 2"
+    }
   ]
 }
