@@ -2,8 +2,9 @@
 
 
 .descriptionContainer
-  margin-right 1.05vw
-  margin-left 3vw
+  // margin-right 1.05vw
+  // margin-left 3vw
+  margin-bottom 3vw
 
   .certificationContainer
     display flex
@@ -11,10 +12,16 @@
     margin-bottom 1.05vw
 
     .organisation
-      // 
+      transition $transition
+      color $white
+      width fit-content
+
+      &:hover
+        color $ipt-orange 
 
     .qualification
       color $grey-600
+
 
 
 .description 
@@ -43,8 +50,10 @@
 .iconsContainer
   // margin-top 3.6rem
   // margin-top 2.25vw
-  margin-top 1vw
+  margin-top 0.38vw
   display flex
+  position relative
+  left -0.5vw
 
   img
     // max-height 5rem

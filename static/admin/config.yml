@@ -27,6 +27,8 @@ collections:
       - label: "About"
         name: "about"
         file: "content/sections/about.json"
+        editor:
+          preview: false
         fields:
           - label: "Certifications Images"
             name: "certifications_images"
@@ -40,17 +42,21 @@ collections:
                 widget: string
           - { label: "Description", name: "description", widget: "markdown" }
           - label: "Certifications"
-              name: "certifications"
-              widget: "list"
-              fields: 
-                - label: "Organisation"
-                  name: "organisation"
-                  widget: string
-                - label: "Qualification"
-                  name: "qualification"
-                  widget: string
-                - label: "URL"
-                  widget: string
+            name: "certifications"
+            widget: "list"
+            fields: 
+              - label: "Organisation"
+                name: "organisation"
+                widget: string
+              - label: "Qualification"
+                name: "qualification"
+                widget: string
+              - label: "URL"
+                name: "url"
+                widget: string
+          - label: "Office Image"
+            name: "office_image"
+            widget: image
 
       - label: "Contact"
         name: "contact"

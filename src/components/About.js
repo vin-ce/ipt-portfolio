@@ -17,7 +17,6 @@ const About = props => {
     //   props.fadeDescriptionIn()
   }
 
-  props.fadeDescriptionIn()
 
   let images = []
   aboutData.certifications_images.forEach((object, index) => {
@@ -51,33 +50,31 @@ const About = props => {
     )
   })
 
-  console.log('ABOUT', aboutData.description)
+  let certifications = []
+  aboutData.certifications.forEach((object, index) => {
+    // const url = object.url
+    certifications.push(
+      <div key={ `certifications-${index}` } className={ classes.certificationContainer }>
+        <a className={ classes.organisation } href={ object.url } target="_blank" rel="noreferrer noopener">{ object.organisation }</a>
+        <span className={ classes.qualification }>{ object.qualification }</span>
+      </div>
+    )
+  })
 
   return (
-    // <Modal closeModal={ props.closeModal }>
-    // <div className={ classes.container }>
     [
       <span key="contact">
-        <span className={ classes.descriptionContainer } key="description container">
+        <div className={ classes.descriptionContainer } key="description container">
           {/* <div className={ classes.description } dangerouslySetInnerHTML={ { __html: toHTML(aboutData.description) } } /> */ }
           {/* <div className={ classes.aboutDescription }>
           </div> */}
           <div>
-            <div className={ classes.certificationContainer }>
-              <span className={ classes.organisation }>Architectural Designers New Zealand</span>
-              <span className={ classes.qualification }>Professional Member</span>
-            </div>
-            <div className={ classes.certificationContainer }>
-              <span className={ classes.organisation }>NZGBC</span>
-              <span className={ classes.qualification }>Homestar Practioner</span>
-            </div>
-            <div className={ classes.certificationContainer }>
-              <span className={ classes.organisation }>Liscenced Building Practitioners</span>
-              <span className={ classes.qualification }>Design 2</span>
-            </div>
+            { certifications }
           </div>
           {/* <div className={ classes.iconsContainer }>{ images }</div> */ }
-        </span>
+        </div>
+
+
         <div className={ classes.contact }>
           <span className={ classes.inTouch }>Get in touch</span> by emailing us at:
           <br />
@@ -86,11 +83,9 @@ const About = props => {
 
         </div>
 
-      </span>, <span />
+      </span>, <img key={ `about-image` } onLoad={ props.fadeDescriptionIn } src={ aboutData.office_image } />
     ]
 
-    // </div>
-    // </Modal>
   )
 }
 
