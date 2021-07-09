@@ -20,7 +20,7 @@ const Home = () => {
       <p key="description" className={ classes.companyDescription }>{ frontPageData.company_description } </p>,
       <div key="image" className={ classes.descriptionImageContainer }>
         <img className={ classes.descriptionImage } onLoad={ fadePageIn } src={ frontPageData.image } />
-        <div className={ classes.location }>Based in Christchurch, New Zealand</div>
+        <div className={ classes.location }>We are based in Christchurch, New Zealand</div>
       </div>
     ]
   ))
