@@ -9,6 +9,10 @@
         {
           "section_image": "/img/bim.jpeg",
           "footnote": "BIM documentation"
+        },
+        {
+          "section_image": "/img/building-example.png",
+          "footnote": "test"
         }
       ]
     },
