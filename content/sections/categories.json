@@ -13,6 +13,18 @@
         {
           "section_image": "/img/building-example.png",
           "footnote": "test"
+        },
+        {
+          "section_image": "/img/front-page-example-image.jpg",
+          "footnote": "test"
+        },
+        {
+          "section_image": "/img/homestar.jpg",
+          "footnote": "test"
+        },
+        {
+          "section_image": "/img/architectural-sketch-center.jpeg",
+          "footnote": "test"
         }
       ]
     },
