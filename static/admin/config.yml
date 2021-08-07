@@ -15,14 +15,29 @@ collections:
           preview: false
         file: "content/sections/front_page.json"
         fields:
-          - { label: "Value", name: "value", widget: "string" }
-          - { label: "Heading", name: "heading", widget: "string" }
-          - {
-              label: "Company Description",
-              name: "company_description",
-              widget: "text",
+          - label: "Value"
+            name: "value"
+            widget: "string"
+
+          - label: "Heading"
+            name: "heading"
+            widget: "string"
+
+          - label: "Company Description"
+            name: "company_description"
+            widget: "text"
+
+          - label: "Two Images"
+            name: "two_images"
+            widget: "list"
+            max: 2
+            min: 1
+            field: {
+              label: "Image",
+              name: "image",
+              widget: "image"
             }
-          - { label: "Image", name: "image", widget: "image" }
+
 
       - label: "About"
         name: "about"
@@ -72,6 +87,14 @@ collections:
               - label: "URL"
                 name: "url"
                 widget: string
+          - label: "Email"
+            name: "email"
+            widget: "string"
+          - label: "Additional Information"
+            name: "additional_information"
+            widget: markdown
+            buttons: [bold, italic]
+
 
       - label: "Logo"
         name: "logo"
@@ -87,18 +110,6 @@ collections:
         editor:
           preview: false
         fields:
-          # - label: "Categories Overview Description"
-          #   name: "categories_overview_description"
-          #   widget: text
-            
-          # - label: "Categories List"
-          #   name: "categories_list"
-          #   collapsed: true
-          #   widget: list
-          #   fields:
-          # - label: "Category Name"
-          #   name: "category_name"
-          #   widget: string
           - label: "Category Items"
             name: "category_items"
             widget: list
@@ -109,21 +120,20 @@ collections:
               - label: "Section Icon"
                 name: "section_icon"
                 widget: image
-              - label: "Section Image"
-                name: "section_image"
-                widget: image
-                required: false
+              - label: "Section Images"
+                name: "section_images"
+                widget: list
+                fields: 
+                  - label: "Section Image"
+                    name: "section_image"
+                    widget: image
+                  - label: "Footnote"
+                    name: "footnote"
+                    widget: string
               - label: "Section Description"
                 name: "section_description"
                 widget: markdown
                 buttons: [bold, italic, numbered-list, bulleted-list]
-                required: false
-                  # - label: "Section Items"
-                  #   name: "section_items"
-                    # widget: list
-                    # fields:
-                    #   - label: "Section Item Name"
-                    #     name: "section_item_name"
-                    #     widget: string
+
 
 

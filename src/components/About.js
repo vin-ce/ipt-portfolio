@@ -60,12 +60,12 @@ const About = props => {
       </div>
     )
   })
+  console.log(contactData)
 
   return (
     [
       <span key="contact">
         <div className={ classes.descriptionContainer } key="description container">
-          {/* <div className={ classes.description } dangerouslySetInnerHTML={ { __html: toHTML(aboutData.description) } } /> */ }
           {/* <div className={ classes.aboutDescription }>
           </div> */}
           <div>
@@ -78,7 +78,8 @@ const About = props => {
         <div className={ classes.contact }>
           <span className={ classes.inTouch }>Get in touch</span> by emailing us at:
           <br />
-          <a className={ classes.email } href="mailto:sean.wang@iptcreative.co.nz">sean.wang@iptcreative.co.nz</a>
+          <a className={ classes.email } href={ `mailto:${contactData.email}` }>{ contactData.email }</a>
+          <div className={ classes.additionalInformation } dangerouslySetInnerHTML={ { __html: toHTML(contactData.additional_information) } } />
           <div className={ classes.iconsContainer }>{ icons }</div>
 
         </div>

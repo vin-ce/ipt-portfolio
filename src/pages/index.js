@@ -8,6 +8,8 @@ import Layout from "../components/Layout"
 import Filters from '../components/Filters'
 import Nav from "../components/Nav"
 import About from "../components/About"
+import Carousel from "../components/Carousel"
+import ImgHoverColor from "../components/ImgHoverColor"
 
 import frontPageData from "../../content/sections/front_page.json"
 import categoriesData from "../../content/sections/categories.json"
@@ -15,32 +17,47 @@ import logo_data from "../../content/sections/logo.json"
 
 const Home = () => {
 
+
+  // preloading all images 
+
+  let preLoadedImages = useRef([])
+
+  const preLoadImages = () => {
+    categoriesData.category_items.forEach((categoryItem) => {
+      categoryItem.section_images.forEach((image) => {
+        const img = new Image()
+        img.src = image.section_image
+        preLoadedImages.current.push(img)
+      })
+    })
+  }
+
+  useEffect(() => {
+    preLoadImages()
+  }, [])
+
+
   const [ info, setInfo ] = useState((
     [
       <p key="description" className={ classes.companyDescription }>{ frontPageData.company_description } </p>,
       <div key="image" className={ classes.descriptionImageContainer }>
-        <img className={ classes.descriptionImage } onLoad={ fadePageIn } src={ frontPageData.image } />
-        <div className={ classes.location }>We are based in Christchurch, New Zealand</div>
+        {/* <img className={ classes.descriptionImage } onLoad={ fadePageIn } src={ frontPageData.image } /> */ }
+        <ImgHoverColor
+          fadeContentIn={ fadePageIn }
+          images={ frontPageData.two_images }
+        />
+        <div className={ classes.location }>
+          Architecture&nbsp;
+          {/* <span className={ classes.orange }>|</span> */ }
+          <span>|</span>
+          &nbsp;BIM&nbsp;
+          {/* <span className={ classes.orange }>|</span> */ }
+          <span>|</span>
+          &nbsp;Construction
+        </div>
       </div>
     ]
   ))
-
-
-  // const [ modal, setModal ] = useState(null)
-  // const createModal = (modalEl) => {
-  // console.log("MODAL")
-
-  // if (modalEl) {
-  //   setModal(modalEl)
-  //   const bodyEl = document.querySelector('body')
-  //   // cancels the scroll
-  //   bodyEl.style.overflow = "hidden"
-  // }
-  // else {
-  //   setModal(null)
-  //   document.querySelector('body').style.overflow = "auto"
-  // }
-  // }
 
   const activeClassRef = useRef(null)
   const inDescriptionClassRef = useRef(null)
@@ -78,8 +95,10 @@ const Home = () => {
           [
             <p key="description" className={ classes.description } dangerouslySetInnerHTML={ { __html: toHTML(data.section_description) } } />,
             <div key="image" className={ classes.descriptionImageContainer }>
-              <img className={ classes.descriptionImage } onLoad={ fadeDescriptionIn } src={ data.section_image } />
-              {/* <div className={ classes.location }>Based in Christchurch, New Zealand</div> */ }
+              <Carousel
+                fadeDescriptionIn={ fadeDescriptionIn }
+                images={ data.section_images }
+              />
             </div>
           ]
 
@@ -102,8 +121,17 @@ const Home = () => {
           [
             <p key="description" className={ classes.companyDescription }>{ frontPageData.company_description } </p>,
             <div key="image" className={ classes.descriptionImageContainer }>
-              <img className={ classes.descriptionImage } onLoad={ fadeDescriptionIn } src={ frontPageData.image } />
-              <div className={ classes.location }>Based in Christchurch, New Zealand</div>
+              <ImgHoverColor
+                fadeContentIn={ fadeDescriptionIn }
+                images={ frontPageData.two_images }
+              />
+              <div className={ classes.location }>
+                Architecture
+                <span className={ classes.orange }>|</span>
+                BIM
+                <span className={ classes.orange }>|</span>
+                Construction
+              </div>
             </div>
           ]
         )
@@ -132,20 +160,30 @@ const Home = () => {
         navAboutEl.classList = ' ' // remove el
     }
 
+    let taglineEl = document.querySelector(`.${classes.tagline}`)
+
+    // this property is for logo click to home
+    let logoIsHome = document.querySelector(`.${classes.logo}`).dataset.isHome
+
     if (data.section_name !== 'Home') {
       // 
-      let taglineEl = document.querySelector(`.${classes.tagline}`)
       if (!taglineEl.classList.contains(classes.mute)) {
         taglineEl.classList.add(classes.mute)
         document.querySelector(`.${classes.heading}`).classList.add(classes.mute)
       }
 
+      if (logoIsHome == 'true')
+        document.querySelector(`.${classes.logo}`).dataset.isHome = 'false'
+
     } else {
-      let taglineEl = document.querySelector(`.${classes.tagline}`)
       if (taglineEl.classList.contains(classes.mute)) {
         taglineEl.classList.remove(classes.mute)
         document.querySelector(`.${classes.heading}`).classList.remove(classes.mute)
       }
+
+      if (logoIsHome == 'false')
+        document.querySelector(`.${classes.logo}`).dataset.isHome = 'true'
+
     }
 
   }
@@ -184,7 +222,18 @@ const Home = () => {
 
           <div className={ classes.frontPageContainer }>
             <span className={ classes.value }>
-              <SVG className={ classes.logo } src={ logo_data.logo_image } />
+              <SVG
+                className={ classes.logo }
+                onClick={ () => {
+                  if (document.querySelector(`.${classes.logo}`).dataset.isHome !== 'true') {
+                    switchInfo({
+                      section_name: 'Home'
+                    })
+                  }
+                } }
+                src={ logo_data.logo_image }
+                data-is-home="true"
+              />
               <span className={ classes.tagline }>
                 <span className={ classes.orange }>I</span>nnovation.&nbsp;
                 <span className={ classes.orange }>P</span>rocess.&nbsp;

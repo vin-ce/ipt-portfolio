@@ -1,6 +1,7 @@
-- image quality
-- move based in NZ down
+- transfer stuff over to Sean's github
 
 - mobile view
 - add helmet
+
+- add phone
 
