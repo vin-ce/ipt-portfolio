@@ -12,11 +12,13 @@
   "front_page_images": [
     {
       "section_image": "/img/structural-1_bw_v2.jpeg",
-      "caption": "Architecture | BIM | Construction"
+      "caption": "Architecture | BIM | Construction",
+      "image": "/img/structural-1_bw_v2.jpeg"
     },
     {
       "section_image": "/img/structural-1_color.png",
-      "caption": "Architecture | BIM | Construction"
+      "caption": "Architecture | BIM | Construction",
+      "image": "/img/structural-1_color.png"
     }
   ]
 }
