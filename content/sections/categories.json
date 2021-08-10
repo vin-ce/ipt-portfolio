@@ -8,23 +8,18 @@
       "section_images": [
         {
           "section_image": "/img/bim.jpeg",
-          "footnote": "BIM documentation"
+          "footnote": "BIM documentation",
+          "caption": "cap"
         },
         {
           "section_image": "/img/building-example.png",
-          "footnote": "test"
+          "footnote": "test",
+          "caption": "cap cap"
         },
         {
           "section_image": "/img/front-page-example-image.jpg",
-          "footnote": "test"
-        },
-        {
-          "section_image": "/img/homestar.jpg",
-          "footnote": "test"
-        },
-        {
-          "section_image": "/img/architectural-sketch-center.jpeg",
-          "footnote": "test"
+          "footnote": "test",
+          "caption": "cap cap  cap"
         }
       ]
     },
@@ -36,7 +31,8 @@
       "section_images": [
         {
           "section_image": "/img/management-black-and-white.jpeg",
-          "footnote": "BIM management"
+          "footnote": "BIM management",
+          "caption": "management"
         }
       ]
     },
@@ -48,7 +44,8 @@
       "section_images": [
         {
           "section_image": "/img/architectural-sketch-center.jpeg",
-          "footnote": "Sketches"
+          "footnote": "Sketches",
+          "caption": "design"
         }
       ]
     },
@@ -60,7 +57,8 @@
       "section_images": [
         {
           "section_image": "/img/construction-site.jpeg",
-          "footnote": "Construction site"
+          "footnote": "Construction site",
+          "caption": "site"
         }
       ]
     }
