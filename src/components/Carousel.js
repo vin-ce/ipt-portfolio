@@ -13,12 +13,12 @@ const Carousel = props => {
 
   // resets things between different categories
   // by detecting change in props (i.e data)
-  useMemo(() => {
+  useEffect(() => {
     // initialLoad.current = true
     // initialLoad.current = false
     props.fadeDescriptionIn()
     setImageIndex(0)
-  }, props)
+  }, [ props ])
 
 
   const TRANSITION_TIME = 200
