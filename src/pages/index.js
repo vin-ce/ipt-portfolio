@@ -195,12 +195,10 @@ const Home = () => {
 
   function fadeDescriptionIn () {
     document.querySelector(`.${classes.descriptionContainer}`).classList.add(classes.fadeIn)
-    console.log('fade desc in', document.querySelector(`.${classes.descriptionContainer}`))
   }
 
   function fadeDescriptionOut () {
     document.querySelector(`.${classes.descriptionContainer}`).classList.remove(classes.fadeIn)
-    console.log('fade desc out', document.querySelector(`.${classes.descriptionContainer}`))
   }
 
   useEffect(() => {

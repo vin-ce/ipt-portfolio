@@ -50,12 +50,10 @@ const Mobile = props => {
 
   function fadeDescriptionIn () {
     document.querySelector(`.${classes.descriptionContainer}`).classList.remove(classes.fadeOut)
-    console.log('MOBILE: fade desc in', document.querySelector(`.${classes.descriptionContainer}`))
   }
 
   function fadeDescriptionOut () {
     document.querySelector(`.${classes.descriptionContainer}`).classList.add(classes.fadeOut)
-    console.log('MOBILE: fade desc out', document.querySelector(`.${classes.descriptionContainer}`))
   }
 
 

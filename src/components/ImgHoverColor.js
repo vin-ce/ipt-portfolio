@@ -10,7 +10,6 @@ const ImgHoverColor = props => {
   return (
     <div className={ classes.container }>
       <img
-        // onLoad={ props.fadeContentIn }
         className={ classes.imageOne }
         src={ props.images[ 0 ].image }></img>
       <img

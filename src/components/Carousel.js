@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useMemo } from "react"
+import React, { useEffect, useState } from "react"
 import classes from "../styles/carousel.module.styl"
 
 // import { setConfig } from 'react-hot-loader';
@@ -9,13 +9,10 @@ import classes from "../styles/carousel.module.styl"
 // images={ data.section_images }
 const Carousel = props => {
   const [ imageIndex, setImageIndex ] = useState(0)
-  // let initialLoad = useRef(true)
 
   // resets things between different categories
   // by detecting change in props (i.e data)
   useEffect(() => {
-    // initialLoad.current = true
-    // initialLoad.current = false
     props.fadeDescriptionIn()
     setImageIndex(0)
   }, [ props ])
@@ -62,12 +59,6 @@ const Carousel = props => {
         onClick={ next }
         className={ classes.carouselImg }
         src={ props.images[ imageIndex ].section_image }
-      // onLoad={ () => {
-      //   if (initialLoad.current) {
-      //     props.fadeDescriptionIn()
-      //     initialLoad.current = false
-      //   }
-      // } }
       />
     )
 
