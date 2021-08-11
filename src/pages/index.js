@@ -21,7 +21,8 @@ import about_data from "../../content/sections/about.json"
 
 const Home = () => {
 
-  let isMobile = window.screen.width < 500
+  const [ isMobile, setIsMobile ] = useState(false)
+
 
   // preloading all images 
 
@@ -51,7 +52,6 @@ const Home = () => {
     [
       <p key="description" className={ classes.companyDescription }>{ frontPageData.company_description } </p>,
       <div key="image" className={ classes.descriptionImageContainer }>
-        {/* <img className={ classes.descriptionImage } onLoad={ fadePageIn } src={ frontPageData.image } /> */ }
         <ImgHoverColor
           fadeContentIn={ fadePageIn }
           images={ frontPageData.front_page_images }
@@ -189,9 +189,7 @@ const Home = () => {
   }
 
   function fadePageIn () {
-    console.log("PAGE FADE IN")
     document.querySelector(`.${classes.page}`).classList.add(classes.fadeIn)
-    // document.querySelector(`.${classes.descriptionContainer}`).classList.add(classes.fadeIn)
   }
 
   function fadeDescriptionIn () {
@@ -205,12 +203,20 @@ const Home = () => {
   }
 
   useEffect(() => {
-    if (!isMobile) {
+
+    if (window.screen.width >= 500 && !isMobile) {
       setTimeout(() => {
         fadePageIn()
       }, 1000)
+    } else if (window.screen.width < 500 && !isMobile) {
+      setIsMobile(true)
+
+    } else if (window.screen.width >= 500 && isMobile) {
+      setIsMobile(false)
+
     }
-  }, [])
+
+  }, [ isMobile ])
 
   let content = (
     <div className={ classes.page }>
@@ -247,8 +253,6 @@ const Home = () => {
             </div>
 
           </div>
-
-          {/* <img key="image" className={ classes.descriptionImage } onLoad={ fadePageInTest } src={ frontPageData.image } /> */ }
 
           <div className={ classes.contentContainer }>
             <div className={ [ classes.descriptionContainer, classes.fadeIn ].join(' ') } >

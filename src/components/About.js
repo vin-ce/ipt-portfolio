@@ -58,7 +58,6 @@ const About = props => {
       </div>
     )
   })
-  console.log(contactData)
 
   return (
     [

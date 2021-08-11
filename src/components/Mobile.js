@@ -61,7 +61,6 @@ const Mobile = props => {
 
     if (data.section_name === curSelectedInfo) return
     setCurSelectedInfo(data.section_name)
-    console.log(data.section_name, curSelectedInfo)
     closeMenu()
 
 
@@ -101,8 +100,6 @@ const Mobile = props => {
           </div>
         )
       })
-      console.log(contact_data)
-
 
       fadeDescriptionOut()
       setTimeout(() => {
@@ -145,8 +142,6 @@ const Mobile = props => {
 
     } else {
       fadeDescriptionOut()
-
-      console.log(data)
 
       setTimeout(() => {
         setInfo(

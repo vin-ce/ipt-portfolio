@@ -3,7 +3,6 @@ import classes from "../styles/imgHoverColor.module.styl"
 
 const ImgHoverColor = props => {
 
-  console.log(props)
   return (
     <div className={ classes.container }>
       <img
