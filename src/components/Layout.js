@@ -1,5 +1,4 @@
-import React, { useEffect } from "react"
-import Nav from "./Nav"
+import React from "react"
 import classes from "../styles/layout.module.styl"
 import { Helmet } from "react-helmet"
 // import SmoothScroll from "./SmoothScroll"
@@ -7,7 +6,7 @@ import { Helmet } from "react-helmet"
 // add sth to do with Helmet here
 const Layout = props => {
 
-  
+
 
   return (
     <>

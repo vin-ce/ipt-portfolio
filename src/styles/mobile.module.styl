@@ -1,0 +1,178 @@
+@import './variables.styl'
+  
+.mobile 
+  font-size 1.6rem
+
+  nav 
+    display flex
+    justify-content space-between
+    padding 1.6rem
+    padding-bottom 0.6rem
+
+    position fixed
+    z-index 9
+    background-color $black
+    width 100vw
+    
+    box-sizing border-box
+
+    .logo 
+      pointer-events all
+      cursor pointer
+      height 3.6rem
+      user-select none
+      width unset
+
+
+
+  .descriptionContainer
+    // width 100vw
+    padding 6.4rem 1.6rem 6.4rem 1.6rem
+    transition 250ms
+
+    img 
+      // the width and height are 100vw and 66.66vw (4.5:3) minus uniform 1.6rem padding
+      // top down padding is from the img, left right padding is from the description container
+      // width 100% 
+      // height 66.66vw
+      aspect-ratio 4.5/3
+      object-fit cover
+
+    h1
+      margin 0
+      font-size 2.1rem
+      padding-bottom 1.6rem 
+      width 100%
+
+    p
+      font-size 1.6rem
+      width 100%
+      margin 2.4rem 0 1.6rem 0
+
+    p:first-of-type
+      margin-top 0
+
+    .description
+      padding-top 2.4rem 
+
+
+    img
+    p
+    h1
+      box-sizing border-box
+
+    // for carousel controls and caption
+    div 
+      font-size 1.6rem
+
+    ul
+    ol
+      padding-left 1.6rem
+
+    li  
+      margin-bottom 1.6rem
+
+    // for about
+    
+    .certificationsContainer
+      margin-bottom 4.8rem
+
+    .sectionContainer
+      display flex
+      flex-direction column
+      margin-bottom 1.6rem
+
+    .sectionContainer:first-of-type
+      margin-top 1.6rem
+      
+    .title
+      transition $transition
+      color $white
+      width fit-content
+
+    .detail
+      color $grey-600
+
+
+    .contact
+
+      .email
+        color $grey-600
+
+      .additionalInformation
+        margin-top 1.6rem
+
+    .iconsContainer
+      margin-top 1.6rem
+      display flex
+      position relative
+      left -0.4rem
+
+      a 
+        &:not(:first-of-type)
+          margin-left 1.6rem
+            
+      .icon
+        height 3.6rem
+        width initial
+        filter $white_filter
+        transition $transition
+
+
+
+  .orange
+    color $ipt-orange
+
+
+  .menuContainer
+    position fixed
+    z-index 10
+    width 100vw
+    height 100vh
+    background-color $black_opacity-90
+
+    display flex
+    justify-content center
+    align-items center
+    flex-direction column
+
+    opacity 0
+    pointer-events none
+    transition 250ms
+
+
+    .menuItemsContainer
+      filter none
+
+      .section
+        font-size 1.6rem
+        display flex
+        align-items center
+        margin-bottom 1.2rem
+
+        .sectionIcon
+          icon-wrapper()
+          height 1.6rem
+          width 1.6rem
+          filter $grey-600_filter
+
+          margin-right 0.6rem
+
+      .menuAbout
+        // 
+
+      .menuHome
+        margin-top 6.4rem
+        // 
+
+      .selected
+        color $ipt-orange
+        font-style italic
+
+  .fadeIn
+    opacity 1
+    pointer-events all
+
+  .fadeOut
+    opacity 0
+

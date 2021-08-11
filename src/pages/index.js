@@ -4,19 +4,24 @@ import classes from "../styles/index.module.styl"
 import { toHTML } from "../utils/utils"
 import SVG from "react-inlinesvg"
 
+import { Helmet } from "react-helmet";
+
 import Layout from "../components/Layout"
 import Filters from '../components/Filters'
 import Nav from "../components/Nav"
 import About from "../components/About"
 import Carousel from "../components/Carousel"
 import ImgHoverColor from "../components/ImgHoverColor"
+import Mobile from "../components/Mobile"
 
 import frontPageData from "../../content/sections/front_page.json"
 import categoriesData from "../../content/sections/categories.json"
 import logo_data from "../../content/sections/logo.json"
+import about_data from "../../content/sections/about.json"
 
 const Home = () => {
 
+  let isMobile = window.screen.width < 500
 
   // preloading all images 
 
@@ -30,6 +35,11 @@ const Home = () => {
         preLoadedImages.current.push(img)
       })
     })
+
+    const aboutImg = new Image()
+    aboutImg.src = about_data.office_image
+    preLoadedImages.current.push(aboutImg)
+
   }
 
   useEffect(() => {
@@ -44,16 +54,10 @@ const Home = () => {
         {/* <img className={ classes.descriptionImage } onLoad={ fadePageIn } src={ frontPageData.image } /> */ }
         <ImgHoverColor
           fadeContentIn={ fadePageIn }
-          images={ frontPageData.two_images }
+          images={ frontPageData.front_page_images }
         />
         <div className={ classes.location }>
-          Architecture&nbsp;
-          {/* <span className={ classes.orange }>|</span> */ }
-          <span>|</span>
-          &nbsp;BIM&nbsp;
-          {/* <span className={ classes.orange }>|</span> */ }
-          <span>|</span>
-          &nbsp;Construction
+          { frontPageData.caption }
         </div>
       </div>
     ]
@@ -105,7 +109,7 @@ const Home = () => {
         )
       }, FADE_OUT_TIME)
 
-    } else if (data.section_name == 'Home') {
+    } else if (data.section_name === 'Home') {
 
       // if clicking on home
       if (prevActiveEl)
@@ -123,21 +127,17 @@ const Home = () => {
             <div key="image" className={ classes.descriptionImageContainer }>
               <ImgHoverColor
                 fadeContentIn={ fadeDescriptionIn }
-                images={ frontPageData.two_images }
+                images={ frontPageData.front_page_images }
               />
-              <div className={ classes.location }>
-                Architecture
-                <span className={ classes.orange }>|</span>
-                BIM
-                <span className={ classes.orange }>|</span>
-                Construction
+              <div className={ classes.caption }>
+                { frontPageData.caption }
               </div>
             </div>
           ]
         )
       }, FADE_OUT_TIME)
 
-    } else if (data.section_name == 'About') {
+    } else if (data.section_name === 'About') {
 
       if (!filtersContainerEl.classList.contains(inDescriptionClassRef.current))
         filtersContainerEl.classList.add(inDescriptionClassRef.current)
@@ -156,7 +156,7 @@ const Home = () => {
 
     if (data.section_name !== 'About') {
       const navAboutEl = document.querySelector(`div[name=nav-about]`)
-      if (navAboutEl.classList.length != 0)
+      if (navAboutEl.classList.length !== 0)
         navAboutEl.classList = ' ' // remove el
     }
 
@@ -172,7 +172,7 @@ const Home = () => {
         document.querySelector(`.${classes.heading}`).classList.add(classes.mute)
       }
 
-      if (logoIsHome == 'true')
+      if (logoIsHome === 'true')
         document.querySelector(`.${classes.logo}`).dataset.isHome = 'false'
 
     } else {
@@ -181,7 +181,7 @@ const Home = () => {
         document.querySelector(`.${classes.heading}`).classList.remove(classes.mute)
       }
 
-      if (logoIsHome == 'false')
+      if (logoIsHome === 'false')
         document.querySelector(`.${classes.logo}`).dataset.isHome = 'true'
 
     }
@@ -205,17 +205,19 @@ const Home = () => {
   }
 
   useEffect(() => {
-    setTimeout(() => {
-      fadePageIn()
-    }, 1000)
+    if (!isMobile) {
+      setTimeout(() => {
+        fadePageIn()
+      }, 1000)
+    }
   }, [])
 
-  // e.target.classList.add(classes.fadeIn)
-
-  // things load in on the same step
-
-  return (
+  let content = (
     <div className={ classes.page }>
+      <Helmet>
+        <title>IPT Creative</title>
+      </Helmet>
+
       <Layout>
 
         <div className={ classes.wrapper }>
@@ -266,8 +268,19 @@ const Home = () => {
 
         <Nav switchInfo={ switchInfo } activeClassRef={ activeClassRef } />
       </Layout >
-      {/* { modal } */ }
     </div>
+  )
+  if (isMobile) {
+    content = (
+      <Mobile />
+    )
+  }
+
+
+  return (
+    <React.Fragment>
+      { content }
+    </React.Fragment>
   )
 }
 

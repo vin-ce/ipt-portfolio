@@ -1,10 +1,5 @@
 import React from "react"
 import classes from "../styles/nav.module.styl"
-import logo_data from "../../content/sections/logo.json"
-import SVG from "react-inlinesvg"
-import frontPageData from "../../content/sections/front_page.json"
-
-import About from "./About"
 
 // add sth to do with Helmet here
 const Nav = props => {

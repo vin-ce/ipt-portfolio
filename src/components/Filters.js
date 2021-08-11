@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import SVG from "react-inlinesvg"
 
 import classes from "../styles/filters.module.styl"
 import data from "../../content/sections/categories.json"
 
-import { Controller, Scene } from 'react-scrollmagic';
-
-import SectionDescription from "./SectionDescription"
 
 const Filters = (props) => {
 

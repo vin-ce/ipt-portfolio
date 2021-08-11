@@ -1,6 +1,9 @@
 import React, { useEffect, useState, useRef } from "react"
 import classes from "../styles/carousel.module.styl"
 
+// props expecting:
+// fadeDescriptionIn={ fadeDescriptionIn }
+// images={ data.section_images }
 const Carousel = props => {
   const [ imageIndex, setImageIndex ] = useState(0)
   let initialLoad = useRef(true)
@@ -46,11 +49,12 @@ const Carousel = props => {
   // image 3/7 in one category to another category
   // allows a cycle for index to reset via useEffect
   let img
-  let footnote
+  let caption
 
   if (props.images[ imageIndex ]) {
     img = (
       <img
+        onClick={ next }
         className={ classes.carouselImg }
         src={ props.images[ imageIndex ].section_image }
         onLoad={ () => {
@@ -62,16 +66,21 @@ const Carousel = props => {
       />
     )
 
-    footnote = props.images[ imageIndex ].footnote
+    caption = props.images[ imageIndex ].caption
   }
+
+  if (props.isMobile)
+    document.querySelector(`.${classes.captionContainer}`).style.marginLeft = "0"
+
 
 
   return (
-    <div className={ classes.carouselContainer }>
-      <div className={ carouselClasses.join(' ') } onClick={ next }>
-        { img }
-      </div>
-      <div className={ classes.footnoteContainer }>
+    <React.Fragment>
+
+      {/* <div className={ carouselClasses.join(' ') } onClick={ next }> */ }
+      { img }
+      {/* </div> */ }
+      <div className={ classes.captionContainer }>
         { props.images.length > 1 ?
 
           <div className={ classes.controlsContainer }>
@@ -82,10 +91,10 @@ const Carousel = props => {
 
           : <div /> }
 
-        <div>{ footnote }</div>
+        <div>{ caption }</div>
 
       </div>
-    </div>
+    </React.Fragment>
   )
 }
 

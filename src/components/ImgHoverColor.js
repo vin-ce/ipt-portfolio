@@ -1,17 +1,15 @@
-import React, { useEffect, useState, useRef } from "react"
+import React from "react"
 import classes from "../styles/imgHoverColor.module.styl"
 
 const ImgHoverColor = props => {
-  console.log("props.images", props.images)
 
-
-
+  console.log(props)
   return (
     <div className={ classes.container }>
       <img
         onLoad={ props.fadeContentIn }
         className={ classes.imageOne }
-        src={ props.images[ 0 ] }></img>
+        src={ props.images[ 0 ].image }></img>
       <img
         onMouseOver={ () => {
           document.querySelector(`.${classes.imageTwo}`).classList.add(classes.fadeIn)
@@ -20,7 +18,7 @@ const ImgHoverColor = props => {
           document.querySelector(`.${classes.imageTwo}`).classList.remove(classes.fadeIn)
         } }
         className={ classes.imageTwo }
-        src={ props.images[ 1 ] }></img>
+        src={ props.images[ 1 ].image }></img>
     </div>
   )
 }
