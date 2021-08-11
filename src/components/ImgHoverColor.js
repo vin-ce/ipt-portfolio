@@ -1,12 +1,16 @@
-import React from "react"
+import React, { useEffect } from "react"
 import classes from "../styles/imgHoverColor.module.styl"
 
 const ImgHoverColor = props => {
 
+  useEffect(() => {
+    props.fadeContentIn()
+  }, [])
+
   return (
     <div className={ classes.container }>
       <img
-        onLoad={ props.fadeContentIn }
+        // onLoad={ props.fadeContentIn }
         className={ classes.imageOne }
         src={ props.images[ 0 ].image }></img>
       <img

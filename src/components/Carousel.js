@@ -6,12 +6,14 @@ import classes from "../styles/carousel.module.styl"
 // images={ data.section_images }
 const Carousel = props => {
   const [ imageIndex, setImageIndex ] = useState(0)
-  let initialLoad = useRef(true)
+  // let initialLoad = useRef(true)
 
   // resets things between different categories
   // by detecting change in props (i.e data)
   useEffect(() => {
-    initialLoad.current = true
+    // initialLoad.current = true
+    props.fadeDescriptionIn()
+    // initialLoad.current = false
     setImageIndex(0)
   }, props)
 
@@ -57,12 +59,12 @@ const Carousel = props => {
         onClick={ next }
         className={ classes.carouselImg }
         src={ props.images[ imageIndex ].section_image }
-        onLoad={ () => {
-          if (initialLoad.current) {
-            props.fadeDescriptionIn()
-            initialLoad.current = false
-          }
-        } }
+      // onLoad={ () => {
+      //   if (initialLoad.current) {
+      //     props.fadeDescriptionIn()
+      //     initialLoad.current = false
+      //   }
+      // } }
       />
     )
 
