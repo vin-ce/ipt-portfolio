@@ -1,5 +1,8 @@
-import React, { useEffect, useState, useRef } from "react"
+import React, { useEffect, useState, useRef, useMemo } from "react"
 import classes from "../styles/carousel.module.styl"
+
+// import { setConfig } from 'react-hot-loader';
+// setConfig({ pureSFC: true });
 
 // props expecting:
 // fadeDescriptionIn={ fadeDescriptionIn }
@@ -10,10 +13,10 @@ const Carousel = props => {
 
   // resets things between different categories
   // by detecting change in props (i.e data)
-  useEffect(() => {
+  useMemo(() => {
     // initialLoad.current = true
-    props.fadeDescriptionIn()
     // initialLoad.current = false
+    props.fadeDescriptionIn()
     setImageIndex(0)
   }, props)
 
