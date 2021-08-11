@@ -124,12 +124,12 @@ const Mobile = props => {
             </div>
 
             <div className={ classes.sectionContainer }>
-              <span className={ classes.title }>Get in touch by emailing us at:</span>
-              <a className={ classes.detail } href={ `mailto:${contact_data.email}` }>{ contact_data.email }</a>
+              <a href={ `mailto:${contact_data.email}` } className={ classes.title }>Get in touch by emailing us at:</a>
+              <span className={ classes.detail } >{ contact_data.email }</span>
             </div>
 
             <div className={ classes.sectionContainer }>
-              <span className={ classes.title }>Phone</span>
+              <a href={ `tel:${contact_data.phone}` } className={ classes.title }>Phone</a>
               <span className={ classes.detail }>{ contact_data.phone }</span>
             </div>
 

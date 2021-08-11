@@ -1,26 +1,30 @@
 @import './variables.styl'
 
 
-.descriptionContainer
-  // margin-right 1.05vw
-  // margin-left 3vw
+.certificationsContainer
+
   margin-bottom 3vw
 
-  .certificationContainer
+
+.contactContainer
+  width $text-container-width
+
+  .sectionContainer
     display flex
     flex-direction column
     margin-bottom 1.05vw
 
-    .organisation
-      transition $transition
-      color $white
-      width fit-content
+  .title
+    transition $transition
+    color $white
+    width fit-content
 
-      &:hover
-        color $ipt-orange 
+    &:hover
+      color $ipt-orange 
 
-    .qualification
-      color $grey-600
+  .detail
+    color $grey-600
+
 
 
 .description 

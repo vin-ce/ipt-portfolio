@@ -1,7 +1,7 @@
 import React from "react"
 import { toHTML } from "../utils/utils"
 import aboutData from "../../content/sections/about.json"
-import contactData from "../../content/sections/contact.json"
+import contact_data from "../../content/sections/contact.json"
 import classes from "../styles/about.module.styl"
 import SVG from 'react-inlinesvg'
 
@@ -33,7 +33,7 @@ const About = props => {
   // })
 
   let icons = []
-  contactData.external_contact_methods.forEach((object, index) => {
+  contact_data.external_contact_methods.forEach((object, index) => {
     const iconSrc = object.icon
     const url = object.url
 
@@ -52,34 +52,34 @@ const About = props => {
   aboutData.certifications.forEach((object, index) => {
     // const url = object.url
     certifications.push(
-      <div key={ `certifications-${index}` } className={ classes.certificationContainer }>
-        <a className={ classes.organisation } href={ object.url } target="_blank" rel="noreferrer noopener">{ object.organisation }</a>
-        <span className={ classes.qualification }>{ object.qualification }</span>
+      <div key={ `certifications-${index}` } className={ classes.sectionContainer }>
+        <a className={ classes.title } href={ object.url } target="_blank" rel="noreferrer noopener">{ object.organisation }</a>
+        <span className={ classes.detail }>{ object.qualification }</span>
       </div>
     )
   })
 
   return (
     [
-      <span key="contact">
-        <div className={ classes.descriptionContainer } key="description container">
-          {/* <div className={ classes.aboutDescription }>
-          </div> */}
-          <div>
-            { certifications }
-          </div>
-          {/* <div className={ classes.iconsContainer }>{ images }</div> */ }
+      <span key="contact" className={ classes.contactContainer }>
+        <div className={ classes.certificationsContainer } key="description container">
+          { certifications }
         </div>
 
-
-        <div className={ classes.contact }>
-          <span className={ classes.inTouch }>Get in touch</span> by emailing us at:
-          <br />
-          <a className={ classes.email } href={ `mailto:${contactData.email}` }>{ contactData.email }</a>
-          <div className={ classes.additionalInformation } dangerouslySetInnerHTML={ { __html: toHTML(contactData.additional_information) } } />
-          <div className={ classes.iconsContainer }>{ icons }</div>
-
+        <div className={ classes.sectionContainer }>
+          <a href={ `mailto:${contact_data.email}` } className={ classes.title }>Get in touch by emailing us at:</a>
+          <span className={ classes.detail } >{ contact_data.email }</span>
         </div>
+
+        <div className={ classes.sectionContainer }>
+          <a href={ `tel:${contact_data.phone}` } className={ classes.title }>Phone</a>
+          <span className={ classes.detail }>{ contact_data.phone }</span>
+        </div>
+
+        {/* <div className={ classes.additionalInformation } dangerouslySetInnerHTML={ { __html: toHTML(contact_data.additional_information) } } /> */ }
+
+        <div className={ classes.iconsContainer }>{ icons }</div>
+
 
       </span>, <img key={ `about-image` } onLoad={ props.fadeDescriptionIn } src={ aboutData.office_image } />
     ]
