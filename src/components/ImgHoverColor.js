@@ -14,10 +14,16 @@ const ImgHoverColor = props => {
         src={ props.images[ 0 ].image }></img>
       <img
         onMouseOver={ () => {
-          document.querySelector(`.${classes.imageTwo}`).classList.add(classes.fadeIn)
+          if (!props.isMobile)
+            document.querySelector(`.${classes.imageTwo}`).classList.add(classes.fadeIn)
         } }
         onMouseLeave={ () => {
-          document.querySelector(`.${classes.imageTwo}`).classList.remove(classes.fadeIn)
+          if (!props.isMobile)
+            document.querySelector(`.${classes.imageTwo}`).classList.remove(classes.fadeIn)
+        } }
+        onClick={ () => {
+          if (props.isMobile)
+            document.querySelector(`.${classes.imageTwo}`).classList.toggle(`${classes.fadeIn}`)
         } }
         className={ classes.imageTwo }
         src={ props.images[ 1 ].image }></img>

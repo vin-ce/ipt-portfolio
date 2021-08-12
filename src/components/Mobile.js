@@ -2,6 +2,7 @@ import React, { useState } from "react"
 
 import Carousel from './Carousel'
 import About from "./About"
+import ImgHoverColor from './ImgHoverColor'
 
 import classes from "../styles/mobile.module.styl"
 import SVG from "react-inlinesvg"
@@ -30,7 +31,7 @@ const Mobile = props => {
         <span className={ classes.orange }>T</span>enacity.&nbsp;
       </h1>
 
-      <Carousel
+      {/* <Carousel
         fadeDescriptionIn={ fadeDescriptionIn }
         images={
           [
@@ -40,7 +41,13 @@ const Mobile = props => {
             }
           ]
         }
+      /> */}
+      <ImgHoverColor
+        images={ frontPageData.front_page_images }
+        fadeContentIn={ fadeDescriptionIn }
+        isMobile={ true }
       />
+      <div className={ classes.caption }>{ frontPageData.front_page_images[ 0 ].caption }</div>
 
       <p key="description" className={ classes.description }>{ frontPageData.company_description } </p>
     </div>

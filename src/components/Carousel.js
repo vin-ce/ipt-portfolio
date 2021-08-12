@@ -15,6 +15,9 @@ const Carousel = props => {
   useEffect(() => {
     props.fadeDescriptionIn()
     setImageIndex(0)
+    if (props.isMobile) {
+      document.querySelector(`.${classes.captionContainer}`).style.marginLeft = "0"
+    }
   }, [ props ])
 
 
@@ -65,8 +68,6 @@ const Carousel = props => {
     caption = props.images[ imageIndex ].caption
   }
 
-  if (props.isMobile)
-    document.querySelector(`.${classes.captionContainer}`).style.marginLeft = "0"
 
 
 
