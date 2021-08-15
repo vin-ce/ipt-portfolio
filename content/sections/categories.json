@@ -9,17 +9,7 @@
         {
           "section_image": "/img/bim.jpeg",
           "footnote": "BIM documentation",
-          "caption": "cap"
-        },
-        {
-          "section_image": "/img/building-example.png",
-          "footnote": "test",
-          "caption": "cap cap"
-        },
-        {
-          "section_image": "/img/front-page-example-image.jpg",
-          "footnote": "test",
-          "caption": "cap cap  cap"
+          "caption": "BIM"
         }
       ]
     },
@@ -32,7 +22,7 @@
         {
           "section_image": "/img/management-black-and-white.jpeg",
           "footnote": "BIM management",
-          "caption": "management"
+          "caption": "Management"
         }
       ]
     },
@@ -45,7 +35,7 @@
         {
           "section_image": "/img/architectural-sketch-center.jpeg",
           "footnote": "Sketches",
-          "caption": "design"
+          "caption": "Design"
         }
       ]
     },
@@ -58,7 +48,7 @@
         {
           "section_image": "/img/construction-site.jpeg",
           "footnote": "Construction site",
-          "caption": "site"
+          "caption": "Construction Site"
         }
       ]
     }
