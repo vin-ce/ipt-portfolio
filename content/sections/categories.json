@@ -1,13 +1,13 @@
 {
   "category_items": [
     {
-      "section_name": "BIM Documentation ",
-      "section_description": "We are qualified architectural technologists. We provide multidisciplinary BIM documentation. In short, we are breaking down and analysing the design concept and work out how the building is buildable and functional to perform overtime for the building life circle in alignment with client expectation and design brief. \n\n* Commercial Large Residential Development\n* High-end architectural House \\\n  (over two million)\n* School \n* Hospitality\n* Factory and Warehouse\n* Swimming pool and Facilities",
+      "section_name": "BIM Multi-Disciplinary Documentation",
+      "section_description": "We are qualified architectural technologists. We provide multidisciplinary BIM documentation. In short, we are breaking down and analysing the design concept and work out how the building is buildable and functional to perform overtime for the building life circle in alignment with client expectation and design brief. \n\n* Mix Used Residential Development (Apartments + Retail)\n* High-end architectural House (over two million NZD)\n* School \n* Hospitality\n* Factory and Warehouse\n* Swimming pool and Facilities",
       "section_icon": "/img/cube-light.svg",
       "section_image": "/img/bim.jpeg",
       "section_images": [
         {
-          "section_image": "/img/bim.jpeg",
+          "section_image": "/img/box-quarter.png",
           "footnote": "BIM documentation",
           "caption": "BIM"
         }
@@ -16,11 +16,11 @@
     {
       "section_name": "Independent BIM Management",
       "section_icon": "/img/intersect-light.svg",
-      "section_description": "We have nearly 15 years of BIM implementation experiences in design, construction, and fabrication. We can help our client provide valuable and practical BIM execution strategies to owners and other industries leaders. We are passionate about building technology to help local or overseas business practice be more effective in coordination and collaboration to improve the building's methodology is designed, procured, constructed, and operated.",
+      "section_description": "As indepentdant BIM Consultancy, we can help our client to define clear EIR (Exchange information requirement) and brief at the beginning. Review pre BIM exexcutaion plan during tender and assist awared lead apoointed party to secure the BIM execuation plan content and delivery milestone in alignment with client expectation and goal.",
       "section_image": "/img/management-black-and-white.jpeg",
       "section_images": [
         {
-          "section_image": "/img/management-black-and-white.jpeg",
+          "section_image": "/img/bim-scene-office.jpg",
           "footnote": "BIM management",
           "caption": "Management"
         }
@@ -44,7 +44,7 @@
       ]
     },
     {
-      "section_name": "Construction",
+      "section_name": "Construction Coordination and Drawings",
       "section_icon": "/img/nut-light.svg",
       "section_description": "IPT develops digital construction models to help constructors to solve critical on-site issues to eliminate onsite operation risk. IPT service covers site and services pipework set out, 3D shop drawings, and post-construction as-built model delivery.\n\nImplementation:\n\nBuilder Layout Drawings\n\nServices Shop Drawings (PWS, HYD, Electrical, etc)\n\nPassive Fire Qualification Study\n\nModel Auditing and Review \n\nServices Clash Detection \n\nAs-built model",
       "section_image": "/img/construction-site.jpeg",
