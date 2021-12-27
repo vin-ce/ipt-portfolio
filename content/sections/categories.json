@@ -7,9 +7,9 @@
       "section_image": "/img/bim.jpeg",
       "section_images": [
         {
-          "section_image": "/img/box-quarter.png",
+          "section_image": "/img/bim-scene-office.jpg",
           "footnote": "BIM documentation",
-          "caption": "BIM"
+          "caption": "Multi Disciplinary Documentation"
         }
       ]
     },
@@ -20,9 +20,9 @@
       "section_image": "/img/management-black-and-white.jpeg",
       "section_images": [
         {
-          "section_image": "/img/bim-scene-office.jpg",
+          "section_image": "/img/imagearticle_gbim-2-422x380.png",
           "footnote": "BIM management",
-          "caption": "Management"
+          "caption": "BIM Management"
         }
       ]
     },
@@ -44,7 +44,7 @@
       ]
     },
     {
-      "section_name": "Construction Coordination and Drawings",
+      "section_name": "Construction Drawings",
       "section_icon": "/img/nut-light.svg",
       "section_description": "IPT develops digital construction models to help constructors to solve critical on-site issues to eliminate onsite operation risk. IPT service covers site and services pipework set out, 3D shop drawings, and post-construction as-built model delivery.\n\nImplementation:\n\nBuilder Layout Drawings\n\nServices Shop Drawings (PWS, HYD, Electrical, etc)\n\nPassive Fire Qualification Study\n\nModel Auditing and Review \n\nServices Clash Detection \n\nAs-built model",
       "section_image": "/img/construction-site.jpeg",
