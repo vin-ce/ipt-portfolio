@@ -1,64 +1,58 @@
 {
   "category_items": [
     {
-      "section_name": "BIM Documentation ",
-      "section_description": "We are qualified architectural technologists. We provide multidisciplinary BIM documentation. In short, we are breaking down and analysing the design concept and work out how the building is buildable and functional to perform overtime for the building life circle in alignment with client expectation and design brief. \n\n* Commercial Large Residential Development\n* High-end architectural House \\\n  (over two million)\n* School \n* Hospitality\n* Factory and Warehouse\n* Swimming pool and Facilities",
+      "section_name": "Multi-Disciplinary Documentation",
+      "section_description": "We are qualified architectural technologists. We provide multidisciplinary BIM documentation. In short, we are breaking down and analysing the design concept and work out how the building is buildable and functional to perform overtime for the building life circle in alignment with client expectation and design brief. \n\n* Mix Used Residential Development (Apartments + Retail)\n* High-end architectural House (over two million NZD)\n* School \n* Hospitality\n* Factory and Warehouse\n* Swimming pool and Facilities",
       "section_icon": "/img/cube-light.svg",
       "section_image": "/img/bim.jpeg",
       "section_images": [
         {
-          "section_image": "/img/bim.jpeg",
+          "section_image": "/img/bim-scene-office.jpg",
           "footnote": "BIM documentation",
-          "caption": "cap"
-        },
-        {
-          "section_image": "/img/building-example.png",
-          "footnote": "test",
-          "caption": "cap cap"
-        },
-        {
-          "section_image": "/img/front-page-example-image.jpg",
-          "footnote": "test",
-          "caption": "cap cap  cap"
+          "caption": "Multi Disciplinary Documentation"
         }
       ]
     },
     {
       "section_name": "Independent BIM Management",
       "section_icon": "/img/intersect-light.svg",
-      "section_description": "We have nearly 15 years of BIM implementation experiences in design, construction, and fabrication. We can help our client provide valuable and practical BIM execution strategies to owners and other industries leaders. We are passionate about building technology to help local or overseas business practice be more effective in coordination and collaboration to improve the building's methodology is designed, procured, constructed, and operated.",
+      "section_description": "As an independent BIM Consultancy, we can help our client to define clear EIR (Exchange information requirement) and brief at the beginning. Review pre-BIM execution plan during tender and assist the lead appointed party in securing the BIM execution plan content and delivery milestones in alignment with client expectations and goals.",
       "section_image": "/img/management-black-and-white.jpeg",
       "section_images": [
         {
           "section_image": "/img/management-black-and-white.jpeg",
           "footnote": "BIM management",
-          "caption": "management"
+          "caption": "BIM Management"
         }
       ]
     },
     {
       "section_name": "Architectural Design",
       "section_icon": "/img/house-light.svg",
-      "section_description": "IPT are qualified New Zealand architectural designers over 10 years experiences. We focus on home performance and low energy cost and reduce carbon footprint in scientifically way. \n\nImplementation:\n\n* Residential Dwelling Design\n* House Renovation and Alteration\n* Retail\n* Factory",
+      "section_description": "IPT are qualified New Zealand architectural designers over 10 years experiences. We target and value our projects not only from creativity of the design, but also from energy efficiency and low maintenance.\n\nCurrent Implementation as below:\n\nMix-Use Development\n\nResidential Dwelling\n\nPassive Home Design\n\nLight commerical (Factory/Warehosue)",
       "section_image": "/img/architectural-sketch-center.jpeg",
       "section_images": [
         {
-          "section_image": "/img/architectural-sketch-center.jpeg",
+          "section_image": "/img/23-janice-place-1.jpg",
           "footnote": "Sketches",
-          "caption": "design"
+          "caption": "23 Janice Place, Mount Pleasant"
+        },
+        {
+          "section_image": "/img/project-david-shaw-5-1024x683.jpg",
+          "caption": "104 Anigua Street_Shop Fitout (Photo Credit: By Metro Floor)"
         }
       ]
     },
     {
-      "section_name": "Construction",
+      "section_name": "Construction Drawings",
       "section_icon": "/img/nut-light.svg",
-      "section_description": "IPT develops digital construction models to help constructors to solve critical on-site issues to minimise on site risk. IPT service covers site and services pipework set out, 3D shop drawings, and post-construction as-built model delivery.\n\nImplementation:\n\n* Construction Drawings \n\n  1. 3D Façade Model for \\\n     coordination only\n  2. Services Shop Drawings\n  3. Passive Fire Qualification Study \n* Steel and Aluminium Shop Drawing Geometry and Consistency Review\n* Model Content Review and Clash Detection\n* As-built model",
+      "section_description": "IPT develops digital construction models to help constructors to solve critical on-site issues to eliminate onsite operation risk. IPT service covers site and services pipework set out, 3D shop drawings, and post-construction as-built model delivery.\n\nImplementation:\n\nBuilder Layout Drawings\n\nServices Shop Drawings (PWS, HYD, Electrical, etc)\n\nPassive Fire Qualification Study\n\nModel Auditing and Review \n\nServices Clash Detection \n\nAs-built model",
       "section_image": "/img/construction-site.jpeg",
       "section_images": [
         {
-          "section_image": "/img/construction-site.jpeg",
+          "section_image": "/img/msf-march-2021-20210319-16.jpg",
           "footnote": "Construction site",
-          "caption": "site"
+          "caption": "Metro Sport Facility (Photo Credit: By Ōtākaro Ltd)"
         }
       ]
     }
