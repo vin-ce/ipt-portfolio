@@ -47,7 +47,10 @@ const Mobile = props => {
         fadeContentIn={ fadeDescriptionIn }
         isMobile={ true }
       />
+
       <div className={ classes.caption }>{ frontPageData.front_page_images[ 0 ].caption }</div>
+
+      {/* <div className={ classes.header }>{ frontPageData.heading }</div> */ }
 
       <p key="description" className={ classes.description }>{ frontPageData.company_description } </p>
     </div>

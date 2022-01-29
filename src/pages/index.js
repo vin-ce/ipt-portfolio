@@ -243,7 +243,7 @@ const Home = () => {
               />
               <span className={ classes.tagline }>
                 <span className={ classes.orange }>I</span>nnovation.&nbsp;
-                <span className={ classes.orange }>P</span>rocess.&nbsp;
+                <span className={ classes.orange }>P</span>eople.&nbsp;
                 <span className={ classes.orange }>T</span>enacity.&nbsp;
               </span>
             </span>
