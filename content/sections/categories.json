@@ -20,7 +20,7 @@
     {
       "section_name": "Independent BIM Management",
       "section_icon": "/img/intersect-light.svg",
-      "section_description": "At the project beginning, we can help our client to define clear EIR (Exchange information requirement) . Review pre-BIM execution plan during tender stage and assist the the award lead appointed party in securing the BIM execution plan content and delivery milestones in alignment with client expectations and goals.\n\nWe are famillar with many different open or close BIM workflow. The particular service we can provide:\n\n1. Model Performance Review and Check\n\n2. CDE Establishment\n\n3. Model Coordinations on IPT Coordination Platform with BCF information exchange",
+      "section_description": "At the project beginning, we can help our client to define clear EIR (Exchange Information Requirement). Review pre-BIM execution plan during tender stage and assist the the award lead appointed party in securing the BIM execution plan content and delivery milestones in alignment with client expectations and goals.\n\nWe are famillar with many different open or close BIM workflow. The particular service we can provide:\n\n1. Model performance review and check\n2. CDE Establishment\n3. Model Coordinations on IPT Coordination Platform with BCF information exchange",
       "section_image": "/img/management-black-and-white.jpeg",
       "section_images": [
         {
@@ -29,8 +29,8 @@
           "caption": "BIM Management"
         },
         {
-          "section_image": "/img/bim-3d-coordination.png",
-          "caption": "Coordination Platform"
+          "caption": "BIM Workflow",
+          "section_image": "/img/workflow-process.png"
         }
       ]
     },
