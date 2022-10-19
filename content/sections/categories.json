@@ -45,29 +45,29 @@
       "section_image": "/img/architectural-sketch-center.jpeg",
       "section_images": [
         {
-          "section_image": "/img/23-janice-place-1.jpg",
-          "footnote": "Sketches",
-          "caption": "23 Janice Place, Mount Pleasant"
+          "caption": "Eco Passive Home",
+          "section_image": "/img/30-squadron-rd-side-elevation.jpg"
         },
         {
           "section_image": "/img/40-units-visitor-accommodation.jpg",
           "caption": "40 Units Visitor Accommodation, Oamaru"
         },
         {
-          "caption": "Eco Passive Home",
-          "section_image": "/img/30-squadron-rd-side-elevation.jpg"
+          "section_image": "/img/23-janice-place-1.jpg",
+          "footnote": "Sketches",
+          "caption": "23 Janice Place, Mount Pleasant"
         },
         {
           "caption": "Tuki Lodge, Haast, Westland",
           "section_image": "/img/baileys-01.jpg"
         },
         {
-          "caption": "Residential Renovation_Nagio Street Dwelling Extension",
-          "section_image": "/img/image1.png"
-        },
-        {
           "caption": "Contemporary Residential Dwelling Castle Hill New Zealand",
           "section_image": "/img/castle-hill.png"
+        },
+        {
+          "caption": "Residential Renovation_Nagio Street Dwelling Extension",
+          "section_image": "/img/image1.png"
         }
       ]
     },
