@@ -90,7 +90,7 @@
     },
     {
       "section_name": "HBIM (Historic Buildings)",
-      "section_icon": "/img/as-built-icon.png",
+      "section_icon": "/img/wrench-light.svg",
       "section_images": [
         {
           "caption": "SJMGC Scan to BIM",
