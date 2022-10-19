@@ -1,6 +1,43 @@
 {
   "category_items": [
     {
+      "section_name": "Architectural Design",
+      "section_icon": "/img/house-light.svg",
+      "section_description": "With over 15 years of design experience across multidiscipline, we target and value our projects from design creativity, energy efficiency and low maintenance.\n\nCurrent Implementation as below:\n\nMix-Use Residential Development\n\nResidential Dwelling\n\nPassive house design\n\nLight commercial (Factory/Warehouse)",
+      "section_image": "/img/architectural-sketch-center.jpeg",
+      "section_images": [
+        {
+          "caption": "Eco Passive Home",
+          "section_image": "/img/30-squadron-rd-side-elevation.jpg"
+        },
+        {
+          "section_image": "/img/40-units-visitor-accommodation.jpg",
+          "caption": "40 Units Visitor Accommodation, Oamaru"
+        },
+        {
+          "caption": "Balclutha Mitsubishi Base Build Renovation",
+          "section_image": "/img/balclutha-mitsubishi-base-build-renovation.jpg"
+        },
+        {
+          "section_image": "/img/23-janice-place-1.jpg",
+          "footnote": "Sketches",
+          "caption": "23 Janice Place, Mount Pleasant"
+        },
+        {
+          "caption": "Tuki Lodge, Haast, Westland",
+          "section_image": "/img/baileys-01.jpg"
+        },
+        {
+          "caption": "Contemporary Residential Dwelling Castle Hill New Zealand",
+          "section_image": "/img/castle-hill.jpg"
+        },
+        {
+          "caption": "Residential Renovation_Nagio Street Dwelling Extension",
+          "section_image": "/img/image1.png"
+        }
+      ]
+    },
+    {
       "section_name": "Multi-Disciplinary Documentation",
       "section_description": "We are qualified architectural technologists. We provide multidisciplinary BIM documentation. In short, we are breaking down and analysing the design concept and work out how the building is buildable and functional to perform overtime for the building life circle in alignment with client expectation and design brief. \n\n* Mix Used Residential Development (Apartments + Retail)\n* High-end architectural House (over two million NZD)\n* School \n* Hospitality\n* Factory and Warehouse\n* Swimming pool and Facilities",
       "section_icon": "/img/cube-light.svg",
@@ -39,41 +76,15 @@
       ]
     },
     {
-      "section_name": "Architectural Design",
-      "section_icon": "/img/house-light.svg",
-      "section_description": "With over 15 years of design experience across multidiscipline, we target and value our projects from design creativity, energy efficiency and low maintenance.\n\nCurrent Implementation as below:\n\nMix-Use Residential Development\n\nResidential Dwelling\n\nPassive house design\n\nLight commercial (Factory/Warehouse)",
-      "section_image": "/img/architectural-sketch-center.jpeg",
+      "section_name": "HBIM (Historic Buildings)",
+      "section_icon": "/img/wrench-light.svg",
       "section_images": [
         {
-          "caption": "Eco Passive Home",
-          "section_image": "/img/30-squadron-rd-side-elevation.jpg"
-        },
-        {
-          "section_image": "/img/40-units-visitor-accommodation.jpg",
-          "caption": "40 Units Visitor Accommodation, Oamaru"
-        },
-        {
-          "caption": "Balclutha Mitsubishi Base Build Renovation",
-          "section_image": "/img/balclutha-mitsubishi-base-build-renovation.jpg"
-        },
-        {
-          "section_image": "/img/23-janice-place-1.jpg",
-          "footnote": "Sketches",
-          "caption": "23 Janice Place, Mount Pleasant"
-        },
-        {
-          "caption": "Tuki Lodge, Haast, Westland",
-          "section_image": "/img/baileys-01.jpg"
-        },
-        {
-          "caption": "Contemporary Residential Dwelling Castle Hill New Zealand",
-          "section_image": "/img/castle-hill.jpg"
-        },
-        {
-          "caption": "Residential Renovation_Nagio Street Dwelling Extension",
-          "section_image": "/img/image1.png"
+          "caption": "SJMGC Scan to BIM",
+          "section_image": "/img/sjmgc-scan-to-bim.png"
         }
-      ]
+      ],
+      "section_description": "We team up with the client and nominated survey team to provide 'H' BIM process applied to existing buildings, whether they are monuments or simple dwellings of the 1950s. It will bring huge value to the client by providing digital asset information to support future maintenance and operation."
     },
     {
       "section_name": "Construction Drawings",
@@ -91,17 +102,6 @@
           "caption": "Example of Pipework Modelling For Construction"
         }
       ]
-    },
-    {
-      "section_name": "HBIM (Historic Buildings)",
-      "section_icon": "/img/wrench-light.svg",
-      "section_images": [
-        {
-          "caption": "SJMGC Scan to BIM",
-          "section_image": "/img/sjmgc-scan-to-bim.png"
-        }
-      ],
-      "section_description": "We team up with the client and nominated survey team to provide 'H' BIM process applied to existing buildings, whether they are monuments or simple dwellings of the 1950s. It will bring huge value to the client by providing digital asset information to support future maintenance and operation."
     }
   ],
   "category_name": "Categories"
