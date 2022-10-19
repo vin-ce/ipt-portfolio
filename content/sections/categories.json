@@ -87,6 +87,17 @@
           "caption": "Example of Pipework Modelling For Construction"
         }
       ]
+    },
+    {
+      "section_name": "HBIM (Historic Buildings)",
+      "section_icon": "/img/as-built-icon.png",
+      "section_images": [
+        {
+          "caption": "SJMGC Scan to BIM",
+          "section_image": "/img/sjmgc-scan-to-bim.png"
+        }
+      ],
+      "section_description": "We team up with the client and nominated survey team to provide 'H' BIM process applied to existing buildings, whether they are monuments or simple dwellings of the 1950s. It will bring huge value to the client by providing digital asset information to support future maintenance and operation."
     }
   ],
   "category_name": "Categories"
