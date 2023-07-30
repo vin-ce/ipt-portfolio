@@ -36,8 +36,8 @@
           "section_image": "/img/kaikoura-new-house_changes_mod_r21.jpg"
         },
         {
-          "caption": "Residential Renovation_Nagio Street Dwelling Extension",
-          "section_image": "/img/image1.png"
+          "caption": "Lushingtons Bay House",
+          "section_image": "/img/176-lushingtons-bay.png"
         }
       ]
     },
@@ -59,6 +59,14 @@
         {
           "caption": "Trent Street Townhouse Development. Designed by Case Ornsby ",
           "section_image": "/img/rc-street-view-01.png"
+        },
+        {
+          "section_image": "/img/winchester-development.png",
+          "caption": "Winchester Development (Resource Consent Approved)"
+        },
+        {
+          "section_image": "/img/cleveland-development.png",
+          "caption": "Cleveland Development (Under Resource Consent)"
         }
       ]
     },
