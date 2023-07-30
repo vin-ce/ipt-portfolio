@@ -88,12 +88,16 @@
       ]
     },
     {
-      "section_name": "HBIM (Historic Buildings)",
+      "section_name": "Scan to BIM",
       "section_icon": "/img/wrench-light.svg",
       "section_images": [
         {
           "caption": "SJMGC Scan to BIM",
           "section_image": "/img/sjmgc-scan-to-bim.png"
+        },
+        {
+          "caption": "Spaceframe Point Cloud to Mesh",
+          "section_image": "/img/2-point-cloud-tidy-up.png"
         }
       ],
       "section_description": "At IPT Creative Ltd, we believe in working closely with our clients and their nominated survey team to provide the highest level of service. We specialize in applying \"H\" BIM process to existing buildings, whether they are historical monuments or simple dwellings from the 1950s. By creating digital asset information, we help our clients to support future maintenance and operation which bring huge value to them.\n\nWe understand the importance of preserving historical buildings, and our team of experts has the knowledge and experience to apply the latest technology to support the preservation and restoration of these structures. By providing detailed digital asset information, we help our clients to make informed decisions about the maintenance and operation of their buildings."
