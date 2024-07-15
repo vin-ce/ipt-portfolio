@@ -69,55 +69,6 @@
           "caption": "Cleveland Development (Under Resource Consent)"
         }
       ]
-    },
-    {
-      "section_name": "Independent BIM Management",
-      "section_icon": "/img/intersect-light.svg",
-      "section_description": "At IPT Creative Ltd, we understand the importance of clear communication and planning in the design process. That's why we help our clients define clear Exchange Information Requirements (EIR) from the beginning of a project. We also review pre-BIM execution plans during the tender stage and assist the appointed party in securing BIM execution plan content and delivery milestones that align with our clients' expectations and goals.\n\nWe have extensive experience with a variety of BIM workflows, and we are able to provide the following services:\n\n1. Model performance review and check\n2. Establishment of a Common Data Environment (CDE)\n3. Model Coordination on our IPT Coordination Platform, including information exchange using BCF (BIM Collaboration Format)\n\nOur goal is to ensure that our clients' projects are completed successfully and efficiently, by providing the best BIM solutions.",
-      "section_image": "/img/management-black-and-white.jpeg",
-      "section_images": [
-        {
-          "section_image": "/img/management-black-and-white.jpeg",
-          "footnote": "BIM management",
-          "caption": "BIM Management"
-        },
-        {
-          "caption": "BIM Collaboration Workflow",
-          "section_image": "/img/workflow-process.png"
-        }
-      ]
-    },
-    {
-      "section_name": "Scan to BIM",
-      "section_icon": "/img/eye-light.svg",
-      "section_images": [
-        {
-          "caption": "SJMGC Scan to BIM",
-          "section_image": "/img/sjmgc-scan-to-bim.png"
-        },
-        {
-          "caption": "Spaceframe Point Cloud to Mesh",
-          "section_image": "/img/2-point-cloud-tidy-up.png"
-        }
-      ],
-      "section_description": "At IPT Creative Ltd, we believe in working closely with our clients and their nominated survey team to provide the highest level of service. We specialize in applying \"H\" BIM process to existing buildings, whether they are historical monuments or simple dwellings from the 1950s. By creating digital asset information, we help our clients to support future maintenance and operation which bring huge value to them.\n\nWe understand the importance of preserving historical buildings, and our team of experts has the knowledge and experience to apply the latest technology to support the preservation and restoration of these structures. By providing detailed digital asset information, we help our clients to make informed decisions about the maintenance and operation of their buildings."
-    },
-    {
-      "section_name": "Construction Drawings",
-      "section_icon": "/img/nut-light.svg",
-      "section_description": "At IPT Creative Ltd, we understand the importance of effective communication and problem-solving on construction sites. We develop digital construction models to help constructors solve critical on-site issues and eliminate operational risks. Our services include site and services pipework set out, 3D shop drawings, and post-construction as-built model delivery.\n\nOur services include:\n\n* Builder Layout Drawings\n* Shop Drawings (Plumbing, HVAC, Electrical, etc)\n* Passive Fire Penetration Quantification Study\n* Model Auditing and Review\n* Services Clash Detection\n* As-built model\n\nWe strive to provide our clients with the most accurate and up-to-date information to ensure smooth construction process and minimize errors and delays. Our digital construction models are designed to help constructors achieve their goals efficiently and effectively.",
-      "section_image": "/img/construction-site.jpeg",
-      "section_images": [
-        {
-          "section_image": "/img/msf-march-2021-20210319-16.jpg",
-          "footnote": "Construction site",
-          "caption": "Metro Sport Facility (Photo Credit: By Ōtākaro Ltd)"
-        },
-        {
-          "section_image": "/img/hydrotherapy.png",
-          "caption": "Example of Pipework Modelling For Construction"
-        }
-      ]
     }
   ],
   "category_name": "Categories"
