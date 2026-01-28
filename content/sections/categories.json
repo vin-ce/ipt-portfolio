@@ -7,12 +7,12 @@
       "section_image": "/img/architectural-sketch-center.jpeg",
       "section_images": [
         {
-          "caption": "Eco Passive Home",
+          "caption": "Wang Residence - Homestar 6",
           "section_image": "/img/30-squadron-rd-side-elevation.jpg"
         },
         {
-          "section_image": "/img/40-units-visitor-accommodation.jpg",
-          "caption": "40 Units Visitor Accommodation, Oamaru"
+          "section_image": "/img/40-unit-construction-photo.jpg",
+          "caption": "40 Units Visitor Accommodation, Oamaru (Under Construction)"
         },
         {
           "caption": "Balclutha Mitsubishi Base Build Renovation",
@@ -29,11 +29,11 @@
         },
         {
           "caption": "Contemporary Residential Dwelling Castle Hill (Under Construction)",
-          "section_image": "/img/castle-hill.jpg"
+          "section_image": "/img/ben-p-castle-hill-house.jpg"
         },
         {
           "caption": "Kaikoura Mangamaunu Seaview House (Under construction)",
-          "section_image": "/img/kaikoura-new-house_changes_mod_r21.jpg"
+          "section_image": "/img/kaikoura-house.jpg"
         },
         {
           "caption": "Lushingtons Bay House",
@@ -61,12 +61,8 @@
           "section_image": "/img/rc-street-view-01.png"
         },
         {
-          "section_image": "/img/winchester-development.png",
-          "caption": "Winchester Development (Resource Consent Approved)"
-        },
-        {
-          "section_image": "/img/cleveland-development.png",
-          "caption": "Cleveland Development (Under Resource Consent)"
+          "section_image": "/img/44-winchester-street.png",
+          "caption": "Winchester Street Townhouse Development"
         }
       ]
     }
